@@ -35,31 +35,40 @@ class MenuSeeder extends Seeder
                 'type' => 'admin',
                 'role' => [RoleType::ADMIN],
             ],
+            // [
+            //     'title' => 'Articles',
+            //     'slug' => 'articles',
+            //     'url' => route('dashboard.articles.index', [], false),
+            //     'icon' => 'far fa-newspaper fa-fw',
+            //     'type' => 'admin',
+            //     'role' => [RoleType::ADMIN, RoleType::USER],
+            //     /*'sub' =>  [
+            //         [
+            //             'title' => 'Sub Article',
+            //             'slug' => 'sub_articles',
+            //             'url' => route('dashboard.articles.index', [], false),
+            //             'type' => 'admin',
+            //             'role' => [RoleType::ADMIN]
+            //         ]
+            //     ],*/
+            // ],
             [
-                'title' => 'Articles',
-                'slug' => 'articles',
-                'url' => route('dashboard.articles.index', [], false),
-                'icon' => 'far fa-newspaper fa-fw',
-                'type' => 'admin',
-                'role' => [RoleType::ADMIN, RoleType::USER],
-                /*'sub' =>  [
-                    [
-                        'title' => 'Sub Article',
-                        'slug' => 'sub_articles',
-                        'url' => route('dashboard.articles.index', [], false),
-                        'type' => 'admin',
-                        'role' => [RoleType::ADMIN]
-                    ]
-                ],*/
-            ],
-            [
-                'title' => 'Vue3',
-                'slug' => 'vue-example',
-                'url' => route('dashboard.vue-example.index', [], false),
-                'icon' => 'fab fa-vuejs',
+                'title' => 'Categorie',
+                'slug' => 'categorie',
+                'url' => route('dashboard.categories.index', [], false),
+                'icon' => 'fas fa-list',
                 'type' => 'admin',
                 'role' => [RoleType::ADMIN],
             ],
+            [
+                'title' => 'Product',
+                'slug' => 'product',
+                'url' => route('dashboard.products.index', [], false),
+                'icon' => 'fas fa-box',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
+            
         ];
 
         foreach ($menus as $key => $menu) {
