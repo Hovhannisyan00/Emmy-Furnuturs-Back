@@ -12,4 +12,8 @@ class CategorieService extends BaseService
     ) {
         $this->repository = $repository;
     }
+
+    public function getCategorieList(): array{
+        return $this->repository->getCategoriesForSelect();
+    }
 }

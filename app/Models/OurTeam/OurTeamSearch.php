@@ -1,26 +1,24 @@
 <?php
 
-namespace App\Models\Categorie;
+namespace App\Models\OurTeam;
 
 use App\Models\Base\Search;
 use Illuminate\Database\Eloquent\Builder;
 
-class CategorieSearch extends Search
+class OurTeamSearch extends Search
 {
     protected array $orderables = [
         'id',
-        'name',
-        'description'
+        'name'
     ];
 
     protected function query(): Builder
     {
         $filters = $this->filters;
 
-        return Categorie::select([
+        return OurTeam::select([
             'id',
-            'name',
-            'description'
+            'name'
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);
@@ -30,14 +28,11 @@ class CategorieSearch extends Search
             })
             ->when(!empty($filters['name']), function ($query) use ($filters) {
                 $query->like('name', $filters['name']);
-            })
-            ->when(!empty($filters['description']), function ($query) use ($filters) {
-                $query->like('description', $filters['description']);
             });
     }
 
     public function totalCount(): int
     {
-        return Categorie::count();
+        return OurTeam::count();
     }
 }

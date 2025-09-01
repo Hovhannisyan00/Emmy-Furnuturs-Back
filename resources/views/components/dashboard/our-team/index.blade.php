@@ -1,7 +1,7 @@
 <x-dashboard.layouts.app>
     <div class="container-fluid">
         <div class="card mb-4">
-            <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.products.create')"/>
+            <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.our-teams.create')"/>
 
             <div class="card-body">
                 <x-dashboard.datatable._filters_form>
@@ -15,20 +15,16 @@
                 </x-dashboard.datatable._filters_form>
 
                 <x-dashboard.datatable._table>
-                    <th data-key="id">{{ __('label.id') }}</th>
-                    <th data-key="name">{{ __('label.name') }}</th>
-                    <th data-key="SKU">{{ __('label.SKU') }}</th>
-                    <th data-key="quantity">{{ __('label.quantity') }}</th>
-                    <th data-key="price">{{ __('label.price') }}</th>
-                    <th class="text-center">{{ __('label.actions') }}</th>
-
+                   <th data-key="id">{{ __('label.id') }}</th>
+                   <th data-key="name">{{ __('label.name') }}</th>
+                   <th class="text-center">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>
         </div>
     </div>
 
     <x-slot name="scripts">
-        <script src="{{ asset('/js/dashboard/product/index.js') }}"></script>
+        <script src="{{ asset('/js/dashboard/our-team/index.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
 

@@ -12,4 +12,8 @@ class CategorieRepository extends BaseRepository implements ICategorieRepository
     {
         parent::__construct($model);
     }
+
+    public function getCategoriesForSelect(): array {
+        return $this->model->pluck('name', 'id')->toArray();
+    }
 }

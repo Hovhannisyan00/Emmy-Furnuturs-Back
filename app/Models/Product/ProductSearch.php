@@ -18,7 +18,10 @@ class ProductSearch extends Search
 
         return Product::select([
             'id',
-            'name'
+            'name',
+            'price',
+            'quantity',
+            'SKU',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);

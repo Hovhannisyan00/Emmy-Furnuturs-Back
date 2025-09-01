@@ -68,7 +68,24 @@ class MenuSeeder extends Seeder
                 'type' => 'admin',
                 'role' => [RoleType::ADMIN],
             ],
-            
+            [
+                'title' => 'Team',
+                'slug' => 'team',
+                'url' => route('dashboard.our-teams.index', [], false),
+                'icon' => 'fas fa-tachometer-alt',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
+            [
+                'title' => 'Blog',
+                'slug' => 'blog',
+                'url' => route('dashboard.blogs.index', [], false),
+                'icon' => 'fas fa-newspaper',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
+
+
         ];
 
         foreach ($menus as $key => $menu) {

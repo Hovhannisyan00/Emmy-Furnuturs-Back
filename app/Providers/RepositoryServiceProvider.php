@@ -3,11 +3,15 @@
 namespace App\Providers;
 
 use App\Contracts\Article\IArticleRepository;
+use App\Contracts\Blog\IBlogRepository;
 use App\Contracts\File\IFileRepository;
+use App\Contracts\OurTeam\IOurTeamRepository;
 use App\Contracts\Role\IRoleRepository;
 use App\Contracts\User\IUserRepository;
 use App\Repositories\Article\ArticleRepository;
+use App\Repositories\Blog\BlogRepository;
 use App\Repositories\File\FileRepository;
+use App\Repositories\OurTeam\OurTeamRepository;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +33,8 @@ class RepositoryServiceProvider extends ServiceProvider
         IArticleRepository::class => ArticleRepository::class,
         ICategorieRepository::class => CategorieRepository::class,
         IProductRepository::class => ProductRepository::class,
+        IOurTeamRepository::class => OurTeamRepository::class,
+        IBlogRepository::class => BlogRepository::class,
     ];
 
     /**

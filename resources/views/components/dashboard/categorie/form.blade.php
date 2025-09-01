@@ -12,9 +12,9 @@
                         <div class="form-group required">
                             <x-dashboard.form._input name="name" :value="$categorie->name"/>
                         </div>
-
                         <div class="form-group required">
-                            <x-dashboard.form._textarea name="description" class="ckeditor5"/>
+                            <x-dashboard.form._textarea name="description" class="ckeditor5" :value="$categorie->description"
+                            />
                         </div>
                     </div>
                 </div>

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Dashboard\Products;
 
+use App\Contracts\Product\IProductRepository;
 use App\Http\Controllers\Dashboard\BaseController;
 use App\Http\Requests\Product\ProductRequest;
 use App\Http\Requests\Product\ProductSearchRequest;
-use App\Models\Product\ProductSearch;
 use App\Models\Product\Product;
+use App\Models\Product\ProductSearch;
 use App\Services\Product\ProductService;
-use App\Contracts\Product\IProductRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class ProductController extends BaseController
 {
     public function __construct(
         ProductService $service,
-        IProductRepository $repository
+        IProductRepository $repository,
     ) {
         $this->service = $service;
         $this->repository = $repository;
@@ -48,6 +48,7 @@ class ProductController extends BaseController
 
     public function store(ProductRequest $request): JsonResponse
     {
+//        dd($request->validated());
         // For storing relations, sending emails, ...etc(extra functionality) use service
         // $this->service->createOrUpdate($request->validated());
         $this->repository->create($request->validated());
@@ -57,14 +58,14 @@ class ProductController extends BaseController
         ]);
     }
 
-    public function show(Product $product): View
-    {
-       /* return $this->dashboardView(
-           view: 'product.form',
-           vars: $this->service->getViewData($product->id),
-           viewMode: 'show'
-       );*/
-    }
+    // public function show(Product $product): View
+    // {
+    /* return $this->dashboardView(
+        view: 'product.form',
+        vars: $this->service->getViewData($product->id),
+        viewMode: 'show'
+    );*/
+    // }
 
     public function edit(Product $product): View
     {

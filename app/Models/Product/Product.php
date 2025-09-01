@@ -10,10 +10,11 @@ class Product extends BaseModel
     use ProductRelations;
 
     protected $fillable = [
-        'title',
+        'name',
         'description',
         'price',
         'SKU',
+        'quantity',
         'category_id'
     ];
 }

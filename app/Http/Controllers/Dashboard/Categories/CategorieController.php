@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard\Categories;
 
-use App\Http\Requests\Categorie\CategorieRequest;
-use App\Http\Requests\Categorie\CategorieSearchRequest;
-use App\Models\Categorie\CategorieSearch;
-use App\Models\Categorie\Categorie;
-use App\Services\Categorie\CategorieService;
 use App\Contracts\Categorie\ICategorieRepository;
 use App\Http\Controllers\Dashboard\BaseController;
+use App\Http\Requests\Categorie\CategorieRequest;
+use App\Http\Requests\Categorie\CategorieSearchRequest;
+use App\Models\Categorie\Categorie;
+use App\Models\Categorie\CategorieSearch;
+use App\Services\Categorie\CategorieService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 
@@ -51,19 +51,24 @@ class CategorieController extends BaseController
         // For storing relations, sending emails, ...etc(extra functionality) use service
         // $this->service->createOrUpdate($request->validated());
         $this->repository->create($request->validated());
+
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.categories.index')
         ]);
     }
-
-    public function show(Categorie $categorie): View
+    public function getAllCategories(): array
     {
-       /* return $this->dashboardView(
-           view: 'categorie.form',
-           vars: $this->service->getViewData($categorie->id),
-           viewMode: 'show'
-       );*/
+        return $this->service->getCategorieList();
     }
+
+    // public function show(Categorie $categorie): View
+    // {
+    /* return $this->dashboardView(
+        view: 'categorie.form',
+        vars: $this->service->getViewData($categorie->id),
+        viewMode: 'show'
+    );*/
+    // }
 
     public function edit(Categorie $categorie): View
     {

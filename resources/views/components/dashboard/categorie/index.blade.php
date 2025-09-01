@@ -17,6 +17,7 @@
                 <x-dashboard.datatable._table>
                    <th data-key="id">{{ __('label.id') }}</th>
                    <th data-key="name">{{ __('label.name') }}</th>
+                   <th data-key="description">{{ __('label.description') }}</th>
                    <th class="text-center">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>

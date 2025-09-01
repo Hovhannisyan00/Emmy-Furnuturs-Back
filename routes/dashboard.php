@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\Categories\CategorieController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
+use App\Http\Controllers\Dashboard\OurTeamController;
 use App\Http\Controllers\Dashboard\Products\ProductController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
 use App\Http\Controllers\Dashboard\User\UserController;
@@ -31,13 +33,22 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     Route::resource('users', UserController::class);
     Route::get('users/dataTable/get-list', [UserController::class, 'getListData'])->name('users.getListData');
 
-    // Categoie
-    Route::resource('categories',CategorieController::class);
-    Route::get('categories/dataTable/get-list', [CategorieController::class,'getListData'])->name('categories.getListData');
+    // Category
+    Route::resource('categories', CategorieController::class)->parameters(['categories' => 'categorie']);
+    Route::get('categories/dataTable/get-list', [CategorieController::class, 'getListData'])->name('categories.getListData');
+    Route::get('/dashboard/categories/list', [CategorieController::class, 'getAllCategories'])->name('categories.list');
 
     // Products
-    Route::resource('products', ProductController::class);
+    Route::resource('products', ProductController::class)->parameters(['products' => 'product']);
     Route::get('products/dataTable/get-list', [ProductController::class, 'getListData'])->name('products.getListData');
+
+    // OurTeams
+    Route::resource('our-teams', OurTeamController::class);
+    Route::get('our-teams/dataTable/get-list', [OurTeamController::class, 'getListData'])->name('our-teams.getListData');
+
+    //Blogs
+    Route::resource('blogs', BlogController::class);
+    Route::get('blogs/dataTable/get-list', [BlogController::class, 'getListData'])->name('blogs.getListData');
 });
 
 // Profile
