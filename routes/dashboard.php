@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\Categories\CategorieController;
+use App\Http\Controllers\Dashboard\Coming_soonController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
+use App\Http\Controllers\Dashboard\GalleryController;
+use App\Http\Controllers\Dashboard\Get_in_touchController;
 use App\Http\Controllers\Dashboard\OurTeamController;
 use App\Http\Controllers\Dashboard\Products\ProductController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
@@ -46,9 +50,25 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     Route::resource('our-teams', OurTeamController::class);
     Route::get('our-teams/dataTable/get-list', [OurTeamController::class, 'getListData'])->name('our-teams.getListData');
 
-    //Blogs
+    // Blogs
     Route::resource('blogs', BlogController::class);
     Route::get('blogs/dataTable/get-list', [BlogController::class, 'getListData'])->name('blogs.getListData');
+
+    // Galleries
+    Route::resource('galleries', GalleryController::class);
+    Route::get('galleries/dataTable/get-list', [GalleryController::class, 'getListData'])->name('galleries.getListData');
+
+    // Get_in_touches
+    Route::resource('get_in_touches', Get_in_touchController::class);
+    Route::get('get_in_touches/dataTable/get-list', [Get_in_touchController::class, 'getListData'])->name('get_in_touches.getListData');
+
+    // Banners
+    Route::resource('banners', BannerController::class);
+    Route::get('banners/dataTable/get-list', [BannerController::class, 'getListData'])->name('banners.getListData');
+
+    // Coming_soons
+    Route::resource('coming_soons', Coming_soonController::class);
+    Route::get('coming_soons/dataTable/get-list', [Coming_soonController::class, 'getListData'])->name('coming_soons.getListData');
 });
 
 // Profile

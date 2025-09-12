@@ -9,10 +9,11 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'category_id' => 'required|integer|exists:categories,id',
-            'image' => 'nullable|string|max:50'
+            'name' => 'required|string|max:255',
+            'shortDescription' => 'required|string',
+            'description' => 'nullable|string_with_max',
+            'is_active' => 'nullable|boolean',
+            'photo' => 'nullable|string_with_max',
         ];
     }
 }

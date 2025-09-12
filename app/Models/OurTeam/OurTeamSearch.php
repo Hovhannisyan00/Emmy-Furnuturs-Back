@@ -18,7 +18,10 @@ class OurTeamSearch extends Search
 
         return OurTeam::select([
             'id',
-            'name'
+            'name',
+            'position',
+            'email',
+            'phone',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);

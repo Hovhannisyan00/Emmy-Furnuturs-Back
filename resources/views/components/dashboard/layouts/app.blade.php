@@ -12,6 +12,7 @@
     {{-- Styles  --}}
     <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">
     <link href="{{ mix('/css/dashboard/dashboard-app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" />
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
@@ -37,10 +38,9 @@
 <x-dashboard.partials.modals />
 
 {{-- Core Js  --}}
-<script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script>
-
+<script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script> <!-- jQuery здесь уже есть -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script> <!-- Croppie после jQuery -->
 <script src="{{ mix('/js/dashboard/bundle.js') }}"></script>
-
 {{ $scripts ?? '' }}
 
 </body>

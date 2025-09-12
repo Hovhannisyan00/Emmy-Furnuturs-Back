@@ -18,7 +18,9 @@ class BlogSearch extends Search
 
         return Blog::select([
             'id',
-            'name'
+            'name',
+            'shortDescription',
+            'is_active',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);

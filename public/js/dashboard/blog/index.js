@@ -9,8 +9,21 @@ const options = {
   relations: {},
 
   actions: {
-      show: false,
+    show: false,
   },
+
+  // Only override the is_active column
+  columnsRender: {
+    is_active: {
+      render: function (value) {
+        if (value == 1) {
+          return `<span class="badge bg-success">YES</span>`;
+        }
+        return `<span class="badge bg-danger">NO</span>`;
+      }
+    }
+  }
 };
+
 // eslint-disable-next-line no-new,no-undef
 new DataTable(options);

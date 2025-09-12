@@ -23,23 +23,23 @@ return [
         ],
     ],
 
-    Blog::getClassName() => [
-        'image' => [
-            'field_name' => 'image',
-            'file_type' => FileType::IMAGE,
-            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'is_cropped' => true,
-        ],
-    ],
-
-    OurTeam::getClassName() => [
-        'photo' => [
-            'field_name' => 'photo',
-            'file_type' => FileType::IMAGE,
-            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'is_cropped' => true,
-        ],
-    ],
+//    Blog::getClassName() => [
+//        'image' => [
+//            'field_name' => 'image',
+//            'file_type' => FileType::IMAGE,
+//            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+//            'is_cropped' => true,
+//        ],
+//    ],
+//
+//    OurTeam::getClassName() => [
+//        'photo' => [
+//            'field_name' => 'photo',
+//            'file_type' => FileType::IMAGE,
+//            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+//            'is_cropped' => true,
+//        ],
+//    ],
 
     Article::getClassName() => [
         'photo' => [

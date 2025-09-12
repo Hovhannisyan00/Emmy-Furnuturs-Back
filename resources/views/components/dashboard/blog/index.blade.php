@@ -15,9 +15,11 @@
                 </x-dashboard.datatable._filters_form>
 
                 <x-dashboard.datatable._table>
-                   <th data-key="id">{{ __('label.id') }}</th>
-                   <th data-key="name">{{ __('label.name') }}</th>
-                   <th class="text-center">{{ __('label.actions') }}</th>
+                    <th data-key="id">{{ __('label.id') }}</th>
+                    <th data-key="name">{{ __('label.name') }}</th>
+                    <th data-key="is_active">{{ __('label.is_active') }}</th>
+                    <th data-key="shortDescription">{{ __('label.shortDescription') }}</th>
+                    <th class="text-center">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>
         </div>

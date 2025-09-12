@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\Blog\IBlogRepository;
 use App\Http\Requests\Blog\BlogRequest;
 use App\Http\Requests\Blog\BlogSearchRequest;
-use App\Models\Blog\BlogSearch;
 use App\Models\Blog\Blog;
+use App\Models\Blog\BlogSearch;
 use App\Services\Blog\BlogService;
-use App\Contracts\Blog\IBlogRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class BlogController extends BaseController
 {
@@ -56,14 +56,14 @@ class BlogController extends BaseController
         ]);
     }
 
-//    public function show(Blog $blog): View
-//    {
-       /* return $this->dashboardView(
-           view: 'blog.form',
-           vars: $this->service->getViewData($blog->id),
-           viewMode: 'show'
-       );*/
-//    }
+    //    public function show(Blog $blog): View
+    //    {
+    /* return $this->dashboardView(
+        view: 'blog.form',
+        vars: $this->service->getViewData($blog->id),
+        viewMode: 'show'
+    );*/
+    //    }
 
     public function edit(Blog $blog): View
     {
@@ -83,9 +83,14 @@ class BlogController extends BaseController
 
     public function update(BlogRequest $request, Blog $blog): JsonResponse
     {
+        $data = $request->validated();
+
+        if (!array_key_exists('is_active', $data)) {
+            $data['is_active'] = '0';
+        }
         // For updating relations, sending emails, ...etc(extra functionality) use service
         // $this->service->createOrUpdate($request->validated(), $blog->id);
-        $this->repository->update($blog->id, $request->validated());
+        $this->repository->update($blog->id, $data);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.blogs.index')
