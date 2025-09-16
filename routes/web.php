@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,51 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false, 'reset' => false]);
 
+// Route::get('/', function () {
+//    return redirect(route('login'));
+// });
+
+// Route::get('/my', function () {
+//    return view('web.home');
+// });
+
+// Redirect root to home
 Route::get('/', function () {
-    return redirect(route('login'));
+    return redirect()->route('web.home');
+});
+
+// Public pages
+Route::view('/home', 'web.home')->name('web.home');
+Route::view('/about', 'web.about-us')->name('web.about');
+Route::view('/team', 'web.team')->name('web.team');
+Route::view('/what-we-offer', 'web.shop')->name('web.what-we-offer');
+Route::view('/shop', 'web.shop')->name('web.shop');
+Route::view('/product', 'web.single-product')->name('web.single-product');
+Route::view('/faq', 'web.faq')->name('web.faq');
+Route::view('/contact', 'web.contact')->name('web.contact');
+Route::view('/blog', 'web.blog')->name('web.blog');
+Route::view('/gallery', 'web.gallery')->name('web.gallery');
+Route::view('/contact-us', 'web.contact-us')->name('web.contact-us');
+
+Route::view('/wedding-furnitures', 'web.wedding-furnitures')->name('wedding.furnitures');
+Route::view('/birthday-furnitures', 'web.birthday-furnitures')->name('birthday.furnitures');
+Route::view('/macarons', 'web.macarons')->name('macarons');
+Route::view('/cup-furnitures', 'web.cup-furnitures')->name('cup.furnitures');
+Route::view('/biscuits', 'web.biscuits')->name('biscuits');
+
+// Legal pages
+Route::view('/privacy-policy', 'web.privacy-policy')->name('web.privacy.policy');
+Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
+
+// Auth user pages
+Route::view('/cart', 'web.cart')->name('web.cart');
+Route::view('/checkout', 'web.checkout')->name('web.checkout');
+
+// Product
+Route::get('/products', [ProductController::class, 'index'])->name('web.products');
+// Route::view('/products', 'web.products')->name('web.products');
+
+// Example for a catch-all page if needed
+Route::fallback(function () {
+    return view('web.404');
 });

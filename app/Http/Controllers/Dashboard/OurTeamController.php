@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\OurTeam\IOurTeamRepository;
 use App\Http\Requests\OurTeam\OurTeamRequest;
 use App\Http\Requests\OurTeam\OurTeamSearchRequest;
-use App\Models\OurTeam\OurTeamSearch;
 use App\Models\OurTeam\OurTeam;
+use App\Models\OurTeam\OurTeamSearch;
 use App\Services\OurTeam\OurTeamService;
-use App\Contracts\OurTeam\IOurTeamRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class OurTeamController extends BaseController
 {
@@ -56,14 +56,14 @@ class OurTeamController extends BaseController
         ]);
     }
 
-//    public function show(OurTeam $ourTeam): View
-//    {
-       /* return $this->dashboardView(
-           view: 'our-team.form',
-           vars: $this->service->getViewData($ourTeam->id),
-           viewMode: 'show'
-       );*/
-//    }
+    //    public function show(OurTeam $ourTeam): View
+    //    {
+    /* return $this->dashboardView(
+        view: 'our-team.form',
+        vars: $this->service->getViewData($ourTeam->id),
+        viewMode: 'show'
+    );*/
+    //    }
 
     public function edit(OurTeam $ourTeam): View
     {

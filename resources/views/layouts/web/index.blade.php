@@ -14,9 +14,11 @@
     <!-- favicon -->
     <link rel="icon" href="./images/logo-emmy.png" type="image/x-icon">
     <!--Style-->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/web/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/web/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/web/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 <!-- page -->
@@ -81,93 +83,85 @@
                             <button class="ch-navbar-toggle" data-ch-navbar-toggle=".ch-navbar-nav-wrap"><span></span></button>
                             <!-- RD Navbar Brand-->
                             <div class="ch-navbar-brand">
-                                <!--Brand--><a href="index.html"><img class="logo-default" src="./images/logo-emmy.png" alt="" /></a> </div>
+                                <!--Brand--><a href="{{ route('web.home') }}"><img class="logo-default" src="{{ asset('img/web/logo-emmy.png') }}" alt="Logo" /></a> </div>
                         </div>
                         <div class="ch-navbar-nav-wrap">
                             <ul class="ch-navbar-nav">
-                                <li class="ch-nav-item active"><a class="ch-nav-link" href="index.html">Home</a> </li>
-                                <li class="ch-nav-item"><a class="ch-nav-link" href="#">Pages</a>
+                                <li class="ch-nav-item active">
+                                    <a class="ch-nav-link" href="{{ route('web.home') }}">Home</a>
+                                </li>
+                                <li class="ch-nav-item">
+                                    <a class="ch-nav-link" href="#">Pages</a>
                                     <ul class="ch-menu ch-navbar-dropdown">
-                                        <li class="ch-dropdown-item active"><a class="ch-dropdown-link" href="about-us.html">About Us</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="what-we-offer.html">What We Offer</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="our-team.html">Our Team</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="testimonials.html">Testimonials</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="pricing-list.html">Pricing List</a> </li>
+                                        <li class="ch-dropdown-item">
+                                            <a class="ch-dropdown-link" href="{{ route('web.about') }}">About Us</a>
+                                        </li>
+                                        <li class="ch-dropdown-item">
+                                            <a class="ch-dropdown-link" href="{{ route('web.what-we-offer') }}">What We Offer</a>
+                                        </li>
+                                        <li class="ch-dropdown-item">
+                                            <a class="ch-dropdown-link" href="{{ route('web.team') }}">Our Team</a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li class="ch-nav-item"><a class="ch-nav-link" href="grid-blog.html">Blog</a>
-                                    <ul class="ch-menu ch-navbar-dropdown">
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-blog.html">Grid Blog</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-list.html">Blog List</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-list-leftsidebar.html">Blog List Left Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-list-rightsidebar.html">Blog List Right Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-post.html">Blog Post</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-post-lefttsidebar.html">Blog Post Left Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="blog-post-rightsidebar.html">Blog Post Right Bar</a> </li>
 
-                                    </ul>
+                                <li class="ch-nav-item">
+                                    <a class="ch-nav-link" href="{{ route('web.blog') }}">Blog</a>
                                 </li>
-                                <li class="ch-nav-item"><a class="ch-nav-link" href="grid-gallery.html">Gallery</a>
+                                <li class="ch-nav-item">
+                                    <a class="ch-nav-link" href="{{ route('web.gallery') }}">Gallery</a>
+                                </li>
+                                <li class="ch-nav-item">
+                                    <a class="ch-nav-link" href="{{ route('web.products') }}">Products</a>
+                                </li>
+
+
+                                {{--                                <li class="ch-nav-item"><a class="ch-nav-link" href="#">Elements</a>--}}
+{{--                                    <ul class="ch-menu ch-navbar-megamenu">--}}
+{{--                                        <li class="ch-megamenu-item ch-megamenu-item-1">--}}
+{{--                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-apps"></span><span class="ch-megamenu-text">Elements</span></h6>--}}
+{{--                                            <ul class="ch-megamenu-list">--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="typography.html">Typography</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="progress-bars.html">Progress bars</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="calls-to-action.html">Calls to action</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tabs-and-accordions.html">Tabs &amp; accochions</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="buttons.html">Buttons</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tables.html">Tables</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="forms.html">Forms</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="counters.html">Counters</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="grid-system.html">Grid system</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="ch-megamenu-item ch-megamenu-item-2">--}}
+{{--                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-layers"></span><span class="ch-megamenu-text">Additional pages</span></h6>--}}
+{{--                                            <ul class="ch-megamenu-list">--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="404-page.html">404 Page</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="contact-us.html">Contact Us</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="privacy-policy.html">Privacy Policy</a></li>--}}
+{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="search-results.html">Search Results</a></li>--}}
+{{--                                            </ul>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="ch-megamenu-item ch-megamenu-banner">--}}
+{{--                                            <div class="ch-megamenu-title"><span class="ch-megamenu-icon mdi icon-side-lamp-1"></span><span class="ch-megamenu-text">Welcome to Our Store</span></div>--}}
+{{--                                            <a class="banner-classic" href="grid-shop.html"><img src="images/about/banner.jpg" alt="" width="300" height="202"/></a> </li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+                                <li class="ch-nav-item"><a class="ch-nav-link" href="{{ route('web.shop') }}">Shop</a>
                                     <ul class="ch-menu ch-navbar-dropdown">
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-gallery.html">Grid Gallery</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-gallery-2.html">Grid Gallery 2</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-fullwidth-gallery.html"> Fullwidth Gallery</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="fullwidth-gallery-2.html"> Fullwidth Gallery 2</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="masonry-gallery.html">Masonry Gallery</a> </li>
-                                    </ul>
-                                </li>
-                                <li class="ch-nav-item"><a class="ch-nav-link" href="#">Elements</a>
-                                    <ul class="ch-menu ch-navbar-megamenu">
-                                        <li class="ch-megamenu-item ch-megamenu-item-1">
-                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-apps"></span><span class="ch-megamenu-text">Elements</span></h6>
-                                            <ul class="ch-megamenu-list">
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="typography.html">Typography</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="progress-bars.html">Progress bars</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="calls-to-action.html">Calls to action</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tabs-and-accordions.html">Tabs &amp; accochions</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="buttons.html">Buttons</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tables.html">Tables</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="forms.html">Forms</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="counters.html">Counters</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="grid-system.html">Grid system</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="ch-megamenu-item ch-megamenu-item-2">
-                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-layers"></span><span class="ch-megamenu-text">Additional pages</span></h6>
-                                            <ul class="ch-megamenu-list">
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="404-page.html">404 Page</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="contact-us.html">Contact Us</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="privacy-policy.html">Privacy Policy</a></li>
-                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="search-results.html">Search Results</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="ch-megamenu-item ch-megamenu-banner">
-                                            <div class="ch-megamenu-title"><span class="ch-megamenu-icon mdi icon-side-lamp-1"></span><span class="ch-megamenu-text">Welcome to Our Store</span></div>
-                                            <a class="banner-classic" href="grid-shop.html"><img src="images/about/banner.jpg" alt="" width="300" height="202"/></a> </li>
-                                    </ul>
-                                </li>
-                                <li class="ch-nav-item"><a class="ch-nav-link" href="grid-shop.html">Shop</a>
-                                    <ul class="ch-menu ch-navbar-dropdown">
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="ecwid-shop.html">Ecwid Shop</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-shop.html">Grid Shop</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-shop-leftsidebar.html">Grid Shop Left Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="grid-shop-rightsidebar.html">Grid Shop Right Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="shop-list.html">Shop List</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="shop-list-leftsidebar.html">Grid List Left Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="shop-list-rightsidebar.html">Grid List Right Bar</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="single-product.html">Single Product</a> </li>
+                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="{{ route('web.single-product') }}">Single Product</a> </li>
                                         <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="cart-page.html">Cart Page</a> </li>
                                         <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="checkout.html">Checkout</a> </li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </div>
                         <div class="ch-navbar-main-element">
                             <!-- RD Navbar Search-->
                             <div class="ch-navbar-search ch-navbar-search-2">
-                                <button class="ch-navbar-search-toggle ch-navbar-fixed-element-3" data-ch-navbar-toggle=".ch-navbar-search"><span></span></button>
+                                <button class="ch-navbar-search-toggle fas fa-search fa-2x" data-ch-navbar-toggle=".ch-navbar-search"></button>
                                 <form class="ch-search" action="search-results.html" data-search-live="ch-search-results-live" method="GET">
                                     <div class="form-wrap">
                                         <input class="ch-navbar-search-form-input form-input" id="ch-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
@@ -179,7 +173,7 @@
                             </div>
                             <!-- RD Navbar Basket-->
                             <div class="ch-navbar-basket-wrap">
-                                <button class="ch-navbar-basket fl-bigmug-line-shopping202" data-ch-navbar-toggle=".cart-inline"><span>2</span></button>
+                                <button class="ch-navbar-basket fas fa-shopping-cart" data-ch-navbar-toggle=".cart-inline"><span>2</span></button>
                                 <div class="cart-inline">
                                     <div class="cart-inline-header">
                                         <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
@@ -260,6 +254,8 @@
         </div>
     </header>
 
+    {{ $slot }}
+
     <!-- Page Footer-->
     <footer class="section footer-modern footer-modern-2">
         <div class="footer-modern-body section-md">
@@ -276,17 +272,16 @@
                     <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
                         <h5 class="footer-modern-title">Navigation</h5>
                         <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="grid-shop.html">Shop</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="#">Wedding Furnitures</a></li>
-                            <li><a href="#">Birthday Furnitures</a></li>
-                            <li><a href="#">Macarons</a></li>
-                            <li><a href="#">CupFurnitures</a></li>
-                            <li><a href="#">Biscuits</a></li>
+                            <li><a href="{{ route('web.about') }}">About Us</a></li>
+                            <li><a href="{{ route('web.team') }}">Our Team</a></li>
+{{--                            <li><a href="testimonials.html">Testimonials</a></li>--}}
+                            <li><a href="{{ route('web.shop') }}">Shop</a></li>
+                            <li><a href="{{ route('web.contact-us') }}">Contact Us</a></li>
+                            <li><a href="{{ route('web.checkout') }}">Wedding Furnitures</a></li>
+                            <li><a href="{{ route('web.checkout') }}">Birthday Furnitures</a></li>
+                            <li><a href="{{ route('web.checkout') }}">Macarons</a></li>
+                            <li><a href="{{ route('web.checkout') }}">CupFurnitures</a></li>
+                            <li><a href="{{ route('web.checkout') }}">Biscuits</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
@@ -321,8 +316,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="footer-copyright">
-                            <p>Copyright © 2025 <a href="https://netframe.am/">NetFrame</a>. All Right Reserved.<a href="privacy-policy.html">Privacy Policy</a></p>
+                            <p>
+                                &copy; 2025
+                                <a href="https://www.linkedin.com/in/arsen-hovhannisyan-b861aa347/" target="_blank" rel="noopener noreferrer">Arsen</a>.
+                                All Rights Reserved.
+                                <a href="privacy-policy.html">Privacy Policy</a>
+                            </p>
                         </div>
+
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="footer-payment-icon"> <a href="#"><img src="images/about/paymentimg.png" alt=""></a> </div>
@@ -333,11 +334,8 @@
     </footer>
 </div>
 <div class="snackbars" id="form-output-global"></div>
-<script src="../../../js/web/js/header.js"></script>
-<script src="../../../js/web/js/core.min.js"></script>
-<script src="../../../js/web/js/script.js"></script>
+<script src="{{ asset('js/web/js/header.js') }}"></script>
+<script src="{{ asset('js/web/js/core.min.js') }}"></script>
+<script src="{{ asset('js/web/js/script.js') }}"></script>
 </body>
 </html>
-
-
-css nery copy anenq stex u pathy poxenq 
