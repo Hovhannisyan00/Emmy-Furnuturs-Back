@@ -7,6 +7,17 @@
                 :indexUrl="route('dashboard.products.index')"
                 :viewMode="$viewMode"
             >
+                 <div class="row">
+                     <div class="col-lg-6">
+                         <div class="form-group">
+                             <x-dashboard.form.uploader._file
+                                 name="photo"
+                                 :value="$product->photo"
+                                 :configKey="$product->getFileConfigName()"/>
+                         </div>
+                     </div>
+                 </div>
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group required">

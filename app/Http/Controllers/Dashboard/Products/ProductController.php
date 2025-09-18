@@ -48,10 +48,7 @@ class ProductController extends BaseController
 
     public function store(ProductRequest $request): JsonResponse
     {
-//        dd($request->validated());
-        // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+         $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.products.index')
@@ -85,9 +82,7 @@ class ProductController extends BaseController
 
     public function update(ProductRequest $request, Product $product): JsonResponse
     {
-        // For updating relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated(), $product->id);
-        $this->repository->update($product->id, $request->validated());
+        $this->service->createOrUpdate($request->validated(), $product->id);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.products.index')

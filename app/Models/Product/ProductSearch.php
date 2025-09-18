@@ -22,6 +22,7 @@ class ProductSearch extends Search
             'price',
             'quantity',
             'SKU',
+            'category_id',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);

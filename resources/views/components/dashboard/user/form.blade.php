@@ -16,7 +16,6 @@
                         <div class="form-group required">
                             <x-dashboard.form.uploader._file
                                 name="avatar"
-                                :crop="true"
                                 :configKey="$user->getFileConfigName()"
                                 :value="$user->avatar"
                             />

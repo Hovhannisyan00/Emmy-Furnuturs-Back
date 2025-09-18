@@ -8,6 +8,7 @@ use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
 use App\Models\User\Traits\UserAccessors;
 use App\Models\User\Traits\UserHelperMethods;
+use App\Models\User\Traits\UserRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -24,6 +25,7 @@ class User extends Authenticatable
     use Notifiable;
     use UserAccessors;
     use UserHelperMethods;
+    use UserRelations;
     use HasFactory;
 
     /**
