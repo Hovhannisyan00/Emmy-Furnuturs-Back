@@ -15,7 +15,13 @@ class ProductRequest extends FormRequest
             'SKU' => 'nullable|string_with_max',
             'description' => 'nullable|string_with_max',
             'category_id' => 'nullable|integer|exists:categories,id',
-            'photo' => 'nullable|string_with_max',
+            'discount' => 'nullable|numeric|min:0',
+
+            // 4 fixed photo uploaders
+            'photo1' => 'nullable|string_with_max',
+            'photo2' => 'nullable|string_with_max',
+            'photo3' => 'nullable|string_with_max',
+            'photo4' => 'nullable|string_with_max',
         ];
     }
 }

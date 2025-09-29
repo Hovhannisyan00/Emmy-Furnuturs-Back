@@ -28,29 +28,29 @@
                             <!-- Slick Carousel-->
                             <div class="slick-slider carousel-parent" id="carousel-parent" data-items="1" data-swipe="true" data-child="#child-carousel" data-for="#child-carousel">
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo->file_url }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo1->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-2.png') }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo2->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-3.png') }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo3->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="slick-slider child-carousel slick-nav-1" id="child-carousel" data-arrows="true" data-items="3" data-sm-items="3" data-md-items="3" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-md-vertical="true" data-for="#carousel-parent">
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-1.png') }}"alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-2.png') }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo3->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-3.png') }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +91,6 @@
                     <!-- Nav tabs-->
                     <div class="nav-tabs-wrap">
                         <ul class="nav nav-tabs nav-tabs-1">
-                            <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">Reviews</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Additional information</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">Delivery and payment</a></li>
                         </ul>
@@ -119,45 +118,7 @@
                                 </div>
                             </div>
                             <h4 class="text-transform-none font-weight-medium">Leave a Review</h4>
-                            <form class="ch-form ch-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="#">
-                                <div class="row row-20 row-md-30">
-                                    <div class="col-lg-8">
-                                        <div class="row row-20 row-md-30">
-                                            <div class="col-sm-6">
-                                                <div class="form-wrap">
-                                                    <input class="form-input" id="contact-first-name-2" type="text" name="name" data-constraints=""/>
-                                                    <label class="form-label" for="contact-first-name-2">First Name</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-wrap">
-                                                    <input class="form-input" id="contact-last-name-2" type="text" name="name" data-constraints=""/>
-                                                    <label class="form-label" for="contact-last-name-2">Last Name</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-wrap">
-                                                    <input class="form-input" id="contact-email-2" type="email" name="email" data-constraints=""/>
-                                                    <label class="form-label" for="contact-email-2">E-mail</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-wrap">
-                                                    <input class="form-input" id="contact-phone-2" type="text" name="phone" data-constraints=""/>
-                                                    <label class="form-label" for="contact-phone-2">Phone</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-wrap">
-                                            <label class="form-label" for="contact-message-2">Message</label>
-                                            <textarea class="form-input textarea-lg" id="contact-message-2" name="phone" data-constraints=""></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="button button-sm button-primary button-zakaria" type="submit">Submit</button>
-                            </form>
+                          
                         </div>
                         <div class="tab-pane fade" id="tabs-1-2">
                             <div class="single-product-info">

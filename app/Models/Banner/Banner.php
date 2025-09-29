@@ -10,6 +10,7 @@ class Banner extends BaseModel
      * @var string[]
      */
     protected $fillable = [
-        'name'
+        'name',
+        'is_active',
     ];
 }

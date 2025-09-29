@@ -21,13 +21,14 @@
             container.innerHTML = '';
             data.forEach((product, index) => {
                 const delay = (index * 0.1).toFixed(1);
+                console.log(product);
                 const html = `
   <div class="col-sm-6 col-md-4 col-lg-3">
     <article class="product wow fadeInRight" data-wow-delay=".${delay}s">
       <div class="product-body">
         <div class="product-figure">
           <img
-            src="${product.photo ? product.photo.file_url : '/images/no-image.png'}"
+            src="${product.photo1 ? product.photo1.file_url : '/images/no-image.png'}"
             alt="${product.name}"
             width="148"
             height="128"
@@ -60,13 +61,11 @@
     </article>
   </div>
 `;
-
-
                 container.insertAdjacentHTML('beforeend', html);
             });
 
         } catch (error) {
-            console.error('Ошибка при загрузке продуктов:', error);
+            console.error(error);
         }
     }
 

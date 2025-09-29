@@ -22,6 +22,28 @@ return [
     ],
 
     Product::getClassName() => [
+        'photo1' => [
+            'field_name' => 'photo1',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ],
+            'photo2' => [
+            'field_name' => 'photo2',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ],
+            'photo3' => [
+            'field_name' => 'photo3',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ],
+            'photo4' => [
+            'field_name' => 'photo4',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ],
+    ],
+    Banner::getClassName() => [
         'photo' => [
             'field_name' => 'photo',
             'file_type' => FileType::IMAGE,

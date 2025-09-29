@@ -11,6 +11,7 @@ use App\Models\Product\ProductSearch;
 use App\Services\Product\ProductService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ProductController extends BaseController
 {

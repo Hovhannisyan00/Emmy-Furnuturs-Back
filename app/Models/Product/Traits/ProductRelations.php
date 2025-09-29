@@ -14,9 +14,24 @@ trait ProductRelations
         return $this->belongsTo(Categorie::class, 'category_id');
     }
 
-    public function photo(): MorphOne
+    public function photo1(): MorphOne
     {
-        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo');
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo1');
+    }
+
+    public function photo2(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo2');
+    }
+
+    public function photo3(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo3');
+    }
+
+    public function photo4(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo4');
     }
 }
 

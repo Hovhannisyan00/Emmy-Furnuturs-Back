@@ -116,48 +116,7 @@
 
 
         <!-- Testimonials-->
-        <section class="section section-md bg-default">
-            <div class="container">
-                <h2 class="text-transform-capitalize wow fadeScale">Testimonials</h2>
-                <div class="row row-sm row-30 justify-content-center">
-                    <div class="col-xl-9">
-                        <div class="slick-quote">
-                            <!-- Slick Carousel-->
-                            <div class="slick-slider carousel-parent" id="carousel-parent" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel" data-for="#child-carousel">
-                                <div class="item">
-                                    <p class="quote-minimal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                                <div class="item">
-                                    <p class="quote-minimal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, type and scrambled it to make a book.</p>
-                                </div>
-                                <div class="item">
-                                    <p class="quote-minimal-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-                            </div>
-                            <div class="slick-quote-nav">
-                                <div class="slick-slider child-carousel" id="child-carousel" data-arrows="true" data-for="#carousel-parent" data-items="1" data-sm-items="1" data-md-items="3" data-lg-items="3" data-xl-items="3" data-xl-items="3">
-                                    <div class="item">
-                                        <div class="quote-minimal-figure"><img src="images/testimonials/thumb1.jpg" alt="" width="87" height="87"/> </div>
-                                        <div class="quote-minimal-author">John Doe</div>
-                                        <div class="quote-minimal-status">Client</div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="quote-minimal-figure"><img src="images/testimonials/thumb2.jpg" alt="" width="87" height="87"/> </div>
-                                        <div class="quote-minimal-author">John Doe</div>
-                                        <div class="quote-minimal-status">Client</div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="quote-minimal-figure"><img src="images/testimonials/thumb3.jpg" alt="" width="87" height="87"/> </div>
-                                        <div class="quote-minimal-author">John Doe</div>
-                                        <div class="quote-minimal-status">Client</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
         <section class="section bg-brown-1 call_section_1">
             <div class="parallax-content section-md context-dark">
                 <div class="container">

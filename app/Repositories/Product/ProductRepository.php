@@ -17,7 +17,7 @@ class ProductRepository extends BaseRepository implements IProductRepository
     public function getEightWithPhoto(): Collection
     {
         return $this->model
-            ->with(['photo'])
+            ->with(['photo1'])
             ->take(8)
             ->get();
     }

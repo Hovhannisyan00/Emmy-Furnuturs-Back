@@ -29,7 +29,7 @@ class BannerController extends BaseController
     public function getListData(BannerSearchRequest $request): array
     {
         $searcher = new BannerSearch($request->validated());
-
+        
         return [
             'recordsTotal' => $searcher->totalCount(),
             'recordsFiltered' => $searcher->filteredCount(),

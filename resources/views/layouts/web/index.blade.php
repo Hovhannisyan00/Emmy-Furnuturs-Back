@@ -172,6 +172,7 @@
                                 </form>
                             </div>
                             <!-- RD Navbar Basket-->
+                            @if(Auth::check())
                             <div class="ch-navbar-basket-wrap">
                                 <button class="ch-navbar-basket fas fa-shopping-cart" data-ch-navbar-toggle=".cart-inline"><span>2</span></button>
                                 <div class="cart-inline">
@@ -218,6 +219,8 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
+
                             <a class="ch-navbar-basket ch-navbar-basket-mobile fl-bigmug-line-shopping202 ch-navbar-fixed-element-2" href="cart-page.html"><span>2</span></a>
                             <button class="ch-navbar-project-hamburger ch-navbar-project-hamburger-open ch-navbar-fixed-element-1" type="button" data-multitoggle=".ch-navbar-main" data-multitoggle-blur=".ch-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate"><span class="project-hamburger"><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span></span></button>
                         </div>
@@ -240,7 +243,7 @@
                                     <div>
                                         <ul class="list-inline list-social list-inline-xl">
                                             <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                            <li><a class="icon mdi mdi-telegram" href="#"></a></li>
+                                            <li><a class="icon mdi mdi-telegram" href="#"></a></li> 
                                             <li><a class="icon mdi mdi-facebook" href="#"></a></li>
                                             <li><a class="icon mdi mdi-instagram" href="#"></a></li>
                                         </ul>
