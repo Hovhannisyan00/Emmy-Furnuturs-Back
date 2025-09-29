@@ -27,7 +27,7 @@
                             <x-dashboard.form._input name="price" :value="$product->price" type="number"/>
                         </div>
                         <div class="form-group required">
-                            <x-dashboard.form._textarea name="description" class="ckeditor5" :value="$product->description"
+                            <x-dashboard.form._textarea name="description"  :value="$product->description"
                             />
                         </div>
                     </div>

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait ProductRelations
 {
-    public function products(): BelongsTo
+    public function categories(): BelongsTo
     {
         return $this->belongsTo(Categorie::class, 'category_id');
     }
@@ -19,3 +19,4 @@ trait ProductRelations
         return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo');
     }
 }
+

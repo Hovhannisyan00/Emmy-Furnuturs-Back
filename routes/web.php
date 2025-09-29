@@ -55,11 +55,13 @@ Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
 
 // Auth user pages
 Route::view('/cart', 'web.cart')->name('web.cart');
+//Route::get('/cart/{id}', [CartController::class, 'index'])->name('web.cart');
 Route::view('/checkout', 'web.checkout')->name('web.checkout');
 
 // Product
 Route::get('/products', [ProductController::class, 'index'])->name('web.products');
-// Route::view('/products', 'web.products')->name('web.products');
+Route::get('/products/get-eight', [ProductController::class, 'getEightProducts'])->name('web.getEightProducts');
+Route::get('/product/{id}', [ProductController::class, 'getProduct'])->name('web.get.product');
 
 // Example for a catch-all page if needed
 Route::fallback(function () {

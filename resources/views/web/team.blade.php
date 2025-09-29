@@ -71,64 +71,7 @@
             </div>
         </section>
         <!-- Team Modern-->
-        <section class="section section-sm section-last bg-default">
-            <div class="container">
-                <h3 class="font-weight-regular">#2</h3>
-                <div class="row row-lg row-30 justify-content-center">
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <article class="team-modern box-sm"><a class="team-modern-figure" href="#"><img src="images/team/chef-1.jpg"
-                                                                                                        alt="" /></a>
-                            <h4 class="team-modern-name"><a href="#">John Doe</a></h4>
-                            <p class="team-modern-text">Lorem Ipsum is simply dummy text of the printing.</p>
-                            <ul class="list-inline team-modern-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <article class="team-modern box-sm"><a class="team-modern-figure" href="#"><img src="images/team/chef-2.jpg"
-                                                                                                        alt="" /></a>
-                            <h4 class="team-modern-name"><a href="#">John Doe</a></h4>
-                            <p class="team-modern-text">Lorem Ipsum is simply dummy text of the printing.</p>
-                            <ul class="list-inline team-modern-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <article class="team-modern box-sm"><a class="team-modern-figure" href="#"><img src="images/team/chef-3.jpg"
-                                                                                                        alt="" /></a>
-                            <h4 class="team-modern-name"><a href="#">John Doe</a></h4>
-                            <p class="team-modern-text">Lorem Ipsum is simply dummy text of the printing.</p>
-                            <ul class="list-inline team-modern-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <article class="team-modern box-sm"><a class="team-modern-figure" href="#"><img src="images/team/chef-4.jpg"
-                                                                                                        alt="" /></a>
-                            <h4 class="team-modern-name"><a href="#">John Doe</a></h4>
-                            <p class="team-modern-text">Lorem Ipsum is simply dummy text of the printing.</p>
-                            <ul class="list-inline team-modern-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </div>
+
         </section>
         <!-- Our brand-->
         <section class="section section-md bg-default brannddlogo">

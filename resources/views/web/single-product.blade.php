@@ -28,7 +28,7 @@
                             <!-- Slick Carousel-->
                             <div class="slick-slider carousel-parent" id="carousel-parent" data-items="1" data-swipe="true" data-child="#child-carousel" data-for="#child-carousel">
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ asset('img/web/shop/single-product-1.png') }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -58,15 +58,16 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="single-product">
-                            <h3 class="text-transform-none font-weight-medium">Unicorn Furniture</h3>
+                            <h3 class="text-transform-none font-weight-medium">{{ $product->name }}</h3>
                             <div class="group-md group-middle">
-                                <div class="single-product-price">$13</div>
+                                <div class="single-product-price">{{ $product->price }}</div>
                                 <div class="single-product-rating"><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star-half"></span></div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, ei impetus epicurei his, ne falli erant consequuntur est. Mei simul aperiam eu, an rebum regione ponderum mel. Facer placerat ut duo, id duis solum maiorum vis, vim autemsemper docendi cu. Pro</p>
+                            <p>{{ $product->description }}</p>
                             <hr class="hr-gray-100">
                             <ul class="list list-description">
-                                <li><span>Categories:</span><span>Furnitures</span></li>
+{{--                                @dd($product)--}}
+                                <li><span>Categories:</span><span>{{ $product->categories->name }}</span></li>
                                 <li><span>Weight:</span><span>0.5 kg</span></li>
                                 <li><span>Box:</span><span>60 x 60 x 90 cm</span></li>
                             </ul>
@@ -79,17 +80,8 @@
                                 <div><a class="button button-lg button-secondary button-zakaria" href="{{ route('web.cart') }}">Add to cart</a></div>
                             </div>
                             <hr class="hr-gray-100">
-                            <div class="group-xs group-middle">
-                                <span class="list-social-title">Share</span>
-                                <div>
-                                    <ul class="list-inline list-social list-inline-sm">
-                                        <li><a class="icon fab fa-facebook-f" href="#"></a></li>
-                                        <li><a class="icon fab fa-twitter" href="#"></a></li>
-                                        <li><a class="icon fab fa-instagram" href="#"></a></li>
-                                        <li><a class="icon fab fa-google-plus-g" href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                            @include('web.components.social-media')
 
                         </div>
                     </div>
