@@ -14,6 +14,7 @@
                             <x-dashboard.form.uploader._file
                                 name="photo"
                                 :value="$banner->photo ?? null"
+                                :configKey="$banner->getFileConfigName()"
                             />
                         </div>
 
@@ -41,4 +42,3 @@
         <script src="{{ asset('/js/dashboard/banner/main.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
-    

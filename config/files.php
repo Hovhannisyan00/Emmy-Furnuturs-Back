@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Banner\Banner;
 use App\Models\File\Enums\FileType;
+use App\Models\Gallery\Gallery;
 use App\Models\Product\Product;
 use App\Models\User\User;
 
@@ -27,17 +29,17 @@ return [
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
         ],
-            'photo2' => [
+        'photo2' => [
             'field_name' => 'photo2',
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
         ],
-            'photo3' => [
+        'photo3' => [
             'field_name' => 'photo3',
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
         ],
-            'photo4' => [
+        'photo4' => [
             'field_name' => 'photo4',
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
@@ -50,5 +52,11 @@ return [
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
         ],
     ],
+    Gallery::getClassName() => [
+        'photo' => [
+            'field_name' => 'photo',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ],
+    ]
 ];
-

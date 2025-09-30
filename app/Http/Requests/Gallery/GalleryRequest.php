@@ -9,7 +9,8 @@ class GalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string_with_max'
+            'name' => 'required|string_with_max',
+            'photo' => 'required|string_with_max'
         ];
     }
 }

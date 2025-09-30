@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\Banner\IBannerRepository;
 use App\Http\Requests\Banner\BannerRequest;
 use App\Http\Requests\Banner\BannerSearchRequest;
-use App\Models\Banner\BannerSearch;
 use App\Models\Banner\Banner;
+use App\Models\Banner\BannerSearch;
 use App\Services\Banner\BannerService;
-use App\Contracts\Banner\IBannerRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class BannerController extends BaseController
 {
@@ -29,7 +29,7 @@ class BannerController extends BaseController
     public function getListData(BannerSearchRequest $request): array
     {
         $searcher = new BannerSearch($request->validated());
-        
+
         return [
             'recordsTotal' => $searcher->totalCount(),
             'recordsFiltered' => $searcher->filteredCount(),
@@ -48,8 +48,7 @@ class BannerController extends BaseController
     public function store(BannerRequest $request): JsonResponse
     {
         // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+        $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.banners.index')
@@ -58,11 +57,11 @@ class BannerController extends BaseController
 
     public function show(Banner $banner): View
     {
-       /* return $this->dashboardView(
-           view: 'banner.form',
-           vars: $this->service->getViewData($banner->id),
-           viewMode: 'show'
-       );*/
+        /* return $this->dashboardView(
+            view: 'banner.form',
+            vars: $this->service->getViewData($banner->id),
+            viewMode: 'show'
+        );*/
     }
 
     public function edit(Banner $banner): View
@@ -84,8 +83,7 @@ class BannerController extends BaseController
     public function update(BannerRequest $request, Banner $banner): JsonResponse
     {
         // For updating relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated(), $banner->id);
-        $this->repository->update($banner->id, $request->validated());
+        $this->service->createOrUpdate($request->validated(), $banner->id);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.banners.index')

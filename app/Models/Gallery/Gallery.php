@@ -3,13 +3,15 @@
 namespace App\Models\Gallery;
 
 use App\Models\Base\BaseModel;
+use App\Models\Base\Traits\HasFileData;
+use App\Models\Gallery\Traits\GalleryRelations;
 
 class Gallery extends BaseModel
 {
-    /**
-     * @var string[]
-     */
+    use GalleryRelations;
+    use HasFileData;
+
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

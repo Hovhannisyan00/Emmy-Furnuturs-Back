@@ -18,7 +18,8 @@ class GallerySearch extends Search
 
         return Gallery::select([
             'id',
-            'name'
+            'name',
+            'photo',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);

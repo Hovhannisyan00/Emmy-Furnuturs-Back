@@ -11,7 +11,6 @@ use App\Models\Product\ProductSearch;
 use App\Services\Product\ProductService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ProductController extends BaseController
 {
@@ -49,7 +48,7 @@ class ProductController extends BaseController
 
     public function store(ProductRequest $request): JsonResponse
     {
-         $this->service->createOrUpdate($request->validated());
+        $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.products.index')

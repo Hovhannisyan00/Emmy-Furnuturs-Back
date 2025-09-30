@@ -13,6 +13,13 @@
                             <x-dashboard.form._input name="name" :value="$gallery->name"/>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <x-dashboard.form.uploader._file
+                            name="photo"
+                            :value="$gallery->photo ?? null"
+                            :configKey="$gallery->getFileConfigName()"
+                        />
+                    </div>
                 </div>
             </x-dashboard.form._form>
         </div>

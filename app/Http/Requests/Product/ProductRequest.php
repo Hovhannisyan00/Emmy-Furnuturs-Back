@@ -17,7 +17,7 @@ class ProductRequest extends FormRequest
             'category_id' => 'nullable|integer|exists:categories,id',
             'discount' => 'nullable|numeric|min:0',
 
-            // 4 fixed photo uploaders
+            // 4 fixed photo uploads
             'photo1' => 'nullable|string_with_max',
             'photo2' => 'nullable|string_with_max',
             'photo3' => 'nullable|string_with_max',

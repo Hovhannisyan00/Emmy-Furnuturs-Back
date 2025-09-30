@@ -3,12 +3,14 @@
 namespace App\Models\Banner;
 
 use App\Models\Base\BaseModel;
+use App\Models\Base\Traits\HasFileData;
+use App\Models\Gallery\Traits\GalleryRelations;
 
 class Banner extends BaseModel
 {
-    /**
-     * @var string[]
-     */
+    use HasFileData;
+    use GalleryRelations;
+
     protected $fillable = [
         'name',
         'is_active',
