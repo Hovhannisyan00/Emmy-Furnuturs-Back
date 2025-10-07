@@ -9,7 +9,7 @@
                             <div class="col-sm-8 col-md-7">
                                 <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Customize Your Furniture</h1>
                                 <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
-                                <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="grid-shop.html">Shop now</a></div>
+                                <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">Shop now</a></div>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                             <div class="col-sm-8 col-md-7">
                                 <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Customize Your Furniture</h1>
                                 <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInRight" data-caption-delay="250">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
-                                <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="grid-shop.html">Shop now</a></div>
+                                <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">Shop now</a></div>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                                 <li>Maecenas lacinia blandit ligula, at tristique mi sagittis sit</li>
 
                             </ul>
-                            <a class="button button-sm button-primary button-zakaria" href="grid-shop.html">shop now</a> </div>
+                            <a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">shop now</a> </div>
                     </div>
                     <div class="col-md-12 col-lg-6 col-xl-6">
                         <div class="decorative-box text-center"><img src="images/about/aboutimg.png" alt="" /> </div>
@@ -116,13 +116,13 @@
 
 
         <!-- Testimonials-->
-    
+
         <section class="section bg-brown-1 call_section_1">
             <div class="parallax-content section-md context-dark">
                 <div class="container">
                     <h3 class="text-spacing-100">Summer sale </h3>
                     <h6 class="font-weight-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since</h6>
-                    <a class="button button-sm button-shadow-2 button-primary button-zakaria" href="#">Shop Now</a> </div>
+                    <a class="button button-sm button-shadow-2 button-primary button-zakaria" href="{{ route('web.shop') }}">Shop Now</a> </div>
             </div>
         </section>
         <!-- Masonry Gallery-->

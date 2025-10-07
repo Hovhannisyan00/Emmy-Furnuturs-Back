@@ -8,7 +8,9 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
 use App\Http\Controllers\Dashboard\GalleryController;
 use App\Http\Controllers\Dashboard\Get_in_touchController;
+use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\OurTeamController;
+use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\Products\ProductController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
 use App\Http\Controllers\Dashboard\User\UserController;
@@ -69,6 +71,14 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     // Coming_soons
     Route::resource('coming_soons', Coming_soonController::class);
     Route::get('coming_soons/dataTable/get-list', [Coming_soonController::class, 'getListData'])->name('coming_soons.getListData');
+
+    // Orders
+    Route::resource('orders', OrderController::class);
+    Route::get('orders/dataTable/get-list', [OrderController::class, 'getListData'])->name('orders.getListData');
+
+    // Partners
+    Route::resource('partners', PartnerController::class);
+    Route::get('partners/dataTable/get-list', [PartnerController::class, 'getListData'])->name('partners.getListData');
 });
 
 // Profile
@@ -76,3 +86,4 @@ Route::controller(ProfileController::class)->as('profile.')->group(function () {
     Route::get('profile', 'index')->name('index');
     Route::put('profile/{id}', 'update')->whereNumber('id')->name('update');
 });
+

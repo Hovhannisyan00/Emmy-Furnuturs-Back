@@ -116,6 +116,22 @@ class MenuSeeder extends Seeder
                 'type' => 'admin',
                 'role' => [RoleType::ADMIN],
             ],
+            [
+                'title' => 'Order',
+                'slug' => 'order',
+                'url' => route('dashboard.orders.index', [], false),
+                'icon' => 'fas fa-shopping-cart',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
+            [
+                'title' => 'Partners',
+                'slug' => 'partners',
+                'url' => route('dashboard.partners.index', [], false),
+                'icon' => 'fas fa-handshake',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
         ];
 
         foreach ($menus as $key => $menu) {
