@@ -9,7 +9,8 @@ class OrderSearch extends Search
 {
     protected array $orderables = [
         'id',
-        'name'
+        'total',
+        'status',
     ];
 
     protected function query(): Builder
@@ -18,16 +19,17 @@ class OrderSearch extends Search
 
         return Order::select([
             'id',
-            'name'
+            'total',
+            'status',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
-                $query->likeOr(['id', 'name'], $filters);
+                $query->likeOr(['id', 'status'], $filters);
             })
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })
-            ->when(!empty($filters['name']), function ($query) use ($filters) {
-                $query->like('name', $filters['name']);
+            ->when(!empty($filters['status']), function ($query) use ($filters) {
+                $query->like('status', $filters['status']);
             });
     }
 

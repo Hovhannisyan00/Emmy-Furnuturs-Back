@@ -10,10 +10,19 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group required">
-                            <x-dashboard.form._input name="name" :value="$order->name"/>
+                            <x-dashboard.form._input name="status" :value="$order->status"/>
                         </div>
                     </div>
                 </div>
+
+
+                 <div class="row">
+                     <div class="col-lg-6">
+                         <div class="form-group required">
+                             <x-dashboard.form._input name="total" :value="$order->total" type="number"/>
+                         </div>
+                     </div>
+                 </div>
             </x-dashboard.form._form>
         </div>
     </div>

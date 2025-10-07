@@ -9,7 +9,8 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string_with_max'
+            'status' => 'required|string_with_max',
+            'total' => 'required|numeric|min:0',
         ];
     }
 }
