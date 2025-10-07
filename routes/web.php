@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Web\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['register' => false, 'reset' => false]);
+
+Route::prefix('auth')->middleware('guest')->group(function () {
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [RegisterController::class, 'register']);
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
+});
+
+Route::post('auth/logout', [LoginController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
 
 // Route::get('/', function () {
 //    return redirect(route('login'));
@@ -55,7 +68,7 @@ Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
 
 // Auth user pages
 Route::view('/cart', 'web.cart')->name('web.cart');
-//Route::get('/cart/{id}', [CartController::class, 'index'])->name('web.cart');
+// Route::get('/cart/{id}', [CartController::class, 'index'])->name('web.cart');
 Route::view('/checkout', 'web.checkout')->name('web.checkout');
 
 // Product

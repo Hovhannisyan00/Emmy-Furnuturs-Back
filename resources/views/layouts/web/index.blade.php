@@ -64,10 +64,29 @@
                             </div>
 
                             <div class="single-dropdown">
-                                <div class="dropdown show"> <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> My Account </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"> <a class="dropdown-item" href="#">Cart</a> <a class="dropdown-item" href="#">Checkout</a> <a class="dropdown-item" href="#">My Account</a> <a class="dropdown-item" href="#">Login</a> </div>
+                                <div class="dropdown show">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        My Account
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        @guest
+                                            {{-- Если пользователь гость --}}
+                                            <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                                            <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                                        @else
+                                            {{-- Если пользователь авторизован --}}
+                                            <span class="dropdown-item-text">👤 {{ Auth::user()->name }}</span>
+                                            <div class="dropdown-divider"></div>
+                                            <form action="{{ route('logout') }}" method="POST" class="m-0">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item">Logout</button>
+                                            </form>
+                                        @endguest
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -243,7 +262,7 @@
                                     <div>
                                         <ul class="list-inline list-social list-inline-xl">
                                             <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                            <li><a class="icon mdi mdi-telegram" href="#"></a></li> 
+                                            <li><a class="icon mdi mdi-telegram" href="#"></a></li>
                                             <li><a class="icon mdi mdi-facebook" href="#"></a></li>
                                             <li><a class="icon mdi mdi-instagram" href="#"></a></li>
                                         </ul>
