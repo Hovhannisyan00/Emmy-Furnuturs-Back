@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\Gallery\IGalleryRepository;
 use App\Http\Requests\Gallery\GalleryRequest;
 use App\Http\Requests\Gallery\GallerySearchRequest;
-use App\Models\Gallery\GallerySearch;
 use App\Models\Gallery\Gallery;
+use App\Models\Gallery\GallerySearch;
 use App\Services\Gallery\GalleryService;
-use App\Contracts\Gallery\IGalleryRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class GalleryController extends BaseController
 {
@@ -58,11 +58,11 @@ class GalleryController extends BaseController
 
     public function show(Gallery $gallery): View
     {
-       /* return $this->dashboardView(
-           view: 'gallery.form',
-           vars: $this->service->getViewData($gallery->id),
-           viewMode: 'show'
-       );*/
+        /* return $this->dashboardView(
+            view: 'gallery.form',
+            vars: $this->service->getViewData($gallery->id),
+            viewMode: 'show'
+        );*/
     }
 
     public function edit(Gallery $gallery): View

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('banners', function (Blueprint $table) {
-                $table->string('name')->after('id'); // Add 'name' column
-                $table->boolean('is_active')->default(true)->after('name'); // Add 'is_active' column, default true
+            $table->string('name')->after('id');
+            $table->boolean('is_active')->default(true)->after('name');
         });
     }
 

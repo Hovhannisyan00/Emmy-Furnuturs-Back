@@ -3,6 +3,7 @@
 use App\Models\Banner\Banner;
 use App\Models\File\Enums\FileType;
 use App\Models\Gallery\Gallery;
+use App\Models\Partner\Partner;
 use App\Models\Product\Product;
 use App\Models\User\User;
 
@@ -58,5 +59,12 @@ return [
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
         ],
+    ],
+    Partner::getClassName() => [
+        'photo' => [
+            'field_name' => 'photo',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ]
     ]
 ];

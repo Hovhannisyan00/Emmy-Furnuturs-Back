@@ -170,68 +170,7 @@
         </section>
 
         <!-- Our brand-->
-        <section class="section section-md bg-default brannddlogo">
-            <div class="container">
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="5" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                </div>
-            </div>
-        </section>
+        @include('web.components.our-brand')
+
     </div>
 </x-web-layout>

@@ -5,7 +5,7 @@
             <div class="parallax-container breadcrumbs_section">
                 <div class="breadcrumbs-custom-body parallax-content context-dark">
                     <div class="container">
-                        <h1 class="breadcrumbs-custom-title">Privacy Policy</h1>
+                        <h1 class="breadcrumbs-custom-title">Политика в отношении обработки персональных данных</h1>
                     </div>
                 </div>
             </div>
@@ -26,87 +26,58 @@
                     <div class="offset-xl-2 offset-lg-1 col-lg-10 col-xl-8">
                         <!-- Terms list-->
                         <dl class="list-terms list-terms-1">
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                            <dt class="heading-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</dt>
-                            <dd>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</dd>
-                        </dl><a class="privacy-link" href="mailto:hello@example.com">hello@example.com</a>
+                            <dt class="heading-4">1. Общие положения</dt>
+                            <dd>
+                                Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые общество с ограниченной ответственностью «Эмми» (далее – Оператор).<br><br>
+                                1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.<br><br>
+                                1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта emmymebel.ru. Оператор не контролирует и не несет ответственности за сайты третьих лиц, на которые Пользователь может перейти по ссылкам, доступным на Сайте emmymebel.ru.
+                            </dd>
+
+                            <dt class="heading-4">2. Основные понятия, используемые в Политике</dt>
+                            <dd>
+                                2.1. Автоматизированная обработка персональных данных – обработка персональных данных с помощью средств вычислительной техники;<br>
+                                2.2. Блокирование персональных данных – временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных);<br>
+                                2.3. Веб-сайт – совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу emmymebel.ru;<br>
+                                2.4. Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных, и обеспечивающих их обработку информационных технологий и технических средств;<br>
+                                2.5. Обезличивание персональных данных — действия, в результате которых невозможно определить без использования дополнительной информации принадлежность персональных данных конкретному Пользователю или иному субъекту персональных данных;<br>
+                                2.6. Обработка персональных данных – любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных; Оператор осуществляет обработку данных пользователя до момента подачи им заявления на отзыв согласия на обработку персональных данных.<br>
+                                2.7. Оператор – Администрация сайта, общество с ограниченной ответственностью «Эмми» (ИНН: 7751132780, ОГРН: 5177746275064, Адрес: 108810, г. Москва, пос. Марушкинское, д. Анкудиново, ул. Сосновая д. 8)<br>
+                                2.8. Персональные данные – любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта emmymebel.ru;<br>
+                                2.9. Пользователь – любой посетитель веб-сайта emmymebel.ru;<br>
+                                2.10. Предоставление персональных данных – действия, направленные на раскрытие персональных данных определенному лицу или определенному кругу лиц;<br>
+                                2.11. Распространение персональных данных – любые действия, направленные на раскрытие персональных данных неопределенному кругу лиц (передача персональных данных) или на ознакомление с персональными данными неограниченного круга лиц, в том числе обнародование персональных данных в средствах массовой информации, размещение в информационно-телекоммуникационных сетях или предоставление доступа к персональным данным каким-либо иным способом;<br>
+                                2.13. Уничтожение персональных данных – любые действия, в результате которых персональные данные уничтожаются безвозвратно с невозможностью дальнейшего восстановления содержания персональных данных в информационной системе персональных данных и (или) уничтожаются материальные носители персональных данных.
+                            </dd>
+
+                            <dt class="heading-4">3. Оператор может обрабатывать следующие персональные данные Пользователя</dt>
+                            <dd>
+                                3.1. Персональная информация, которую Пользователь предоставляет о себе самостоятельно при регистрации (создании учетной записи) или в процессе использования Сайта и его сервисов, включая персональные данные Пользователя. Обязательная для предоставления Сервисов информация помечена специальным образом. Иная информация предоставляется Пользователем на его усмотрение.<br>
+                                3.2. Данные, которые автоматически передаются сервисам Сайта в процессе их использования с помощью установленного на устройстве Пользователя программного обеспечения, в том числе IP-адрес, данные файлов cookie, информация о браузере Пользователя (или иной программе, с помощью которой осуществляется доступ к сервисам), технические характеристики оборудования и программного обеспечения, используемых Пользователем, дата и время доступа к сервисам, адреса запрашиваемых страниц, реферер (адрес предыдущей страницы) и иная подобная информация.
+                            </dd>
+
+                            <dt class="heading-4">4. Цели обработки персональных данных</dt>
+                            <dd>
+                                4.1. Сайт собирает и хранит только ту персональную информацию, которая необходима для предоставления информации об услугах или исполнения соглашений и договоров с Пользователем, за исключением случаев, когда законодательством предусмотрено обязательное хранение персональной информации в течение определенного законом срока.<br>
+                                4.2. Персональную информацию Пользователя Сайт обрабатывает в следующих целях:<br>
+                                4.2.1. Установления с Пользователем обратной связи, включая направление уведомлений, запросов, касающихся использования Сайта, оказания услуг, обработку запросов и заявок от Пользователя.<br>
+                                4.2.2. Идентификации Пользователя, зарегистрированного на Сайте, для формирования и исполнения персонализированных предложений и соглашений.<br>
+                                4.2.3. Предоставления Пользователю доступа к персонализированным ресурсам Сайта.<br>
+                                4.2.4. Определения места нахождения Пользователя для обеспечения безопасности, предотвращения мошенничества.<br>
+                                4.2.5. Предоставления Пользователю эффективной клиентской и технической поддержки.<br>
+                                4.2.6. Направления Пользователю уведомления о новых продуктах и услугах, специальных предложениях и различных событиях. Пользователь всегда может отказаться от получения информационных сообщений, направив Оператору письмо на адрес электронной почты emmy-web@mail.ru с пометкой «Отказ от уведомлений о новых продуктах и услугах и специальных предложениях».<br>
+                                4.3. Обезличенные данные Пользователей, собираемые с помощью сервисов интернет-статистики, служат для сбора информации о действиях Пользователей на сайте, улучшения качества сайта и его содержания.
+                            </dd>
+
+                            <!-- Continue similarly for sections 5–8 -->
+
+                        </dl>
+                        <a class="privacy-link" href="mailto:emmy-web@mail.ru">emmy-web@mail.ru</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Our brand-->
-        <section class="section section-md bg-default brannddlogo">
-            <div class="container">
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="5" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                </div>
-            </div>
-        </section>
+        @include('web.components.our-brand')
     </div>
 </x-web-layout>

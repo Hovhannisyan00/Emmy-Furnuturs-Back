@@ -142,26 +142,27 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><a class="table-cart-figure" href="single-product.html"><img src="images/shop/product-mini-2.png" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Lorem ipsum</a></td>
-                            <td>$13.00</td>
-                            <td>
-                                <div class="table-cart-stepper">
-                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                                </div>
-                            </td>
-                            <td>$13</td>
-                        </tr>
-                        <tr>
-                            <td><a class="table-cart-figure" href="single-product.html"><img src="images/shop/product-mini-3.png" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Lorem ipsum</a></td>
-                            <td>$17.00</td>
-                            <td>
-                                <div class="table-cart-stepper">
-                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                                </div>
-                            </td>
-                            <td>$17</td>
-                        </tr>
+                        @forelse($items as $item)
+                            <tr>
+                                <td>
+                                    <a class="table-cart-figure" href="{{ route('web.get.product', $item->product->id) }}">
+                                        <img src="{{ $item->product->photo1->file_url ?? 'images/shop/product-placeholder.png' }}" alt="" width="146" height="132"/>
+                                    </a>
+                                    <a class="table-cart-link" href="#">{{ $item->product->name }}</a>
+                                </td>
+                                <td>${{ number_format($item->product->price, 2) }}</td>
+                                <td>
+                                    <div class="table-cart-stepper">
+                                         {{$item->quantity}}
+                                    </div>
+                                </td>
+                                <td>${{ number_format($item->quantity * $item->product->price, 2) }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4">Ваша корзина пуста.</td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -235,70 +236,6 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
-        <!-- Our brand-->
-        <section class="section section-md bg-default brannddlogo">
-            <div class="container">
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="5" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                </div>
             </div>
         </section>
     </div>

@@ -6,9 +6,11 @@
         </div>
     </div>
 </section>
+
+
 <script>
     const productBaseUrl = "{{ url('/product') }}";
-    const cardUrl = "{{ url('/card') }}";
+    const cardUrl = "{{ url('/basket') }}";
 </script>
 
 

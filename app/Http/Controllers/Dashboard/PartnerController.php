@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\Partner\IPartnerRepository;
 use App\Http\Requests\Partner\PartnerRequest;
 use App\Http\Requests\Partner\PartnerSearchRequest;
-use App\Models\Partner\PartnerSearch;
 use App\Models\Partner\Partner;
+use App\Models\Partner\PartnerSearch;
 use App\Services\Partner\PartnerService;
-use App\Contracts\Partner\IPartnerRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 class PartnerController extends BaseController
 {
@@ -48,8 +48,7 @@ class PartnerController extends BaseController
     public function store(PartnerRequest $request): JsonResponse
     {
         // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+        $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.partners.index')
@@ -58,11 +57,11 @@ class PartnerController extends BaseController
 
     public function show(Partner $partner): View
     {
-       /* return $this->dashboardView(
-           view: 'partner.form',
-           vars: $this->service->getViewData($partner->id),
-           viewMode: 'show'
-       );*/
+        /* return $this->dashboardView(
+            view: 'partner.form',
+            vars: $this->service->getViewData($partner->id),
+            viewMode: 'show'
+        );*/
     }
 
     public function edit(Partner $partner): View
@@ -99,5 +98,18 @@ class PartnerController extends BaseController
         $this->repository->destroy($partner->id);
 
         return $this->sendOkDeleted();
+    }
+
+    public function getPartnersData(): JsonResponse
+    {
+        $partners = Partner::with('photo')->get()->map(function ($partner) {
+            return [
+                'id' => $partner->id,
+                'name' => $partner->name,
+                'photo_url' => $partner->photo->file_url ?? null,
+            ];
+        });
+
+        return response()->json($partners);
     }
 }

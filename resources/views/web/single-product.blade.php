@@ -42,7 +42,7 @@
                             </div>
                             <div class="slick-slider child-carousel slick-nav-1" id="child-carousel" data-arrows="true" data-items="3" data-sm-items="3" data-md-items="3" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-md-vertical="true" data-for="#carousel-parent">
                                 <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url }}" alt="" width="530" height="480"/>
+                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url ||  $product->photo3->file_url }}" alt="" width="530" height="480"/>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -66,7 +66,7 @@
                             <p>{{ $product->description }}</p>
                             <hr class="hr-gray-100">
                             <ul class="list list-description">
-{{--                                @dd($product)--}}
+
                                 <li><span>Categories:</span><span>{{ $product->categories->name }}</span></li>
                                 <li><span>Weight:</span><span>0.5 kg</span></li>
                                 <li><span>Box:</span><span>60 x 60 x 90 cm</span></li>
@@ -74,10 +74,15 @@
                             <div class="group-xs group-middle">
 
                                 <div class="product-stepper">
-                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                                    <input id="quantity-input" class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
                                 </div>
 
-                                <div><a class="button button-lg button-secondary button-zakaria" href="{{ route('web.cart') }}">Add to cart</a></div>
+                                <form action="{{ route('basket.add') }}" method="POST" class="d-inline-block ms-2">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="quantity" id="quantity-hidden" value="1">
+                                    <button type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
+                                </form>
                             </div>
                             <hr class="hr-gray-100">
 
@@ -118,7 +123,7 @@
                                 </div>
                             </div>
                             <h4 class="text-transform-none font-weight-medium">Leave a Review</h4>
-                          
+
                         </div>
                         <div class="tab-pane fade" id="tabs-1-2">
                             <div class="single-product-info">
@@ -222,68 +227,32 @@
             </div>
         </section>
         <!-- Our brand-->
-        <section class="section section-md bg-default brannddlogo">
-            <div class="container">
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="5" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                </div>
-            </div>
-        </section>
+        @include('web.components.our-brand')
+
     </div>
 </x-web-layout>
+
+<script>
+    const addToCartBtn = document.getElementById('add-to-cart');
+    const quantityInput = document.getElementById('quantity-input');
+
+    addToCartBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // отменяем обычный клик
+
+        const formData = new FormData();
+        formData.append('product_id', "{{ $product->id }}");
+        formData.append('quantity', quantityInput.value);
+        formData.append('_token', "{{ csrf_token() }}");
+
+        fetch("{{ route('basket.add') }}", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Можно показывать уведомление или обновлять счетчик корзины
+                alert(data.message || "Товар добавлен в корзину!");
+            })
+            .catch(error => console.error('Ошибка:', error));
+    });
+</script>

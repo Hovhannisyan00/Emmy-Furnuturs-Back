@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\OrderController;
+use App\Http\Controllers\Dashboard\PartnerController;
+use App\Http\Controllers\Web\Basket\BasketController;
 use App\Http\Controllers\Web\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -67,14 +70,32 @@ Route::view('/privacy-policy', 'web.privacy-policy')->name('web.privacy.policy')
 Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
 
 // Auth user pages
-Route::view('/cart', 'web.cart')->name('web.cart');
+//Route::view('/cart', 'web.cart')->name('web.cart');
 // Route::get('/cart/{id}', [CartController::class, 'index'])->name('web.cart');
-Route::view('/checkout', 'web.checkout')->name('web.checkout');
+//Route::view('/checkout', 'web.checkout')->name('web.checkout');
 
 // Product
 Route::get('/products', [ProductController::class, 'index'])->name('web.products');
 Route::get('/products/get-eight', [ProductController::class, 'getEightProducts'])->name('web.getEightProducts');
 Route::get('/product/{id}', [ProductController::class, 'getProduct'])->name('web.get.product');
+
+// Корзина
+Route::get('/basket', [BasketController::class, 'show'])->name('web.cart');
+Route::post('/basket/add', [BasketController::class, 'add'])->name('basket.add');
+Route::post('/basket/update', [BasketController::class, 'updateQuantity'])->name('basket.update');
+Route::delete('/basket/remove/{id}', [BasketController::class, 'remove'])->name('basket.remove');
+Route::get('/basket/data', [BasketController::class, 'getData'])->name('basket.data');
+
+
+// Оформление заказа
+Route::get('/checkout', [OrderController::class, 'checkoutPage'])->name('order.checkout');
+Route::get('/orders', [OrderController::class, 'indexes'])->name('order.index'); // История заказов
+Route::get('/orders/{id}', [OrderController::class, 'shows'])->name('order.show'); // Детали заказа
+
+
+// Our Partners
+
+Route::get('/our-partners', [PartnerController::class, 'getPartnersData'])->name('web.our-partners');
 
 // Example for a catch-all page if needed
 Route::fallback(function () {

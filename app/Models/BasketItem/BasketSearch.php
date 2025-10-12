@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Gallery;
+namespace App\Models\Basket;
 
 use App\Models\Base\Search;
 use Illuminate\Database\Eloquent\Builder;
 
-class GallerySearch extends Search
+class BasketSearch extends Search
 {
     protected array $orderables = [
         'id',
@@ -16,9 +16,9 @@ class GallerySearch extends Search
     {
         $filters = $this->filters;
 
-        return Gallery::select([
+        return Basket::select([
             'id',
-            'name',
+            'name'
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'name'], $filters);
@@ -33,6 +33,6 @@ class GallerySearch extends Search
 
     public function totalCount(): int
     {
-        return Gallery::count();
+        return Basket::count();
     }
 }

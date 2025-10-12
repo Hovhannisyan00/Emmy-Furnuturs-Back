@@ -7,11 +7,19 @@
                 :indexUrl="route('dashboard.partners.index')"
                 :viewMode="$viewMode"
             >
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group required">
                             <x-dashboard.form._input name="name" :value="$partner->name"/>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <x-dashboard.form.uploader._file
+                            name="photo"
+                            :value="$partner->photo ?? null"
+                            :configKey="$partner->getFileConfigName()"
+                        />
                     </div>
                 </div>
             </x-dashboard.form._form>

@@ -140,60 +140,47 @@
                             </div>
                         </div>
                         <div class="row row-30 row-md-50 row-lg-60">
-                            <div class="col-12">
-                                <!-- Product-->
-                                <article class="product-modern text-center text-sm-left">
-                                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
-                                        <div class="unit-left"><a class="product-modern-figure" href="single-product.html"><img src="images/shop/shop-list-1.png" alt="" width="328" height="330"/></a></div>
-                                        <div class="unit-body">
-                                            <div class="product-modern-body">
-                                                <h4 class="product-modern-title"><a href="single-product.html">Strawberry ShortFurniture</a></h4>
-                                                <div class="product-price-wrap">
-                                                    <div class="product-price product-price-old">$30.00</div>
-                                                    <div class="product-price">$17.00</div>
+                            @foreach($products as $product)
+                                <div class="col-12">
+                                    <!-- Product-->
+                                    <article class="product-modern text-center text-sm-left">
+                                        <div class="unit unit-spacing-0 flex-column flex-sm-row">
+                                            <div class="unit-left">
+                                                <a class="product-modern-figure" href="{{ route('web.get.product', $product->id) }}">
+                                                    <img src="{{ $product->photo1->file_url ?? 'images/shop/product-placeholder.png' }}"
+                                                         alt="{{ $product->name }}" width="328" height="330"/>
+                                                </a>
+                                            </div>
+                                            <div class="unit-body">
+                                                <div class="product-modern-body">
+                                                    <h4 class="product-modern-title">
+                                                        <a href="{{ route('web.get.product', $product->id) }}">{{ $product->name }}</a>
+                                                    </h4>
+                                                    <div class="product-price-wrap">
+                                                        @if($product->old_price)
+                                                            <div class="product-price product-price-old">${{ number_format($product->old_price, 2) }}</div>
+                                                        @endif
+                                                        <div class="product-price">${{ number_format($product->price, 2) }}</div>
+                                                    </div>
+                                                    <p class="product-modern-text">{{ Str::limit($product->description, 100) }}</p>
+                                                    <form action="{{ route('basket.add') }}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <button class="button button-primary button-zakaria" type="submit">Add to cart</button>
+                                                    </form>
                                                 </div>
-                                                <p class="product-modern-text">Sed eleifend, lacus nec bibendum pulvinar, nibh mauris vehicula augue, sit amet mattis ligula lorem eu nisl. Integer a egestas</p><a class="button button-primary button-zakaria" href="cart-page.html">Add to cart</a>
                                             </div>
                                         </div>
-                                    </div><span class="product-badge product-badge-sale">Sale</span>
-                                </article>
-                            </div>
-                            <div class="col-12">
-                                <!-- Product-->
-                                <article class="product-modern text-center text-sm-left">
-                                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
-                                        <div class="unit-left"><a class="product-modern-figure" href="single-product.html"><img src="images/shop/shop-list-1.png" alt="" width="328" height="330"/></a></div>
-                                        <div class="unit-body">
-                                            <div class="product-modern-body">
-                                                <h4 class="product-modern-title"><a href="single-product.html">Black Currant Macaron</a></h4>
-                                                <div class="product-price-wrap">
-                                                    <div class="product-price">$15.00</div>
-                                                </div>
-                                                <p class="product-modern-text">Elogiums peregrinationes in lotus quadrata! Caniss accelerare, tanquam neuter guttus. Cum barcas persuadere</p><a class="button button-primary button-zakaria" href="cart-page.html">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-12">
-                                <!-- Product-->
-                                <article class="product-modern text-center text-sm-left">
-                                    <div class="unit unit-spacing-0 flex-column flex-sm-row">
-                                        <div class="unit-left"><a class="product-modern-figure" href="single-product.html"><img src="images/shop/shop-list-1.png" alt="" width="328" height="330"/></a></div>
-                                        <div class="unit-body">
-                                            <div class="product-modern-body">
-                                                <h4 class="product-modern-title"><a href="single-product.html">Unicorn Furniture</a></h4>
-                                                <div class="product-price-wrap">
-                                                    <div class="product-price product-price-old">$35.00</div>
-                                                    <div class="product-price">$13.00</div>
-                                                </div>
-                                                <p class="product-modern-text">Canis, mons, et fluctus. Cur silva observare? Cum luna studere, omnes cottaes demitto gratis, altus absolutioes</p><a class="button button-primary button-zakaria" href="cart-page.html">Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div><span class="product-badge product-badge-sale">Sale</span>
-                                </article>
-                            </div>
+                                        @if($product->old_price)
+                                            <span class="product-badge product-badge-sale">Sale</span>
+                                        @endif
+                                    </article>
+                                </div>
+                            @endforeach
                         </div>
+
+                    </div>
                         <div class="pagination-wrap">
                             <!-- Bootstrap Pagination-->
                             <nav aria-label="Page navigation">
@@ -208,71 +195,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- Our brand-->
-        <section class="section section-md bg-default brannddlogo">
-            <div class="container">
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="5" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                    <article class=" box-md"> <a class="" href="#">
-                            <figure class="logo-grey-style"> <img src="./images/logo-emmy.png" alt="" />
-                                <figcaption>
-                                    <h5>Emmy</h5>
-                                </figcaption>
-                            </figure>
-                        </a> </article>
-                </div>
-            </div>
-        </section>
+    @include('web.components.our-brand')
+
     </div>
 </x-web-layout>

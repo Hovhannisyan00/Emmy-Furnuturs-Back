@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Emmy Furniture</title>
+    <title>Emmy Furniture Munich</title>
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="description" content="Furnitureiva - Responsive Furniture HTML Template">
@@ -15,6 +15,7 @@
     <link rel="icon" href="./images/logo-emmy.png" type="image/x-icon">
     <!--Style-->
     <link rel="stylesheet" href="{{ asset('css/web/bootstrap.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/web/fonts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/web/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -169,9 +170,8 @@
 {{--                                </li>--}}
                                 <li class="ch-nav-item"><a class="ch-nav-link" href="{{ route('web.shop') }}">Shop</a>
                                     <ul class="ch-menu ch-navbar-dropdown">
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="{{ route('web.single-product') }}">Single Product</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="cart-page.html">Cart Page</a> </li>
-                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="checkout.html">Checkout</a> </li>
+                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="{{ route('web.cart') }}">Cart Page</a> </li>
+                                        <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="{{route('order.checkout')}}">Checkout</a> </li>
                                     </ul>
                                 </li>
 
@@ -191,54 +191,8 @@
                                 </form>
                             </div>
                             <!-- RD Navbar Basket-->
-                            @if(Auth::check())
-                            <div class="ch-navbar-basket-wrap">
-                                <button class="ch-navbar-basket fas fa-shopping-cart" data-ch-navbar-toggle=".cart-inline"><span>2</span></button>
-                                <div class="cart-inline">
-                                    <div class="cart-inline-header">
-                                        <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
-                                        <h6 class="cart-inline-title">Total price:<span> $30</span></h6>
-                                    </div>
-                                    <div class="cart-inline-body">
-                                        <div class="cart-inline-item">
-                                            <div class="unit unit-spacing-sm align-items-center">
-                                                <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/about/post-mini-1.jpg" alt="" width="100" height="90"/></a></div>
-                                                <div class="unit-body">
-                                                    <h6 class="cart-inline-name"><a href="single-product.html">Unicorn Furniture</a></h6>
-                                                    <div>
-                                                        <div class="group-xs group-middle">
-                                                            <div class="table-cart-stepper">
-                                                                <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
-                                                            </div>
-                                                            <h6 class="cart-inline-title">$13.00</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cart-inline-item">
-                                            <div class="unit unit-spacing-sm align-items-center">
-                                                <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/about/post-mini-2.jpg" alt="" width="100" height="90"/></a></div>
-                                                <div class="unit-body">
-                                                    <h6 class="cart-inline-name"><a href="single-product.html">Strawberry CupFurnitures</a></h6>
-                                                    <div>
-                                                        <div class="group-xs group-middle">
-                                                            <div class="table-cart-stepper">
-                                                                <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
-                                                            </div>
-                                                            <h6 class="cart-inline-title">$17.00</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-inline-footer">
-                                        <div class="group-sm"><a class="button button-default-outline-2 button-zakaria" href="cart-page.html">Go to cart</a><a class="button button-primary button-zakaria" href="checkout.html">Checkout</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
+                            @include('web.components.basket-navbar')
+
 
                             <a class="ch-navbar-basket ch-navbar-basket-mobile fl-bigmug-line-shopping202 ch-navbar-fixed-element-2" href="cart-page.html"><span>2</span></a>
                             <button class="ch-navbar-project-hamburger ch-navbar-project-hamburger-open ch-navbar-fixed-element-1" type="button" data-multitoggle=".ch-navbar-main" data-multitoggle-blur=".ch-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate"><span class="project-hamburger"><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span></span></button>
@@ -299,11 +253,11 @@
 {{--                            <li><a href="testimonials.html">Testimonials</a></li>--}}
                             <li><a href="{{ route('web.shop') }}">Shop</a></li>
                             <li><a href="{{ route('web.contact-us') }}">Contact Us</a></li>
-                            <li><a href="{{ route('web.checkout') }}">Wedding Furnitures</a></li>
-                            <li><a href="{{ route('web.checkout') }}">Birthday Furnitures</a></li>
-                            <li><a href="{{ route('web.checkout') }}">Macarons</a></li>
-                            <li><a href="{{ route('web.checkout') }}">CupFurnitures</a></li>
-                            <li><a href="{{ route('web.checkout') }}">Biscuits</a></li>
+{{--                            <li><a href="{{ route('web.checkout') }}">Wedding Furnitures</a></li>--}}
+{{--                            <li><a href="{{ route('web.checkout') }}">Birthday Furnitures</a></li>--}}
+{{--                            <li><a href="{{ route('web.checkout') }}">Macarons</a></li>--}}
+{{--                            <li><a href="{{ route('web.checkout') }}">CupFurnitures</a></li>--}}
+{{--                            <li><a href="{{ route('web.checkout') }}">Biscuits</a></li>--}}
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
@@ -342,7 +296,7 @@
                                 &copy; 2025
                                 <a href="https://www.linkedin.com/in/arsen-hovhannisyan-b861aa347/" target="_blank" rel="noopener noreferrer">Arsen</a>.
                                 All Rights Reserved.
-                                <a href="privacy-policy.html">Privacy Policy</a>
+                                <a href="{{ route('web.privacy.policy') }}">Privacy Policy</a>
                             </p>
                         </div>
 
