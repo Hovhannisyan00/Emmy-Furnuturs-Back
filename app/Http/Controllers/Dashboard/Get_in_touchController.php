@@ -47,9 +47,14 @@ class Get_in_touchController extends BaseController
 
     public function store(Get_in_touchRequest $request): JsonResponse
     {
+        $data = $request->validated();
+        $data['last_name'] = !empty($data['last_name']) ? $data['last_name'] : '-';
+        $data['phone'] = !empty($data['phone']) ? $data['phone'] : '-';
+        $data['message'] = !empty($data['message']) ? $data['message'] : '-';
+
         // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+         $this->service->createOrUpdate($data);
+//        $this->repository->create($data);
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.get_in_touches.index')

@@ -8,14 +8,13 @@ use App\Models\Blog\Traits\BlogRelation;
 
 class Blog extends BaseModel
 {
-    use BlogRelation;
     use HasFileData;
+    use BlogRelation;
 
     protected $fillable = [
         'name',
         'shortDescription',
         'description',
-        'photo',
         'is_active',
     ];
 }

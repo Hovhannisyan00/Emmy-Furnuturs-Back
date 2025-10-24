@@ -105,4 +105,11 @@ class CategorieController extends BaseController
 
         return $this->sendOkDeleted();
     }
+
+    public function getCategories(): JsonResponse
+    {
+        $categories = $this->repository->getFooterCategories();
+
+         return response()->json($categories);
+    }
 }

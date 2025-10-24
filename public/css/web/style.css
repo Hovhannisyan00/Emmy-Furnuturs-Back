@@ -7,7 +7,7 @@
 *********************************************************
 Project Name 				:Furnitureiva - Responsive HTML Template
 Desgined By  				:blog_designer
-Developed By 				:Asif Munawar; 
+Developed By 				:Asif Munawar;
 Date         				:23/Aug/20;
 *********************************************************
 
@@ -67,7 +67,7 @@ Date         				:23/Aug/20;
 47====== box-ordered
 48====== progress-linear
 49====== countdown-wrap
-50====== owl-carousel 
+50====== owl-carousel
 51====== lg
 52====== parallax-container
 53====== ch-range__line
@@ -2770,7 +2770,7 @@ html .list-inline-sm {
 	margin-left: -5px;
 	margin-right: -5px;
 	font-size: 35px;
-	
+
 }
 
 html .list-inline-sm>* {
@@ -3656,7 +3656,7 @@ hr {
 .button-primary:active {
 	color: #fff;
 	background-color: #626469  ;
-	border-color: #626469  
+	border-color: #626469
 }
 
 .button-primary.button-ujarak::before {
@@ -3678,11 +3678,11 @@ hr {
 .button-primary-2:active {
 	color: #fff;
 	background-color: #626469  ;
-	border-color: #626469  
+	border-color: #626469
 }
 
 .button-primary-2.button-ujarak::before {
-	background: #626469  
+	background: #626469
 }
 
 .button-primary-2.button-zakaria:after {
@@ -3700,11 +3700,11 @@ hr {
 .button-primary-3:active {
 	color: #fff;
 	background-color:#626469  ;
-	border-color:#626469  
+	border-color:#626469
 }
 
 .button-primary-3.button-ujarak::before {
-	background:#626469  
+	background:#626469
 }
 
 .button-primary-3.button-zakaria:after {
@@ -3821,7 +3821,7 @@ hr {
 .button-gray-14:focus {
 	color: #fff;
 	background-color: #626469  ;
-	border-color: #626469  
+	border-color: #626469
 }
 
 .button-gray-14:hover,
@@ -3847,7 +3847,7 @@ hr {
 }
 
 .button-gray-14.button-zakaria:after {
-	background: #626469  
+	background: #626469
 }
 
 .button-default-outline,
@@ -11851,7 +11851,7 @@ p.rights a:hover {
 						brand-section
  **********************************************************/
 .brannddlogo {
-	background-image: url(../images/bg/parallexx.jpg);
+	/*background-image: url(../images/bg/parallexx.jpg);*/
 	position: relative;
 	text-align: center;
 	background-size: cover;
@@ -15165,7 +15165,7 @@ html.ch-navbar-fixed-linked .page {
 	align-items: center;
 	border-radius: 30px;
 	color: inherit;
-	background: #626469  
+	background: #626469
 }
 
 .ch-navbar-corporate.ch-navbar-static .ch-navbar-search-toggle span {
@@ -15204,7 +15204,7 @@ html.ch-navbar-fixed-linked .page {
 	border-width: 1px;
 	border-radius: 30px;
 	border-color: transparent;
-	background: #626469  
+	background: #626469
 }
 
 .ch-navbar-corporate.ch-navbar-static .ch-search .form-label {
@@ -18661,7 +18661,7 @@ html:not(.ie-10):not(.ie-11):not(.ie-edge) .countdown-circle svg {
 }
 
 /*********************************************************
-			       owl-carousel 
+			       owl-carousel
 **********************************************************/
 .owl-carousel .animated {
 	animation-duration: 1000ms;

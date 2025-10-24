@@ -48,8 +48,8 @@ class BlogController extends BaseController
     public function store(BlogRequest $request): JsonResponse
     {
         // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+        $this->service->createOrUpdate($request->validated());
+        //        $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.blogs.index')
@@ -68,12 +68,11 @@ class BlogController extends BaseController
     public function edit(Blog $blog): View
     {
         // For getting other info except current model use service
-        /* return $this->dashboardView(
-            view: 'blog.form',
-            vars: $this->service->getViewData($blog->id),
-            viewMode: 'edit'
-        );*/
-
+        //         return $this->dashboardView(
+        //            view: 'blog.form',
+        //            vars: $this->service->getViewData($blog->id),
+        //            viewMode: 'edit'
+        //        );
         return $this->dashboardView(
             view: 'blog.form',
             vars: ['blog' => $blog],
@@ -89,8 +88,8 @@ class BlogController extends BaseController
             $data['is_active'] = '0';
         }
         // For updating relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated(), $blog->id);
-        $this->repository->update($blog->id, $data);
+        $this->service->createOrUpdate($request->validated(), $blog->id);
+        //        $this->rep    ository->update($blog->id, $data);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.blogs.index')
@@ -104,5 +103,37 @@ class BlogController extends BaseController
         $this->repository->destroy($blog->id);
 
         return $this->sendOkDeleted();
+    }
+
+    //    WEB section ----------------------------------------------------
+    public function getLatestBlogs(): JsonResponse
+    {
+        $blogs = $this->repository->getBlogsData();
+
+        return response()->json($blogs);
+    }
+
+    public function getSingleBlog(int $id): View
+    {
+        $blog = $this->repository->find($id);
+
+        return view('web.single-blog', [
+            'blog' => $blog,
+            'relatedBlogs' => Blog::query()
+                ->where('is_active', true)
+                ->where('id', '!=', $blog->id)
+                ->latest()
+                ->take(2)
+                ->get(),
+        ]);
+    }
+
+    public function getBlogs(): View
+    {
+        $blogs = $this->repository->getBlogsData();
+
+        return view('web.blog', [
+            'blogs' => $blogs,
+        ]);
     }
 }

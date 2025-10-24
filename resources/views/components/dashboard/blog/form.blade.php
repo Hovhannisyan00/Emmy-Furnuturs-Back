@@ -14,12 +14,12 @@
                         </div>
 
                         <div class="form-group required">
-                            <x-dashboard.form._textarea name="description" class="ckeditor5" :value="$blog->description"
+                            <x-dashboard.form._textarea name="description"  :value="$blog->description"
                             />
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group required">
+                        <div class="form-group ">
                             <x-dashboard.form._input name="shortDescription" :value="$blog->shortDescription"/>
                             <br>
                             <br>
@@ -28,6 +28,15 @@
                                 :checked="$blog->is_active ?? 0"
                                 title="Is Active"
                             />
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <x-dashboard.form.uploader._file
+                                    name="photo"
+                                    :value="$blog->photo ?? null"
+                                    :configKey="$blog->getFileConfigName()"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

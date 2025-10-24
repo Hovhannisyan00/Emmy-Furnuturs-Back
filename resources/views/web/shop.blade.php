@@ -67,7 +67,7 @@
             </div>
         </section>
         <!-- Subscribe to Our Newsletter-->
-        <section class="parallax-container call_section"><div class="material-parallax parallax"><img src="images/_blank.png" alt="" style="transform: translate3d(-50%, 1px, 0px);"></div>
+        <section class="parallax-container call_section"><div class="material-parallax parallax"></div>
             <div class="parallax-content section-md context-dark text-lg-left">
                 <div class="container">
                     <div class="row row-30 justify-content-center align-items-center align-items-lg-end">

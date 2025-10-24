@@ -1,4 +1,4 @@
-<x-dashboard.layouts.app>
+    <x-dashboard.layouts.app>
     <div class="container-fluid">
         <div class="card mb-4">
              <x-dashboard.form._form
@@ -12,15 +12,15 @@
                         <div class="form-group required">
                             <x-dashboard.form._input name="name" :value="$ourTeam->name"/>
                         </div>
-
-{{--                        <div class="form-group">--}}
-{{--                            <x-dashboard.form.uploader._file--}}
-{{--                                name="photo"--}}
-{{--                                :value="$ourTeam->photo"--}}
-{{--                                :crop="true"--}}
-{{--                                :configKey="$ourTeam->getFileConfigName()"/>--}}
-{{--                        </div>--}}
                     </div>
+                    <div class="row">
+                        <x-dashboard.form.uploader._file
+                            name="photo"
+                            :value="$ourTeam->photo ?? null"
+                            :configKey="$ourTeam->getFileConfigName()"
+                        />
+                    </div>
+
                     <div class="col-lg-6">
                         <div class="form-group required">
                             <x-dashboard.form._input name="position" :value="$ourTeam->position"/>
@@ -32,6 +32,7 @@
                             <x-dashboard.form._input name="phone" type="phone" :value="$ourTeam->phone"/>
                         </div>
                     </div>
+
                 </div>
              </x-dashboard.form._form>
         </div>

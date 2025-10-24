@@ -12,15 +12,41 @@
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
     <!-- favicon -->
-    <link rel="icon" href="./images/logo-emmy.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset("img/web/logo-emmy.png") }}" type="image/x-icon">
     <!--Style-->
     <link rel="stylesheet" href="{{ asset('css/web/bootstrap.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/web/fonts.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/web/style.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('css/web/style.css') }}">--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/web/footer.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('project/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('project/css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('project/css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 </head>
+<style>
+    .team-classic-list-social {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    .icon.mdi {
+        font-size: 20px;
+        color: #555;
+        transition: color 0.3s;
+    }
+    .icon.mdi:hover {
+        color: #007bff;
+    }
+</style>
 <body>
 <!-- page -->
 <div class="page">
@@ -206,7 +232,7 @@
                                 <div>
                                     <div>
                                         <!-- Owl Carousel-->
-                                        <div class="owl-carousel" data-items="1" data-dots="true" data-autoplay="true"> <img src="images/about/image-1.jpg" class="img-responsive" alt="" /> <img src="images/about/image-4.jpg" class="img-responsive" alt="" /> <img src="images/about/image-8.jpg" class="img-responsive" alt="" /> </div>
+                                        <div class="owl-carousel" data-items="1" data-dots="true" data-autoplay="true"> </div>
                                         <ul class="contacts-modern">
                                             <li><a href="#">272B St#4, 1st Floor<br/>
                                                     DC Office, Washington USA</a></li>
@@ -233,81 +259,8 @@
     {{ $slot }}
 
     <!-- Page Footer-->
-    <footer class="section footer-modern footer-modern-2">
-        <div class="footer-modern-body section-md">
-            <div class="container">
-                <div class="row row-40 row-md-50 justify-content-xl-between">
-                    <div class="col-md-10 col-lg-3 col-xl-4 wow fadeInRight">
-                        <div class="inset-xl-right-70 block-1">
-                            <div class="footer-classic-brand">
-                                <!--Brand-->
-                                <a href="index.html"><img class="logo-default" src="./images/logo-emmy.png" alt=""></a> </div>
-                            <p class="footer-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an unknown printer took a galley book.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
-                        <h5 class="footer-modern-title">Navigation</h5>
-                        <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
-                            <li><a href="{{ route('web.about') }}">About Us</a></li>
-                            <li><a href="{{ route('web.team') }}">Our Team</a></li>
-{{--                            <li><a href="testimonials.html">Testimonials</a></li>--}}
-                            <li><a href="{{ route('web.shop') }}">Shop</a></li>
-                            <li><a href="{{ route('web.contact-us') }}">Contact Us</a></li>
-{{--                            <li><a href="{{ route('web.checkout') }}">Wedding Furnitures</a></li>--}}
-{{--                            <li><a href="{{ route('web.checkout') }}">Birthday Furnitures</a></li>--}}
-{{--                            <li><a href="{{ route('web.checkout') }}">Macarons</a></li>--}}
-{{--                            <li><a href="{{ route('web.checkout') }}">CupFurnitures</a></li>--}}
-{{--                            <li><a href="{{ route('web.checkout') }}">Biscuits</a></li>--}}
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
-                        <h5 class="footer-modern-title">Get in touch</h5>
-                        <ul class="contacts-creative">
-                            <li>
-                                <div class="unit unit-spacing-sm flex-column flex-md-row">
-                                    <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
-                                    <div class="unit-body"><a href="#">272B St#4, 1st Floor<br/>
-                                            DC Office, Washington USA</a></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="unit unit-spacing-sm flex-column flex-md-row">
-                                    <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
-                                    <div class="unit-body"><a href="tel:#">+01-23-4226789</a></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="unit unit-spacing-sm flex-column flex-md-row">
-                                    <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
-                                    <div class="unit-body"><a href="#">hello@example.com</a></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-modern-panel text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="footer-copyright">
-                            <p>
-                                &copy; 2025
-                                <a href="https://www.linkedin.com/in/arsen-hovhannisyan-b861aa347/" target="_blank" rel="noopener noreferrer">Arsen</a>.
-                                All Rights Reserved.
-                                <a href="{{ route('web.privacy.policy') }}">Privacy Policy</a>
-                            </p>
-                        </div>
+    @include('web.components.footer')
 
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="footer-payment-icon"> <a href="#"><img src="images/about/paymentimg.png" alt=""></a> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </div>
 <div class="snackbars" id="form-output-global"></div>
 <script src="{{ asset('js/web/js/header.js') }}"></script>

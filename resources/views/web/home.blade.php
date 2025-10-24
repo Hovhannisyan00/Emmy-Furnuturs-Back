@@ -2,7 +2,7 @@
     <!-- Swiper-->
     <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="true" data-effect="fade">
         <div class="swiper-wrapper">
-            <div class="swiper-slide swiper-slide-1" data-slide-bg="images/slider/slide-1.jpg">
+            <div class="swiper-slide swiper-slide-1" data-slide-bg="{{ asset('img/img.png') }}">
                 <div class="swiper-slide-caption section-md text-sm-left">
                     <div class="container">
                         <div class="row">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide swiper-slide-1" data-slide-bg="images/slider/slide-2.jpg">
+            <div class="swiper-slide swiper-slide-1" data-slide-bg="{{ asset('img/logo_aist.jpg') }}">
                 <div class="swiper-slide-caption section-md text-sm-left">
                     <div class="container">
                         <div class="row">
@@ -82,8 +82,8 @@
         </div>
         </section>
 
-        <!-- What We Offer-->
-        <section class="section section-md bg-default text-md-left">
+    <!-- What We Offer-->
+    <section class="section section-md bg-default text-md-left">
             <div class="container">
                 <div class="row row-70 row-lg-50 justify-content-center align-items-md-center">
                     <div class="col-md-12 col-lg-6 col-xl-6">
@@ -102,22 +102,17 @@
                             <a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">shop now</a> </div>
                     </div>
                     <div class="col-md-12 col-lg-6 col-xl-6">
-                        <div class="decorative-box text-center"><img src="images/about/aboutimg.png" alt="" /> </div>
+                        <div class="decorative-box text-center"><img src="{{asset("img/about/aboutimg.png")}}" alt="" /> </div>
                     </div>
 
                 </div>
             </div>
         </section>
 
-
-
     @include('web.components.product-section')
 
-
-
-        <!-- Testimonials-->
-
-        <section class="section bg-brown-1 call_section_1">
+    <!-- Testimonials-->
+    <section class="section bg-brown-1 call_section_1">
             <div class="parallax-content section-md context-dark">
                 <div class="container">
                     <h3 class="text-spacing-100">Summer sale </h3>
@@ -125,11 +120,12 @@
                     <a class="button button-sm button-shadow-2 button-primary button-zakaria" href="{{ route('web.shop') }}">Shop Now</a> </div>
             </div>
         </section>
-        <!-- Gallery-->
+
+    <!-- Gallery-->
     @include('web.components.gallery')
 
     <!-- Subscribe to Our Newsletter-->
-        <section class="parallax-container call_section">
+    <section class="parallax-container call_section">
             <div class="parallax-content section-md context-dark text-lg-left">
                 <div class="container">
                     <div class="row row-30 justify-content-center align-items-center align-items-lg-end">
@@ -138,9 +134,14 @@
                         </div>
                         <div class="col-xl-7 inset-lg-bottom-10">
                             <!-- RD Mailform-->
-                            <form class="ch-form ch-mailform ch-form-inline ch-form-inline-3 form-lg" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="#">
+                            <form class="ch-form ch-mailform ch-form-inline ch-form-inline-3 form-lg"
+                                  data-form-output="form-output-global"
+                                  data-form-type="subscribe"
+                                  method="post"
+                                  action="{{ route('contact.submit') }}">
+                                @csrf
                                 <div class="form-wrap wow fadeInUp">
-                                    <input class="form-input" id="login-name" type="text" name="name" required/>
+                                    <input class="form-input" id="login-name" type="text" name="first_name" required/>
                                     <label class="form-label" for="login-name">Your name</label>
                                 </div>
                                 <div class="form-wrap wow fadeInUp">
@@ -148,7 +149,7 @@
                                     <label class="form-label" for="contact-email">Your e-mail address</label>
                                 </div>
                                 <div class="form-button wow fadeInRight text-center">
-                                    <button class="button button-zakaria button-sm button-primary" type="submit">send request</button>
+                                    <button class="button button-zakaria button-sm button-primary" type="submit">Send Request</button>
                                 </div>
                             </form>
                         </div>
@@ -157,46 +158,10 @@
             </div>
         </section>
 
-        <section class="section section-md bg-primary-2">
-            <div class="container">
-                <h2 class="text-transform-capitalize wow fadeScale">Our Blog</h2>
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-dots="true" data-mouse-drag="false">
-                    <!-- Post Classic-->
-                    <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href="blog-post.html"><img src="images/blog/blog-home-1.jpg" alt="" /></a>
-                        <div class="post-classic-content">
-                            <div class="post-classic-time">
-                                <time datetime="2019-08-09">August 9, 2023</time>
-                            </div>
-                            <h4 class="post-classic-title"><a href="blog-post.html">Lorem Ipsum is simply dummy printing</a></h4>
-                            <p class="post-classic-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi.</p>
-                        </div>
-                    </article>
-                    <!-- Post Classic-->
-                    <article class="post post-classic box-md wow slideInUp"><a class="post-classic-figure" href="blog-post.html"><img src="images/blog/blog-home-2.jpg" alt=""/></a>
-                        <div class="post-classic-content">
-                            <div class="post-classic-time">
-                                <time datetime="2019-08-09">August 9, 2023</time>
-                            </div>
-                            <h4 class="post-classic-title"><a href="blog-post.html">Lorem Ipsum is Simply</a></h4>
-                            <p class="post-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the dummy text ever since the 1500s...</p>
-                        </div>
-                    </article>
-                    <!-- Post Classic-->
-                    <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href="blog-post.html"><img src="images/blog/blog-home-3.jpg" alt="" /></a>
-                        <div class="post-classic-content">
-                            <div class="post-classic-time">
-                                <time datetime="2019-08-09">August 9, 2023</time>
-                            </div>
-                            <h4 class="post-classic-title"><a href="blog-post.html">Lorem Ipsum is simply dummy printing</a></h4>
-                            <p class="post-classic-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco nisi.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+    <!-- Our Blog-->
+    @include('web.components.our-blog')
 
-        <!-- Our brand-->
+    <!-- Our brand-->
     @include('web.components.our-brand')
 
 </x-web-layout>

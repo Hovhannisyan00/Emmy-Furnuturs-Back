@@ -20,12 +20,23 @@ class ProductController extends Controller
 
     public function index(): View
     {
-        $products = $this->repository->all();
+        return view('web.products', [
+            'products' => $this->repository->all()
+        ]);
+    }
+
+
+    public function getProductForCategories($categoryId): View
+    {
+        $categoryId = (int) $categoryId;
+
+        $products = $this->repository->getTargetProducts($categoryId);
 
         return view('web.products', [
             'products' => $products,
         ]);
     }
+
 
     public function getEightProducts(): JsonResponse
     {

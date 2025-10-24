@@ -26,7 +26,7 @@
                 <div class="text-center">
                     <div class="container">
                         <div class="title-modern">404</div>
-                        <h3 class="font-weight-light text-spacing-100">Page Not Found</h3><a class="button button-sm button-primary button-zakaria" href="index.html">Go to home page</a>
+                        <h3 class="font-weight-light text-spacing-100">Page Not Found</h3><a class="button button-sm button-primary button-zakaria" href="{{route('web.home')}}">Go to home page</a>
                     </div>
 
                 </div>

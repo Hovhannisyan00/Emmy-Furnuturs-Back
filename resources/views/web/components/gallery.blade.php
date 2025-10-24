@@ -21,16 +21,15 @@
         </div>
     </div>
 </section>
-<script>
-    const productBaseUrl = "{{ url('/product') }}";
-</script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    const BaseUrlProduct = "{{ url('/product') }}";
+
+    document.addEventListener('DOMContentLoaded', async function () {
         let iso = null;
-
-        // Initialize Isotope once the DOM is ready
         const grid = document.querySelector('.isotope');
+        const galleryContainer = document.getElementById('gallery-products');
+
         if (grid) {
             iso = new Isotope(grid, {
                 itemSelector: '.isotope-item',
@@ -38,46 +37,57 @@
             });
         }
 
-        // Then load the products
-        loadGalleryProducts(iso);
-    });
+        galleryContainer.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        `;
 
-    function loadGalleryProducts(iso) {
-        axios.get('/products/get-eight')
-            .then(response => {
-                const products = response.data.slice(0, 6);
-                const galleryContainer = document.getElementById('gallery-products');
+        try {
+            const response = await axios.get('{{ url('/products/get-eight') }}');
+            const data = response.data;
+            const products = Array.isArray(data)
+                ? data.slice(0, 6)
+                : Array.isArray(data.data)
+                    ? data.data.slice(0, 6)
+                    : [];
 
-                if (products.length === 0) {
-                    galleryContainer.innerHTML = '<div class="col-12 text-center"><p>No products available</p></div>';
-                    return;
-                }
+            if (products.length === 0) {
+                galleryContainer.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <p>No products available</p>
+                    </div>
+                `;
+                return;
+            }
 
-                let html = '';
-                products.forEach((product, index) => {
-                    const productImage = product.photo1 ? product.photo1.file_url : '/images/no-image.png';
-                    const productName = product.name || 'Product';
-                    const productPrice = product.price ? '$' + parseFloat(product.price).toFixed(2) : '$0.00';
-                    const productId = product.id;
-                    const filterType = index % 2 === 0 ? 'Type 1' : 'Type 2';
+            let html = '';
+            products.forEach((product, index) => {
+                const productImage = product.photo1 ? product.photo1.file_url : '/images/no-image.png';
+                const productName = product.name || 'Product';
+                const productPrice = product.price ? '$' + parseFloat(product.price).toFixed(2) : '$0.00';
+                const productId = product.id;
+                const filterType = index % 2 === 0 ? 'Type 1' : 'Type 2';
 
-                    html += `
+                html += `
                     <div class="col-sm-6 col-md-6 col-xl-4 isotope-item" data-filter="${filterType}">
                         <article class="thumbnail-classic block-1">
                             <div class="thumbnail-classic-figure">
                                 <img src="${productImage}" alt="${productName}" width="370" height="315"
-                                    onerror="this.src='images/grid-gallery/image-1.jpg'"/>
+                                     onerror="this.src='images/grid-gallery/image-1.jpg'"/>
                             </div>
                             <div class="thumbnail-classic-caption">
                                 <div>
                                     <h5 class="thumbnail-classic-title">
-                                        <a href="/product/${productId}">${productName}</a>
+                                        <a href="${BaseUrlProduct}/${productId}">${productName}</a>
                                     </h5>
                                     <div class="thumbnail-classic-price">${productPrice}</div>
                                     <div class="thumbnail-classic-button-wrap">
                                         <div class="thumbnail-classic-button">
                                             <a class="button button-gray-6 button-zakaria fl-bigmug-line-search74"
-                                                 href="${productBaseUrl}/${product.id}">${product.name}>
+                                                 href="${BaseUrlProduct}/${productId}">
                                                 <img src="${productImage}" alt="${productName}" width="370" height="315"/>
                                             </a>
                                         </div>
@@ -90,20 +100,22 @@
                             </div>
                         </article>
                     </div>`;
-                });
-
-                galleryContainer.innerHTML = html;
-
-                // Refresh Isotope layout safely
-                if (iso) {
-                    iso.reloadItems();
-                    iso.arrange();
-                }
-            })
-            .catch(error => {
-                console.error('Error loading gallery products:', error);
-                document.getElementById('gallery-products').innerHTML =
-                    '<div class="col-12 text-center"><p>Error loading products. Please try again later.</p></div>';
             });
-    }
+
+            galleryContainer.innerHTML = html;
+
+            if (iso) {
+                iso.reloadItems();
+                iso.arrange();
+            }
+
+        } catch (error) {
+            console.error('❌ Error loading gallery products:', error);
+            galleryContainer.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <p>Error loading products. Please try again later.</p>
+                </div>
+            `;
+        }
+    });
 </script>

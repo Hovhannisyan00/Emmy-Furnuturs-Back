@@ -55,22 +55,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="button button-sm button-primary button-zakaria" href="grid-shop.html">shop now</a> </div>
+                        <a class="button button-sm button-primary button-zakaria" href="{{route('web.shop')}}">shop now</a> </div>
                     <div class="col-md-11 col-lg-6 col-xl-7">
                         <div class="slick-slider-1 inset-xl-left-35">
                             <!-- Slick Carousel-->
-                            <div class="slick-slider carousel-parent slick-nav-1 slick-nav-2" id="carousel-parent" data-items="1" data-autoplay="true" data-slide-effect="true" data-child="#child-carousel" data-for="#child-carousel" data-arrows="true">
-                                <div class="item"><img src="images/about/about-big-1.jpg" alt="" width="634" height="373"/> </div>
-                                <div class="item"><img src="images/about/about-big-2.jpg" alt="" width="634" height="373"/> </div>
-                                <div class="item"><img src="images/about/about-big-3.jpg" alt="" width="634" height="373"/> </div>
-                                <div class="item"><img src="images/about/about-big-4.jpg" alt="" width="634" height="373"/> </div>
-                            </div>
-                            <div class="slick-slider child-carousel" id="child-carousel" data-items="3" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-xxl-items="4" data-for="#carousel-parent">
-                                <div class="item"><img src="images/about/about-mini-1.jpg" alt="" width="143" height="114"/> </div>
-                                <div class="item"><img src="images/about/about-mini-2.jpg" alt="" width="143" height="114"/> </div>
-                                <div class="item"><img src="images/about/about-mini-3.jpg" alt="" width="143" height="114"/> </div>
-                                <div class="item"><img src="images/about/about-mini-4.jpg" alt="" width="143" height="114"/> </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -135,74 +124,8 @@
             </div>
         </section>
         <!-- Our team-->
-        <section class="section section-md bg-default">
-            <div class="container">
-                <h2 class="text-transform-capitalize">Our team</h2>
-                <!-- Owl Carousel-->
-                <div class="owl-carousel" data-items="1" data-sm-items="2" data-md-items="3" data-margin="30" data-dots="true" data-autoplay="true">
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-1.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-2.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-3.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-4.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-2.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                    <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img src="images/team/chef-4.jpg" alt=""/></a>
-                        <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                        <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                            <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                            <li><a class="icon mdi mdi-twitter" href="#"></a></li>
-                            <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
+        @include('web.components.our-team')
+
         <!-- Counter Modern-->
         <section class="parallax-container call_section_1">
             <div class="parallax-content section-md context-dark">
@@ -244,75 +167,7 @@
                 </div>
             </div>
         </section>
-        <!-- Testimonials-->
-        <section class="section section-md bg-primary-2">
-            <div class="container">
-                <h2 class="text-transform-capitalize">Testimonials</h2>
-                <!-- Owl Carousel-->
-                <div class="owl-carousel owl-style-1" data-items="1" data-sm-items="2" data-margin="30" data-dots="true" data-autoplay="true">
-                    <!-- Quote Modern-->
-                    <article class="quote-modern">
-                        <div class="quote-modern-text">
-                            <div class="q">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy.</div>
-                        </div>
-                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left">
-                                <div class="quote-modern-figure"><img src="images/testimonials/thumb1.jpg" alt="" width="62" height="62"/> </div>
-                            </div>
-                            <div class="unit-body">
-                                <div class="quote-modern-author">Peter Mcmillan</div>
-                                <div class="quote-modern-status">Client</div>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Quote Modern-->
-                    <article class="quote-modern">
-                        <div class="quote-modern-text">
-                            <div class="q">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has typesetting been the industry's standach dummy.</div>
-                        </div>
-                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left">
-                                <div class="quote-modern-figure"><img src="images/testimonials/thumb2.jpg" alt="" width="62" height="62"/> </div>
-                            </div>
-                            <div class="unit-body">
-                                <div class="quote-modern-author">Julia Peterson</div>
-                                <div class="quote-modern-status">Client</div>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Quote Modern-->
-                    <article class="quote-modern">
-                        <div class="quote-modern-text">
-                            <div class="q">Lorem Ipsum is simply dummy text of the printing and industry. Lorem Ipsum has been the dummy.</div>
-                        </div>
-                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left">
-                                <div class="quote-modern-figure"><img src="images/testimonials/thumb3.jpg" alt="" width="62" height="62"/> </div>
-                            </div>
-                            <div class="unit-body">
-                                <div class="quote-modern-author">Patrick Goodman</div>
-                                <div class="quote-modern-status">Client</div>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Quote Modern-->
-                    <article class="quote-modern">
-                        <div class="quote-modern-text">
-                            <div class="q">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy.</div>
-                        </div>
-                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left">
-                                <div class="quote-modern-figure"><img src="images/testimonials/thumb4.jpg" alt="" width="62" height="62"/> </div>
-                            </div>
-                            <div class="unit-body">
-                                <div class="quote-modern-author">jane Lee</div>
-                                <div class="quote-modern-status">Client</div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+
         <!-- Our brand-->
         @include('web.components.our-brand')
 

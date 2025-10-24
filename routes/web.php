@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\BlogController;
+use App\Http\Controllers\Dashboard\Categories\CategorieController;
+use App\Http\Controllers\Dashboard\Get_in_touchController;
 use App\Http\Controllers\Dashboard\OrderController;
+use App\Http\Controllers\Dashboard\OurTeamController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Web\Basket\BasketController;
 use App\Http\Controllers\Web\Product\ProductController;
@@ -52,10 +56,9 @@ Route::view('/about', 'web.about-us')->name('web.about');
 Route::view('/team', 'web.team')->name('web.team');
 Route::view('/what-we-offer', 'web.shop')->name('web.what-we-offer');
 Route::view('/shop', 'web.shop')->name('web.shop');
-Route::view('/product', 'web.single-product')->name('web.single-product');
+//Route::view('/product', 'web.single-product')->name('web.single-product');
 Route::view('/faq', 'web.faq')->name('web.faq');
 Route::view('/contact', 'web.contact')->name('web.contact');
-Route::view('/blog', 'web.blog')->name('web.blog');
 Route::view('/gallery', 'web.gallery')->name('web.gallery');
 Route::view('/contact-us', 'web.contact-us')->name('web.contact-us');
 
@@ -70,12 +73,13 @@ Route::view('/privacy-policy', 'web.privacy-policy')->name('web.privacy.policy')
 Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
 
 // Auth user pages
-//Route::view('/cart', 'web.cart')->name('web.cart');
+// Route::view('/cart', 'web.cart')->name('web.cart');
 // Route::get('/cart/{id}', [CartController::class, 'index'])->name('web.cart');
-//Route::view('/checkout', 'web.checkout')->name('web.checkout');
+// Route::view('/checkout', 'web.checkout')->name('web.checkout');
 
 // Product
 Route::get('/products', [ProductController::class, 'index'])->name('web.products');
+Route::get('/product/{categoryId}', [ProductController::class, 'getProductForCategories'])->name('web.products.category');
 Route::get('/products/get-eight', [ProductController::class, 'getEightProducts'])->name('web.getEightProducts');
 Route::get('/product/{id}', [ProductController::class, 'getProduct'])->name('web.get.product');
 
@@ -86,18 +90,29 @@ Route::post('/basket/update', [BasketController::class, 'updateQuantity'])->name
 Route::delete('/basket/remove/{id}', [BasketController::class, 'remove'])->name('basket.remove');
 Route::get('/basket/data', [BasketController::class, 'getData'])->name('basket.data');
 
-
 // Оформление заказа
 Route::get('/checkout', [OrderController::class, 'checkoutPage'])->name('order.checkout');
 Route::get('/orders', [OrderController::class, 'indexes'])->name('order.index'); // История заказов
 Route::get('/orders/{id}', [OrderController::class, 'shows'])->name('order.show'); // Детали заказа
 
+// Blog
+Route::get('/blog', [BlogController::class, 'getBlogs'])->name('web.blog');
+Route::get('/get-latest-blogs', [BlogController::class, 'getLatestBlogs'])->name('web.getLatestBlogs');
+Route::get('/blog/{id}', [BlogController::class, 'getSingleBlog'])->name('web.getSingleBlog');
+
+// get_in_touches
+Route::post('/contact', [Get_in_touchController::class, 'store'])->name('contact.submit');
 
 // Our Partners
-
 Route::get('/our-partners', [PartnerController::class, 'getPartnersData'])->name('web.our-partners');
 
+// Our-teams
+Route::get('/get-team-members', [OurTeamController::class, 'getLatestMembers'])->name('web.getTeamMembers');
+
+// Categories
+Route::get('/categories', [CategorieController::class, 'getCategories'])->name('web.category');
+
 // Example for a catch-all page if needed
-Route::fallback(function () {
-    return view('web.404');
-});
+// Route::fallback(function () {
+//    return view('web.404');
+// });

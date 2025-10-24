@@ -139,6 +139,7 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -157,6 +158,13 @@
                                     </div>
                                 </td>
                                 <td>${{ number_format($item->quantity * $item->product->price, 2) }}</td>
+                                <td>
+                                    <div class="text-center mt-4">
+                                        <button id="export-pdf-btn" class="button button-lg button-primary button-zakaria">
+                                            Export PDF
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                         @empty
                             <tr>
@@ -239,4 +247,30 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.getElementById('export-pdf-btn').addEventListener('click', async () => {
+            const { jsPDF } = window.jspdf;
+
+            // Select the checkout container
+            const element = document.querySelector('.page'); // whole page, or select specific section
+
+            // Use html2canvas to convert HTML to image
+            const canvas = await html2canvas(element, {
+                scale: 2,   // higher scale = better quality
+                useCORS: true
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save('checkout.pdf');
+        });
+    </script>
+
 </x-web-layout>

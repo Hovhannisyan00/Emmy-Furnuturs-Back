@@ -57,7 +57,9 @@
                                     <form action="{{ route('basket.remove', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="button button-sm button-danger">Remove</button>
+                                        <button type="submit" >
+                                            <span class="mdi mdi-trash-can-outline" aria-hidden="true"></span>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

@@ -48,8 +48,8 @@ class OurTeamController extends BaseController
     public function store(OurTeamRequest $request): JsonResponse
     {
         // For storing relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated());
-        $this->repository->create($request->validated());
+        $this->service->createOrUpdate($request->validated());
+        //        $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.our-teams.index')
@@ -68,24 +68,24 @@ class OurTeamController extends BaseController
     public function edit(OurTeam $ourTeam): View
     {
         // For getting other info except current model use service
-        /* return $this->dashboardView(
+        return $this->dashboardView(
             view: 'our-team.form',
             vars: $this->service->getViewData($ourTeam->id),
             viewMode: 'edit'
-        );*/
-
-        return $this->dashboardView(
-            view: 'our-team.form',
-            vars: ['ourTeam' => $ourTeam],
-            viewMode: 'edit'
         );
+
+        //        return $this->dashboardView(
+        //            view: 'our-team.form',
+        //            vars: ['ourTeam' => $ourTeam],
+        //            viewMode: 'edit'
+        //        );
     }
 
     public function update(OurTeamRequest $request, OurTeam $ourTeam): JsonResponse
     {
         // For updating relations, sending emails, ...etc(extra functionality) use service
-        // $this->service->createOrUpdate($request->validated(), $ourTeam->id);
-        $this->repository->update($ourTeam->id, $request->validated());
+        $this->service->createOrUpdate($request->validated(), $ourTeam->id);
+        //        $this->repository->update($ourTeam->id, $request->validated());
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.our-teams.index')
@@ -99,5 +99,13 @@ class OurTeamController extends BaseController
         $this->repository->destroy($ourTeam->id);
 
         return $this->sendOkDeleted();
+    }
+
+    //  web section -----------------------------
+    public function getLatestMembers(): JsonResponse
+    {
+        $data = $this->repository->getLatestMembers();
+
+        return response()->json($data);
     }
 }

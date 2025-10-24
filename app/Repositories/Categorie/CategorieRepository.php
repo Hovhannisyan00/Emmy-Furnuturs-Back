@@ -16,4 +16,13 @@ class CategorieRepository extends BaseRepository implements ICategorieRepository
     public function getCategoriesForSelect(): array {
         return $this->model->pluck('name', 'id')->toArray();
     }
+
+    public function getFooterCategories(): array
+    {
+        return $this->model
+            ->select('id', 'name') // or any other columns
+            ->orderBy('name', 'asc')
+            ->get()
+            ->toArray();
+    }
 }

@@ -26,86 +26,43 @@
                     <div class="col-lg-12 col-xl-12">
                         <div class="inset-xl-right-70">
                             <div class="row row-50 row-md-60">
-                                <div class="col-12">
-                                    <!-- Post Modern-->
-                                    <article class="post post-modern box-xxl">
-                                        <div class="post-modern-panel">
-                                            <div><a class="post-modern-tag" href="#">News</a></div>
-                                            <div>
-                                                <time class="post-modern-time" datetime="2023-08-09">August 9, 2023</time>
+
+                                @foreach($blogs as $blog)
+                                    <div class="col-12">
+                                        <!-- Post Modern-->
+                                        <article class="post post-modern box-xxl">
+                                            <div class="post-modern-panel">
+                                                <div><a class="post-modern-tag" href="#">News</a></div>
+                                                <div>
+                                                    <time class="post-modern-time" datetime="{{ $blog['created_at_formatted'] }}">
+                                                        {{ $blog['created_at_formatted'] }}
+                                                    </time>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h3 class="post-modern-title"><a href="blog-post.html">Lorem Ipsum is simply dummy text of the
-                                                typesetting industry</a></h3><a class="post-modern-figure" href="blog-post.html"><img
-                                                src="images/blog/blog-detail-1.jpg" alt="" width="800" height="394" /></a>
-                                        <p class="post-modern-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                                        </p><a class="post-modern-link" href="blog-post.html">Read more</a>
-                                    </article>
-                                </div>
-                                <div class="col-12">
-                                    <!-- Post Modern-->
-                                    <article class="post post-modern box-xxl">
-                                        <div class="post-modern-panel">
-                                            <div><a class="post-modern-tag" href="#">News</a></div>
-                                            <div>
-                                                <time class="post-modern-time" datetime="2023-08-09">August 9, 2023</time>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-modern-title"><a href="blog-post.html">Lorem Ipsum is simply dummy text of the
-                                                printing and typesetting industry</a></h3><a class="post-modern-figure"
-                                                                                             href="blog-post.html"><img src="images/blog/blog-detail-2.jpg" alt="" width="800"
-                                                                                                                        height="394" /></a>
-                                        <p class="post-modern-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                            industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an
-                                            unknown printer took a galley book lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever </p><a
-                                            class="post-modern-link" href="blog-post.html">Read more</a>
-                                    </article>
-                                </div>
-                                <div class="col-12">
-                                    <!-- Post Modern-->
-                                    <article class="post post-modern box-xxl">
-                                        <div class="post-modern-panel">
-                                            <div><a class="post-modern-tag" href="#">News</a></div>
-                                            <div>
-                                                <time class="post-modern-time" datetime="2023-08-09">August 9, 2023</time>
-                                            </div>
-                                        </div>
-                                        <h3 class="post-modern-title"><a href="blog-post.html">Lorem Ipsum is simply dummy text of the
-                                                printing and typesetting industry</a></h3><a class="post-modern-figure"
-                                                                                             href="blog-post.html"><img src="images/blog/blog-detail-3.jpg" alt="" width="800"
-                                                                                                                        height="394" /></a>
-                                        <p class="post-modern-text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                            industry. Lorem Ipsum has been the industry's standach dummy text ever since the 1500s, when an
-                                            unknown printer took a galley book lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's standach dummy text ever </p><a
-                                            class="post-modern-link" href="blog-post.html">Read more</a>
-                                    </article>
-                                </div>
+                                            <h3 class="post-modern-title">
+                                                <a href="{{ url('blog/'.$blog['id']) }}">
+                                                    {{ $blog['name'] }}
+                                                </a>
+                                            </h3>
+                                            <a class="post-modern-figure" href="{{ url('blog/'.$blog['id']) }}">
+                                                <img src="{{ $blog['photo'] }}" alt="{{ $blog['name'] }}" width="800" height="394" />
+                                            </a>
+                                            <p class="post-modern-text">
+                                                {{ $blog['shortDescription'] }}
+                                            </p>
+                                            <a class="post-modern-link" href="{{ url('blog/'.$blog['id']) }}">Read more</a>
+                                        </article>
+                                    </div>
+                                @endforeach
+
                             </div>
-                            <div class="pagination-wrap">
-                                <!-- Bootstrap Pagination-->
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination">
-                                        <li class="page-item page-item-control disabled"><a class="page-link" href="#"
-                                                                                            aria-label="Previous"><span class="icon" aria-hidden="true"></span></a></li>
-                                        <li class="page-item active"><span class="page-link">1</span></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span
-                                                    class="icon" aria-hidden="true"></span></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         @include('web.components.our-brand')
 
     </div>

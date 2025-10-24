@@ -21,4 +21,13 @@ class ProductRepository extends BaseRepository implements IProductRepository
             ->take(8)
             ->get();
     }
+
+    public function getTargetProducts(int $categoryId): Collection
+    {
+        return $this->model
+            ->where('category_id', $categoryId)
+            ->latest()
+            ->take(8)
+            ->get();
+    }
 }

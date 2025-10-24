@@ -24,51 +24,8 @@
         <section class="section section-sm section-first bg-default">
             <div class="container">
                 <h3 class="font-weight-regular">#1</h3>
-                <div class="row row-lg row-30 justify-content-center">
-                    <div class="col-sm-6 col-md-4">
-                        <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img
-                                    src="images/team/chef-1.jpg" alt="" /></a>
-                            <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                            <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img
-                                    src="images/team/chef-2.jpg" alt="" /></a>
-                            <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                            <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <article class="team-classic box-md"><a class="team-classic-figure" href="#"><img
-                                    src="images/team/chef-3.jpg" alt="" /></a>
-                            <h4 class="team-classic-name"><a href="#">John Doe</a></h4>
-                            <p class="team-classic-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            </p>
-                            <ul class="list-inline team-classic-list-social list-social-2 list-inline-sm">
-                                <li><a class="icon mdi mdi-vk" href="#"></a></li>
-                                <li><a class="icon mdi mdi-telegram" href="#"></a></li>
-                                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
-                                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </div>
+                <!-- Our team-->
+                @include('web.components.our-team')            </div>
         </section>
 
         <!-- Our brand-->

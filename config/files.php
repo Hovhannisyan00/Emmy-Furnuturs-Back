@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Banner\Banner;
+use App\Models\Blog\Blog;
 use App\Models\File\Enums\FileType;
 use App\Models\Gallery\Gallery;
+use App\Models\OurTeam\OurTeam;
 use App\Models\Partner\Partner;
 use App\Models\Product\Product;
 use App\Models\User\User;
@@ -61,6 +63,20 @@ return [
         ],
     ],
     Partner::getClassName() => [
+        'photo' => [
+            'field_name' => 'photo',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ]
+    ],
+    Blog::getClassName() => [
+        'photo' => [
+            'field_name' => 'photo',
+            'file_type' => FileType::IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:10000',
+        ]
+    ],
+    OurTeam::getClassName() => [
         'photo' => [
             'field_name' => 'photo',
             'file_type' => FileType::IMAGE,
