@@ -56,7 +56,6 @@ Route::view('/about', 'web.about-us')->name('web.about');
 Route::view('/team', 'web.team')->name('web.team');
 Route::view('/what-we-offer', 'web.shop')->name('web.what-we-offer');
 Route::view('/shop', 'web.shop')->name('web.shop');
-//Route::view('/product', 'web.single-product')->name('web.single-product');
 Route::view('/faq', 'web.faq')->name('web.faq');
 Route::view('/contact', 'web.contact')->name('web.contact');
 Route::view('/gallery', 'web.gallery')->name('web.gallery');
@@ -81,7 +80,8 @@ Route::view('/terms-and-conditions', 'web.terms')->name('web.terms');
 Route::get('/products', [ProductController::class, 'index'])->name('web.products');
 Route::get('/product/{categoryId}', [ProductController::class, 'getProductForCategories'])->name('web.products.category');
 Route::get('/products/get-eight', [ProductController::class, 'getEightProducts'])->name('web.getEightProducts');
-Route::get('/product/{id}', [ProductController::class, 'getProduct'])->name('web.get.product');
+Route::get('/shop/filter', [ProductController::class, 'filter'])->name('web.shop.filter');
+Route::get('/search-products', [ProductController::class, 'search'])->name('products.search');
 
 // Корзина
 Route::get('/basket', [BasketController::class, 'show'])->name('web.cart');

@@ -23,7 +23,6 @@
             container.innerHTML = '';
             data.forEach((product, index) => {
                 const delay = (index * 0.1).toFixed(1);
-                console.log(product);
                 const html = `
   <div class="col-sm-6 col-md-4 col-lg-3">
     <article class="product wow fadeInRight" data-wow-delay=".${delay}s">

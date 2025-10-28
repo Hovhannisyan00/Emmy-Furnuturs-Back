@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web\Basket;
 use App\Http\Controllers\Dashboard\BaseController;
 use App\Models\Basket\Basket;
 use App\Models\BasketItem\BasketItem;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +23,11 @@ class BasketController extends BaseController
         ]);
     }
 
-    public function add(Request $request)
+    public function add(Request $request): RedirectResponse|JsonResponse
     {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Пожалуйста, войдите, чтобы добавить товар в корзину.');
+        }
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'quantity' => 'nullable|integer|min:1'

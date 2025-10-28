@@ -205,17 +205,7 @@
                         </div>
                         <div class="ch-navbar-main-element">
                             <!-- RD Navbar Search-->
-                            <div class="ch-navbar-search ch-navbar-search-2">
-                                <button class="ch-navbar-search-toggle fas fa-search fa-2x" data-ch-navbar-toggle=".ch-navbar-search"></button>
-                                <form class="ch-search" action="search-results.html" data-search-live="ch-search-results-live" method="GET">
-                                    <div class="form-wrap">
-                                        <input class="ch-navbar-search-form-input form-input" id="ch-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
-                                        <label class="form-label" for="ch-navbar-search-form-input">Search...</label>
-                                        <div class="ch-search-results-live" id="ch-search-results-live"></div>
-                                        <button class="ch-search-form-submit fl-bigmug-line-search74" type="submit"></button>
-                                    </div>
-                                </form>
-                            </div>
+                            @include('web.components.navbar-search')
                             <!-- RD Navbar Basket-->
                             @include('web.components.basket-navbar')
 

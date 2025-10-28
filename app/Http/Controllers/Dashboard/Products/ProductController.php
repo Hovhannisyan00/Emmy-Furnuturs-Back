@@ -97,4 +97,18 @@ class ProductController extends BaseController
 
         return $this->sendOkDeleted();
     }
+
+
+    public function getProduct(int $id): \Illuminate\View\View
+    {
+        $product = $this->repository->find($id);
+
+        $featuredProducts = $this->repository->getFeaturedProducts($id);
+
+        return view('web.single-product', [
+            'product' => $product,
+            'products' => null,
+            'featuredProducts' => $featuredProducts,
+        ]);
+    }
 }

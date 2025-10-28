@@ -1,3 +1,67 @@
+<style>
+    .child-carousel {
+        display: flex !important;      /* Thumbnails in a row */
+        justify-content: flex-start;   /* Align to left */
+        gap: 10px;                     /* Space between thumbnails */
+        margin-top: 15px;
+        flex-wrap: nowrap;             /* All in one line */
+    }
+
+    /* Each thumbnail wrapper */
+    .child-carousel .item {
+        flex: 0 0 auto;                /* Prevent shrinking/stretching */
+    }
+
+    /* Thumbnail images */
+    .child-carousel .thumbnail {
+        width: 100px;                  /* Thumbnail width */
+        height: 100px;                 /* Thumbnail height */
+        object-fit: cover;             /* Keep ratio */
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    /* Active thumbnail highlight */
+    .child-carousel .thumbnail.slick-current {
+        border-color: #007bff;         /* Highlight active */
+        opacity: 1;
+    }
+
+    #child-carousel .slick-track {
+        display: flex !important;
+        gap: 10px;
+    }
+
+    /* Убираем надписи Prev/Next и оставляем только стрелки */
+    .slick-prev,
+    .slick-next {
+        font-size: 0 !important;       /* скрывает текст */
+        background: none !important;   /* убирает фон */
+        border: none !important;
+        outline: none !important;
+    }
+
+    /* Добавляем чёрные стрелки */
+    .slick-prev:before,
+    .slick-next:before {
+        color: #000 !important;        /* чёрный цвет стрелок */
+        opacity: 1 !important;
+        font-size: 32px !important;    /* размер стрелок */
+        line-height: 1;
+    }
+
+    /* Влево и вправо */
+    .slick-prev:before {
+        content: "←" !important;
+    }
+
+    .slick-next:before {
+        content: "→" !important;
+    }
+
+
+</style>
 <x-web-layout>
     <div class="page">
         <!--+breadcrumbs-->
@@ -12,8 +76,8 @@
             <div class="breadcrumbs-custom-footer">
                 <div class="container">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="grid-shop.html">Shop</a></li>
+                        <li><a href="{{route('web.home')}}}">Home</a></li>
+                        <li><a href={{ route('web.shop') }}>Shop</a></li>
                         <li class="active">Single Product</li>
                     </ul>
                 </div>
@@ -25,38 +89,35 @@
                 <div class="row row-30">
                     <div class="col-lg-6">
                         <div class="slick-vertical slick-product">
-                            <!-- Slick Carousel-->
+                            <!-- Main Carousel -->
                             <div class="slick-slider carousel-parent" id="carousel-parent" data-items="1" data-swipe="true" data-child="#child-carousel" data-for="#child-carousel">
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo1->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo2->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo3->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
+                                @foreach([$product->photo1, $product->photo2, $product->photo3, $product->photo4] as $photo)
+                                    @if($photo)
+                                        <div class="item">
+                                            <div class="slick-product-figure">
+                                                <img src="{{ $photo->file_url }}" alt="" width="530" height="480"/>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
-                            <div class="slick-slider child-carousel slick-nav-1" id="child-carousel" data-arrows="true" data-items="3" data-sm-items="3" data-md-items="3" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-md-vertical="true" data-for="#carousel-parent">
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url ||  $product->photo3->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo3->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slick-product-figure"><img src="{{ $product->photo4->file_url }}" alt="" width="530" height="480"/>
-                                    </div>
-                                </div>
+
+                            <!-- Thumbnails -->
+                            <div class="slick-slider child-carousel slick-nav-1" id="child-carousel" data-arrows="true" data-items="3">
+                                @foreach([$product->photo1, $product->photo2, $product->photo3, $product->photo4] as $photo)
+                                    @if($photo)
+                                        <div class="item">
+                                            <div class="slick-product-figure">
+                                                <img src="{{ $photo->file_url }}" alt="" width="100" height="100" class="thumbnail"/>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+
+                            <div class="col-lg-6">
                         <div class="single-product">
                             <h3 class="text-transform-none font-weight-medium">{{ $product->name }}</h3>
                             <div class="group-md group-middle">
@@ -81,7 +142,7 @@
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="quantity" id="quantity-hidden" value="1">
-                                    <button type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
+                                    <button id="add-to-cart"  type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
                                 </form>
                             </div>
                             <hr class="hr-gray-100">
@@ -105,7 +166,7 @@
                         <div class="tab-pane fade show active" id="tabs-1-1">
                             <div class="box-comment">
                                 <div class="unit flex-column flex-sm-row unit-spacing-md">
-                                    <div class="unit-left"><a class="box-comment-figure" href="#"><img src="images/testimonials/thumb1.jpg" alt="" width="119" height="119"/></a></div>
+                                    <div class="unit-left"><a class="box-comment-figure" href="#"><img src="" alt="" width="119" height="119"/></a></div>
                                     <div class="unit-body">
                                         <div class="group-sm group-justify">
                                             <div>
@@ -150,82 +211,7 @@
             </div>
         </section>
         <!-- Related Products-->
-        <section class="section section-md section-last bg-primary-2">
-            <div class="container">
-                <h4 class="font-weight-sbold">Featured Products</h4>
-                <div class="row row-lg row-30 row-lg-50 justify-content-center">
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <!-- Product-->
-                        <article class="product">
-                            <div class="product-body">
-                                <div class="product-figure"><img src="images/shop/shop-1.png" alt="" width="220" height="160"/>
-                                </div>
-                                <h5 class="product-title"><a href="single-product.html">Lorem ipsum dolor</a></h5>
-                                <div class="product-price-wrap">
-                                    <div class="product-price product-price-old">$30.00</div>
-                                    <div class="product-price">$17.00</div>
-                                </div>
-                            </div><span class="product-badge product-badge-sale">Sale</span>
-                            <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-gray-14 button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                                <div class="product-button"><a class="button button-primary-2 button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <!-- Product-->
-                        <article class="product">
-                            <div class="product-body">
-                                <div class="product-figure"><img src="images/shop/shop-3.png" alt="" width="128" height="220"/>
-                                </div>
-                                <h5 class="product-title"><a href="single-product.html">Lorem ipsum dolor</a></h5>
-                                <div class="product-price-wrap">
-                                    <div class="product-price">$13.00</div>
-                                </div>
-                            </div>
-                            <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-gray-14 button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                                <div class="product-button"><a class="button button-primary-2 button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <!-- Product-->
-                        <article class="product">
-                            <div class="product-body">
-                                <div class="product-figure"><img src="images/shop/shop-5.png" alt="" width="145" height="163"/>
-                                </div>
-                                <h5 class="product-title"><a href="single-product.html">Lorem ipsum dolor</a></h5>
-                                <div class="product-price-wrap">
-                                    <div class="product-price">$17.00</div>
-                                </div>
-                            </div>
-                            <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-gray-14 button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                                <div class="product-button"><a class="button button-primary-2 button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-md-5 col-lg-3">
-                        <!-- Product-->
-                        <article class="product">
-                            <div class="product-body">
-                                <div class="product-figure"><img src="images/shop/shop-7.png" alt="" width="117" height="131"/>
-                                </div>
-                                <h5 class="product-title"><a href="single-product.html">Lorem ipsum dolor</a></h5>
-                                <div class="product-price-wrap">
-                                    <div class="product-price">$11.00</div>
-                                </div>
-                            </div>
-                            <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-gray-14 button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                                <div class="product-button"><a class="button button-primary-2 button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('web.components.featured-products', ['featuredProducts' => $featuredProducts])
         <!-- Our brand-->
         @include('web.components.our-brand')
 
@@ -233,11 +219,60 @@
 </x-web-layout>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mainCarousel = document.querySelector('#carousel-parent');
+        const thumbnails = document.querySelectorAll('.child-carousel .thumbnail');
+
+        // Only proceed if the carousel and thumbnails exist
+        if (!mainCarousel || thumbnails.length === 0) return;
+
+        // Initialize Slick if jQuery and Slick are loaded
+        if (typeof $ !== 'undefined' && !$(mainCarousel).hasClass('slick-initialized')) {
+            $(mainCarousel).slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                fade: false,
+                asNavFor: '#child-carousel',
+            });
+
+            $('#child-carousel').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '#carousel-parent',
+                focusOnSelect: true,
+                arrows: true,
+                vertical: false,
+            });
+        }
+
+        // Highlight the first thumbnail safely
+        thumbnails[0].classList.add('slick-current');
+
+        // Add click events for thumbnails
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', function () {
+                thumbnails.forEach(t => t.classList.remove('slick-current'));
+                thumb.classList.add('slick-current');
+
+                if (typeof $ !== 'undefined' && $(mainCarousel).hasClass('slick-initialized')) {
+                    $(mainCarousel).slick('slickGoTo', index);
+                } else {
+                    mainCarousel.querySelectorAll('.item').forEach((item, i) => {
+                        item.style.display = i === index ? 'block' : 'none';
+                    });
+                }
+            });
+        });
+    });
+
+</script>
+<script>
     const addToCartBtn = document.getElementById('add-to-cart');
     const quantityInput = document.getElementById('quantity-input');
 
     addToCartBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // отменяем обычный клик
+        e.preventDefault();
 
         const formData = new FormData();
         formData.append('product_id', "{{ $product->id }}");
@@ -250,7 +285,6 @@
         })
             .then(response => response.json())
             .then(data => {
-                // Можно показывать уведомление или обновлять счетчик корзины
                 alert(data.message || "Товар добавлен в корзину!");
             })
             .catch(error => console.error('Ошибка:', error));

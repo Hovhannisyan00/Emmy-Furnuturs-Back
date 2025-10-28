@@ -17,6 +17,8 @@ use App\Http\Controllers\Dashboard\User\UserController;
 use App\Models\RoleAndPermission\Enums\RoleType;
 use Illuminate\Support\Facades\Route;
 
+Route::get('product/{id}', [ProductController::class, 'getProduct'])->name('web.product');
+
 $roleAdmin = RoleType::ADMIN;
 
 Route::get('/', [DashboardController::class, 'index'])->name('index');

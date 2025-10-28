@@ -24,4 +24,15 @@ class Product extends BaseModel
         'category_id',
         'discount',
     ];
+    protected $appends = ['old_price'];
+
+    public function getOldPriceAttribute(): ?float
+    {
+        if (!$this->discount) {
+            return null;
+        }
+
+        return $this->price + $this->discount;
+    }
+
 }
