@@ -18,12 +18,13 @@ class Product extends BaseModel
     protected $fillable = [
         'name',
         'description',
-        'price',
         'SKU',
         'quantity',
         'category_id',
         'discount',
+        'price',
     ];
+
     protected $appends = ['old_price'];
 
     public function getOldPriceAttribute(): ?float

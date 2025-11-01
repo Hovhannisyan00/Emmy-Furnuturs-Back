@@ -19,9 +19,7 @@
                     <th data-key="name">{{ __('label.name') }}</th>
                     <th data-key="SKU">{{ __('label.SKU') }}</th>
                     <th data-key="quantity">{{ __('label.quantity') }}</th>
-                    <th data-key="price">{{ __('label.price') }}</th>
                     <th class="text-center">{{ __('label.actions') }}</th>
-
                 </x-dashboard.datatable._table>
             </div>
         </div>

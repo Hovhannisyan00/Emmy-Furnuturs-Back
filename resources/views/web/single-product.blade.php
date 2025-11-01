@@ -60,7 +60,33 @@
         content: "→" !important;
     }
 
+    /* Стили для выбора размера */
+    .size-selection {
+        margin-bottom: 20px;
+    }
 
+    .size-select {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .size-select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    }
+
+    .price-display {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+    }
 </style>
 <x-web-layout>
     <div class="page">
@@ -117,38 +143,67 @@
                         </div>
                     </div>
 
-                            <div class="col-lg-6">
+                    <div class="col-lg-6">
                         <div class="single-product">
                             <h3 class="text-transform-none font-weight-medium">{{ $product->name }}</h3>
                             <div class="group-md group-middle">
-                                <div class="single-product-price">{{ $product->price }}</div>
-                                <div class="single-product-rating"><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span class="icon mdi mdi-star-half"></span></div>
+                                <!-- Обновленное отображение цены -->
+                                <div class="single-product-price" id="price-display">
+                                    @if($product->sizes->count() > 1)
+                                        From {{ $product->sizes->min('price') }} руб.
+                                    @elseif($product->sizes->count() === 1)
+                                        {{ $product->sizes->first()->price }} руб.
+                                    @else
+                                        {{ $product->price }} руб.
+                                    @endif
+                                </div>
+                                <div class="single-product-rating">
+                                    <span class="icon mdi mdi-star"></span>
+                                    <span class="icon mdi mdi-star"></span>
+                                    <span class="icon mdi mdi-star"></span>
+                                    <span class="icon mdi mdi-star"></span>
+                                    <span class="icon mdi mdi-star-half"></span>
+                                </div>
                             </div>
                             <p>{{ $product->description }}</p>
                             <hr class="hr-gray-100">
                             <ul class="list list-description">
-
                                 <li><span>Categories:</span><span>{{ $product->categories->name }}</span></li>
                                 <li><span>Weight:</span><span>0.5 kg</span></li>
                                 <li><span>Box:</span><span>60 x 60 x 90 cm</span></li>
                             </ul>
-                            <div class="group-xs group-middle">
 
+                            <!-- Выбор размера -->
+                            @if($product->sizes->isNotEmpty())
+                                <div class="size-selection">
+                                    <label for="size-select" style="display: block; margin-bottom: 8px; font-weight: bold;">Select Size:</label>
+                                    <select id="size-select" class="size-select" name="size_id">
+                                        <option value="">Choose a size</option>
+                                        @foreach($product->sizes as $size)
+                                            <option value="{{ $size->id }}" data-price="{{ $size->price }}">
+                                                {{ $size->size }} - {{ $size->price }} руб.
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            @endif
+
+                            <div class="group-xs group-middle">
                                 <div class="product-stepper">
                                     <input id="quantity-input" class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
                                 </div>
 
-                                <form action="{{ route('basket.add') }}" method="POST" class="d-inline-block ms-2">
+                                <form action="{{ route('basket.add') }}" method="POST" class="d-inline-block ms-2" id="add-to-cart-form">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="quantity" id="quantity-hidden" value="1">
-                                    <button id="add-to-cart"  type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
+                                    <input type="hidden" name="size_id" id="size-id-hidden" value="">
+                                    <button id="add-to-cart" type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
                                 </form>
                             </div>
                             <hr class="hr-gray-100">
 
                             @include('web.components.social-media')
-
                         </div>
                     </div>
                 </div>
@@ -184,7 +239,6 @@
                                 </div>
                             </div>
                             <h4 class="text-transform-none font-weight-medium">Leave a Review</h4>
-
                         </div>
                         <div class="tab-pane fade" id="tabs-1-2">
                             <div class="single-product-info">
@@ -214,7 +268,6 @@
         @include('web.components.featured-products', ['featuredProducts' => $featuredProducts])
         <!-- Our brand-->
         @include('web.components.our-brand')
-
     </div>
 </x-web-layout>
 
@@ -223,10 +276,8 @@
         const mainCarousel = document.querySelector('#carousel-parent');
         const thumbnails = document.querySelectorAll('.child-carousel .thumbnail');
 
-        // Only proceed if the carousel and thumbnails exist
         if (!mainCarousel || thumbnails.length === 0) return;
 
-        // Initialize Slick if jQuery and Slick are loaded
         if (typeof $ !== 'undefined' && !$(mainCarousel).hasClass('slick-initialized')) {
             $(mainCarousel).slick({
                 slidesToShow: 1,
@@ -264,29 +315,56 @@
                 }
             });
         });
-    });
 
-</script>
-<script>
-    const addToCartBtn = document.getElementById('add-to-cart');
-    const quantityInput = document.getElementById('quantity-input');
+        // Обработчик выбора размера
+        const sizeSelect = document.getElementById('size-select');
+        const sizeIdHidden = document.getElementById('size-id-hidden');
+        const priceDisplay = document.getElementById('price-display');
 
-    addToCartBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+        if (sizeSelect) {
+            sizeSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const sizeId = this.value;
+                const price = selectedOption.getAttribute('data-price');
 
-        const formData = new FormData();
-        formData.append('product_id', "{{ $product->id }}");
-        formData.append('quantity', quantityInput.value);
-        formData.append('_token', "{{ csrf_token() }}");
+                // Обновляем скрытое поле с ID размера
+                sizeIdHidden.value = sizeId;
 
-        fetch("{{ route('basket.add') }}", {
-            method: "POST",
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message || "Товар добавлен в корзину!");
+                // Обновляем отображение цены
+                if (sizeId && price) {
+                    priceDisplay.textContent = price + ' руб.';
+                }
+            });
+        }
+
+        // Обновленный обработчик добавления в корзину
+        const addToCartBtn = document.getElementById('add-to-cart');
+        const quantityInput = document.getElementById('quantity-input');
+        const addToCartForm = document.getElementById('add-to-cart-form');
+
+        addToCartBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Проверяем, выбран ли размер (если есть размеры)
+            if (sizeSelect && sizeSelect.value === '') {
+                alert('Пожалуйста, выберите размер');
+                return;
+            }
+
+            // Обновляем скрытое поле количества
+            document.getElementById('quantity-hidden').value = quantityInput.value;
+
+            const formData = new FormData(addToCartForm);
+
+            fetch("{{ route('basket.add') }}", {
+                method: "POST",
+                body: formData
             })
-            .catch(error => console.error('Ошибка:', error));
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message || "Товар добавлен в корзину!");
+                })
+                .catch(error => console.error('Ошибка:', error));
+        });
     });
 </script>

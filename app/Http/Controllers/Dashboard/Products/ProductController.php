@@ -66,16 +66,11 @@ class ProductController extends BaseController
 
     public function edit(Product $product): View
     {
-        // For getting other info except current model use service
-        /* return $this->dashboardView(
-            view: 'product.form',
-            vars: $this->service->getViewData($product->id),
-            viewMode: 'edit'
-        );*/
-
+        $product = $this->repository->find($product->id);
+        $targetCategorie = $product->categories;
         return $this->dashboardView(
             view: 'product.form',
-            vars: ['product' => $product],
+            vars: $this->service->getViewData($product->id),
             viewMode: 'edit'
         );
     }
@@ -97,7 +92,6 @@ class ProductController extends BaseController
 
         return $this->sendOkDeleted();
     }
-
 
     public function getProduct(int $id): \Illuminate\View\View
     {

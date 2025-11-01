@@ -161,39 +161,6 @@
                                     <a class="ch-nav-link" href="{{ route('web.products') }}">Products</a>
                                 </li>
 
-
-                                {{--                                <li class="ch-nav-item"><a class="ch-nav-link" href="#">Elements</a>--}}
-{{--                                    <ul class="ch-menu ch-navbar-megamenu">--}}
-{{--                                        <li class="ch-megamenu-item ch-megamenu-item-1">--}}
-{{--                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-apps"></span><span class="ch-megamenu-text">Elements</span></h6>--}}
-{{--                                            <ul class="ch-megamenu-list">--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="typography.html">Typography</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="icon-lists.html">Icon lists</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="progress-bars.html">Progress bars</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="calls-to-action.html">Calls to action</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tabs-and-accordions.html">Tabs &amp; accochions</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="buttons.html">Buttons</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="tables.html">Tables</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="forms.html">Forms</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="counters.html">Counters</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="grid-system.html">Grid system</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="ch-megamenu-item ch-megamenu-item-2">--}}
-{{--                                            <h6 class="ch-megamenu-title"><span class="ch-megamenu-icon mdi mdi-layers"></span><span class="ch-megamenu-text">Additional pages</span></h6>--}}
-{{--                                            <ul class="ch-megamenu-list">--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="404-page.html">404 Page</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="contact-us.html">Contact Us</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="privacy-policy.html">Privacy Policy</a></li>--}}
-{{--                                                <li class="ch-megamenu-list-item"><a class="ch-megamenu-list-link" href="search-results.html">Search Results</a></li>--}}
-{{--                                            </ul>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="ch-megamenu-item ch-megamenu-banner">--}}
-{{--                                            <div class="ch-megamenu-title"><span class="ch-megamenu-icon mdi icon-side-lamp-1"></span><span class="ch-megamenu-text">Welcome to Our Store</span></div>--}}
-{{--                                            <a class="banner-classic" href="grid-shop.html"><img src="images/about/banner.jpg" alt="" width="300" height="202"/></a> </li>--}}
-{{--                                    </ul>--}}
-{{--                                </li>--}}
                                 <li class="ch-nav-item"><a class="ch-nav-link" href="{{ route('web.shop') }}">Shop</a>
                                     <ul class="ch-menu ch-navbar-dropdown">
                                         <li class="ch-dropdown-item"><a class="ch-dropdown-link" href="{{ route('web.cart') }}">Cart Page</a> </li>

@@ -19,7 +19,6 @@ class ProductSearch extends Search
         return Product::select([
             'id',
             'name',
-            'price',
             'quantity',
             'SKU',
             'category_id',
