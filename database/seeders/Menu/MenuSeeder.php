@@ -132,6 +132,14 @@ class MenuSeeder extends Seeder
                 'type' => 'admin',
                 'role' => [RoleType::ADMIN],
             ],
+            [
+                'title' => 'History',
+                'slug' => 'history',
+                'url' => route('dashboard.histories.index', [], false),
+                'icon' => 'fas fa-history',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
         ];
 
         foreach ($menus as $key => $menu) {

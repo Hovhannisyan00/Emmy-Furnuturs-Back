@@ -1,7 +1,7 @@
 <!-- Our Team -->
 <section class="section section-md bg-default">
     <div class="container">
-        <h2 class="text-transform-capitalize">Our team</h2>
+        <h2 class="text-transform-capitalize">@lang('messages.our_team')</h2>
 
         <!-- Owl Carousel -->
         <div id="team-carousel"
@@ -23,7 +23,7 @@
         // Loading placeholder
         container.html(`
             <article class="team-classic box-md text-center">
-                <p>Loading team members...</p>
+                <p>@lang('messages.loading_team_members')</p>
             </article>
         `);
 
@@ -43,7 +43,7 @@
 
             // If no members
             if (!data.length) {
-                container.html('<p>No team members found.</p>');
+                container.html('<p>@lang('messages.no_team_members')</p>');
                 return;
             }
 
@@ -94,7 +94,7 @@
             console.error('Error loading team members:', error);
             container.html(`
                 <article class="team-classic box-md text-center text-danger">
-                    <p>Failed to load team members.</p>
+                    <p>@lang('messages.failed_load_team')</p>
                 </article>
             `);
         }
@@ -102,5 +102,3 @@
 
     document.addEventListener('DOMContentLoaded', fetchTeamMembers);
 </script>
-
-

@@ -2,12 +2,12 @@
 <section class="section section-md bg-default">
     <div class="container-fluid isotope-wrap isotope-custom-2">
         <div class="isotope-filters">
-            <button class="isotope-filters-toggle button button-sm button-icon button-icon-right button-default-outline" data-custom-toggle=".isotope-filters-list" data-custom-toggle-disable-on-blur="true" data-custom-toggle-hide-on-blur="true"><span class="icon mdi mdi-chevron-down"></span>Filter</button>
+            <button class="isotope-filters-toggle button button-sm button-icon button-icon-right button-default-outline" data-custom-toggle=".isotope-filters-list" data-custom-toggle-disable-on-blur="true" data-custom-toggle-hide-on-blur="true"><span class="icon mdi mdi-chevron-down"></span>@lang('messages.filter')</button>
             <div class="isotope-filters-list-wrap">
                 <ul class="isotope-filters-list">
-                    <li><a class="active" href="#" data-isotope-filter="*">View all</a></li>
-                    <li><a href="#" data-isotope-filter="Type 1">Furnitures</a></li>
-                    <li><a href="#" data-isotope-filter="Type 2">Other pastry</a></li>
+                    <li><a class="active" href="#" data-isotope-filter="*">@lang('messages.view_all')</a></li>
+                    <li><a href="#" data-isotope-filter="Type 1">@lang('messages.furnitures')</a></li>
+                    <li><a href="#" data-isotope-filter="Type 2">@lang('messages.other_pastry')</a></li>
                 </ul>
             </div>
         </div>
@@ -15,12 +15,13 @@
             <!-- Products will be loaded here -->
             <div class="col-12 text-center py-5">
                 <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    <span class="visually-hidden">@lang('messages.loading')</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
     const BaseUrlProduct = "{{ url('/product') }}";
@@ -40,7 +41,7 @@
         galleryContainer.innerHTML = `
             <div class="col-12 text-center py-5">
                 <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    <span class="visually-hidden">@lang('messages.loading')</span>
                 </div>
             </div>
         `;
@@ -57,7 +58,7 @@
             if (products.length === 0) {
                 galleryContainer.innerHTML = `
                     <div class="col-12 text-center py-5">
-                        <p>No products available</p>
+                        <p>@lang('messages.no_products_available')</p>
                     </div>
                 `;
                 return;
@@ -110,10 +111,10 @@
             }
 
         } catch (error) {
-            console.error('❌ Error loading gallery products:', error);
+            console.error('❌ @lang('messages.gallery_load_error'):', error);
             galleryContainer.innerHTML = `
                 <div class="col-12 text-center py-5">
-                    <p>Error loading products. Please try again later.</p>
+                    <p>@lang('messages.gallery_error_message')</p>
                 </div>
             `;
         }

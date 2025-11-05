@@ -1,18 +1,16 @@
 <section class="section section-md bg-primary-2">
     <div class="container">
-        <h2 class="text-transform-capitalize wow fadeScale">Our Products</h2>
+        <h2 class="text-transform-capitalize wow fadeScale">@lang('messages.our_products')</h2>
         <div id="products-container" class="row row-lg row-30 row-lg-30">
             <!-- JS вставит сюда продукты -->
         </div>
     </div>
 </section>
 
-
 <script>
     const productBaseUrl = "{{ url('/product') }}";
     const cardUrl = "{{ url('/basket') }}";
 </script>
-
 
 <script>
     async function fetchProducts() {
@@ -21,6 +19,12 @@
             const data = await response.json();
             const container = document.getElementById('products-container');
             container.innerHTML = '';
+
+            if (!Array.isArray(data) || data.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><p>@lang('messages.no_products_available')</p></div>';
+                return;
+            }
+
             data.forEach((product, index) => {
                 const delay = (index * 0.1).toFixed(1);
                 const html = `
@@ -52,11 +56,13 @@
       <div class="product-button-wrap">
         <div class="product-button">
           <a class="button button-gray-14 button-zakaria ch-navbar-basket fas ch-navbar-search-toggle fas fa-search fa-2x"
-             href="${productBaseUrl}/${product.id}"></a>
+             href="${productBaseUrl}/${product.id}"
+             title="@lang('messages.view_details')"></a>
         </div>
         <div class="product-button">
           <a class="button button-primary-2 button-zakaria ch-navbar-basket fas fa-shopping-cart"
-             href="${cardUrl}/${product.id}"></a>
+             href="${cardUrl}/${product.id}"
+             title="@lang('messages.add_to_cart')"></a>
         </div>
       </div>
     </article>
@@ -67,6 +73,8 @@
 
         } catch (error) {
             console.error(error);
+            const container = document.getElementById('products-container');
+            container.innerHTML = '<div class="col-12 text-center"><p>@lang('messages.loading_error')</p></div>';
         }
     }
 

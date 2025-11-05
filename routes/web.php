@@ -12,6 +12,8 @@ use App\Http\Controllers\Web\Basket\BasketController;
 use App\Http\Controllers\Web\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('language/{locale}', function ($locale) {
+    if (!in_array($locale, ['en', 'ru'])) {
+        abort(400);
+    }
+
+    $cookie = cookie('locale', $locale, 60 * 24 * 30);
+
+    app()->setLocale($locale);
+
+    return redirect()->back()->withCookie($cookie);
+})->name('language.switch');
+
+
+
 
 Auth::routes(['register' => false, 'reset' => false]);
 

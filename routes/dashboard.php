@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
 use App\Http\Controllers\Dashboard\GalleryController;
 use App\Http\Controllers\Dashboard\Get_in_touchController;
+use App\Http\Controllers\Dashboard\HistoryController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\OurTeamController;
 use App\Http\Controllers\Dashboard\PartnerController;
@@ -81,6 +82,10 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     // Partners
     Route::resource('partners', PartnerController::class);
     Route::get('partners/dataTable/get-list', [PartnerController::class, 'getListData'])->name('partners.getListData');
+
+    // Histories
+    Route::resource('histories', HistoryController::class);
+    Route::get('histories/dataTable/get-list', [HistoryController::class, 'getListData'])->name('histories.getListData');
 });
 
 // Profile

@@ -113,7 +113,7 @@
     <form class="ch-search" action="{{ route('products.search') }}" method="GET">
         <div class="form-wrap">
             <input class="ch-navbar-search-form-input form-input" id="ch-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
-            <label class="form-label" for="ch-navbar-search-form-input">Search products...</label>
+            <label class="form-label" for="ch-navbar-search-form-input">@lang('messages.search_placeholder')</label>
             <div class="ch-search-results-live" id="ch-search-results-live"></div>
             <button class="ch-search-form-submit fl-bigmug-line-search74" type="submit"></button>
         </div>
@@ -158,7 +158,7 @@
                         resultsContainer.innerHTML = '';
 
                         if (products.length === 0) {
-                            resultsContainer.innerHTML = '<div class="no-results">No products found</div>';
+                            resultsContainer.innerHTML = '<div class="no-results">@lang('messages.no_products_found')</div>';
                         } else {
                             const list = document.createElement('ul');
                             list.classList.add('search-results-list');
@@ -166,7 +166,7 @@
                             products.forEach(product => {
                                 const item = document.createElement('li');
                                 item.classList.add('search-result-item');
-                                    console.log(product);
+                                console.log(product);
                                 // Generate proper image URL
                                 const imageUrl = product.image
                                     ? `{{ asset('') }}/${product.image}`
@@ -193,7 +193,7 @@
                     })
                     .catch(err => {
                         console.error('Search error:', err);
-                        resultsContainer.innerHTML = '<div class="no-results">Error loading results</div>';
+                        resultsContainer.innerHTML = '<div class="no-results">@lang('messages.search_error')</div>';
                         resultsContainer.classList.add('active');
                     });
             }, 300);

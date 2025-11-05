@@ -13,13 +13,33 @@
     document.addEventListener('DOMContentLoaded', async () => {
         const carousel = $('#partners-carousel');
 
+        // Показываем сообщение о загрузке
+        carousel.html(`
+            <article class="box-md text-center">
+                <p>@lang('messages.loading_partners')</p>
+            </article>
+        `);
+
         try {
             const response = await fetch('{{ route('web.our-partners') }}');
+            if (!response.ok) throw new Error('Network response was not ok');
             const partners = await response.json();
 
             // Удаляем старые элементы (если есть)
-            carousel.trigger('destroy.owl.carousel');
+            if (carousel.hasClass('owl-loaded')) {
+                carousel.trigger('destroy.owl.carousel');
+            }
             carousel.html('');
+
+            // Если нет партнеров
+            if (!partners || partners.length === 0) {
+                carousel.html(`
+                    <article class="box-md text-center">
+                        <p>@lang('messages.no_partners')</p>
+                    </article>
+                `);
+                return;
+            }
 
             // Добавляем новые элементы
             partners.forEach(partner => {
@@ -52,7 +72,12 @@
             });
 
         } catch (error) {
-            console.error('Ошибка загрузки партнёров:', error);
+            console.error('@lang('messages.partners_load_error'):', error);
+            carousel.html(`
+                <article class="box-md text-center text-danger">
+                    <p>@lang('messages.failed_load_partners')</p>
+                </article>
+            `);
         }
     });
 </script>

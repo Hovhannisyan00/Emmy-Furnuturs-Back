@@ -95,16 +95,16 @@
             <div class="parallax-container breadcrumbs_section">
                 <div class="breadcrumbs-custom-body parallax-content context-dark">
                     <div class="container">
-                        <h1 class="breadcrumbs-custom-title">Single Product</h1>
+                        <h1 class="breadcrumbs-custom-title">@lang('messages.single_product')</h1>
                     </div>
                 </div>
             </div>
             <div class="breadcrumbs-custom-footer">
                 <div class="container">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="{{route('web.home')}}}">Home</a></li>
-                        <li><a href={{ route('web.shop') }}>Shop</a></li>
-                        <li class="active">Single Product</li>
+                        <li><a href="{{route('web.home')}}">@lang('messages.home')</a></li>
+                        <li><a href="{{ route('web.shop') }}">@lang('messages.shop')</a></li>
+                        <li class="active">@lang('messages.single_product')</li>
                     </ul>
                 </div>
             </div>
@@ -150,11 +150,11 @@
                                 <!-- Обновленное отображение цены -->
                                 <div class="single-product-price" id="price-display">
                                     @if($product->sizes->count() > 1)
-                                        From {{ $product->sizes->min('price') }} руб.
+                                        @lang('messages.price_from') {{ $product->sizes->min('price') }} @lang('messages.currency_rub')
                                     @elseif($product->sizes->count() === 1)
-                                        {{ $product->sizes->first()->price }} руб.
+                                        {{ $product->sizes->first()->price }} @lang('messages.currency_rub')
                                     @else
-                                        {{ $product->price }} руб.
+                                        {{ $product->price }} @lang('messages.currency_rub')
                                     @endif
                                 </div>
                                 <div class="single-product-rating">
@@ -168,20 +168,20 @@
                             <p>{{ $product->description }}</p>
                             <hr class="hr-gray-100">
                             <ul class="list list-description">
-                                <li><span>Categories:</span><span>{{ $product->categories->name }}</span></li>
-                                <li><span>Weight:</span><span>0.5 kg</span></li>
-                                <li><span>Box:</span><span>60 x 60 x 90 cm</span></li>
+                                <li><span>@lang('messages.categories'):</span><span>{{ $product->categories->name }}</span></li>
+                                <li><span>@lang('messages.weight'):</span><span>0.5 kg</span></li>
+                                <li><span>@lang('messages.box'):</span><span>60 x 60 x 90 cm</span></li>
                             </ul>
 
                             <!-- Выбор размера -->
                             @if($product->sizes->isNotEmpty())
                                 <div class="size-selection">
-                                    <label for="size-select" style="display: block; margin-bottom: 8px; font-weight: bold;">Select Size:</label>
+                                    <label for="size-select" style="display: block; margin-bottom: 8px; font-weight: bold;">@lang('messages.select_size'):</label>
                                     <select id="size-select" class="size-select" name="size_id">
-                                        <option value="">Choose a size</option>
+                                        <option value="">@lang('messages.choose_size')</option>
                                         @foreach($product->sizes as $size)
                                             <option value="{{ $size->id }}" data-price="{{ $size->price }}">
-                                                {{ $size->size }} - {{ $size->price }} руб.
+                                                {{ $size->size }} - {{ $size->price }} @lang('messages.currency_rub')
                                             </option>
                                         @endforeach
                                     </select>
@@ -198,7 +198,7 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="quantity" id="quantity-hidden" value="1">
                                     <input type="hidden" name="size_id" id="size-id-hidden" value="">
-                                    <button id="add-to-cart" type="submit" class="button button-lg button-secondary button-zakaria">Add to cart</button>
+                                    <button id="add-to-cart" type="submit" class="button button-lg button-secondary button-zakaria">@lang('messages.add_to_cart')</button>
                                 </form>
                             </div>
                             <hr class="hr-gray-100">
@@ -212,8 +212,8 @@
                     <!-- Nav tabs-->
                     <div class="nav-tabs-wrap">
                         <ul class="nav nav-tabs nav-tabs-1">
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Additional information</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">Delivery and payment</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">@lang('messages.additional_info')</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">@lang('messages.delivery_payment')</a></li>
                         </ul>
                     </div>
                     <!-- Tab panes-->
@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="text-transform-none font-weight-medium">Leave a Review</h4>
+                            <h4 class="text-transform-none font-weight-medium">@lang('messages.leave_review')</h4>
                         </div>
                         <div class="tab-pane fade" id="tabs-1-2">
                             <div class="single-product-info">
@@ -332,7 +332,7 @@
 
                 // Обновляем отображение цены
                 if (sizeId && price) {
-                    priceDisplay.textContent = price + ' руб.';
+                    priceDisplay.textContent = price + ' @lang('messages.currency_rub')';
                 }
             });
         }
@@ -347,7 +347,7 @@
 
             // Проверяем, выбран ли размер (если есть размеры)
             if (sizeSelect && sizeSelect.value === '') {
-                alert('Пожалуйста, выберите размер');
+                alert('@lang('messages.please_select_size')');
                 return;
             }
 
@@ -362,7 +362,7 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    alert(data.message || "Товар добавлен в корзину!");
+                    alert(data.message || "@lang('messages.product_added_to_cart')");
                 })
                 .catch(error => console.error('Ошибка:', error));
         });

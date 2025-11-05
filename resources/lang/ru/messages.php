@@ -1,0 +1,266 @@
+<?php
+return [
+    'welcome' => 'Добро пожаловать в интернет-магазин Emmy Furniture!',
+    'language' => 'Язык',
+    'currency' => 'Валюта',
+    'my_account' => 'Мой аккаунт',
+    'register' => 'Регистрация',
+    'login' => 'Войти',
+    'logout' => 'Выйти',
+    'home' => 'Главная',
+    'pages' => 'Страницы',
+    'about_us' => 'О нас',
+    'what_we_offer' => 'Что мы предлагаем',
+    'our_team' => 'Наша команда',
+    'blog' => 'Блог',
+    'gallery' => 'Галерея',
+    'products' => 'Продукты',
+    'shop' => 'Магазин',
+    'cart_page' => 'Корзина',
+    'checkout' => 'Оформление заказа',
+    // Footer keys
+    'logo_alt' => 'Логотип Emmy',
+    'footer_description' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'categories' => 'Категории',
+    'navigation' => 'Навигация',
+    'address' => '272B St#4, 1st Floor<br>DC Office, Washington, USA',
+    'phone_number' => '+01-23-4226789',
+    'email' => 'hello@example.com',
+    'copyright' => '&copy; :year',
+    'all_rights_reserved' => 'Все права защищены',
+    'privacy_policy' => 'Политика конфиденциальности',
+    'payment_methods_alt' => 'Способы оплаты',
+    // Contact page keys
+    'contact_us' => 'Контакты',
+    'get_in_touch' => 'Свяжитесь с нами',
+    'contact_availability' => 'Мы доступны 24/7 по факсу, электронной почте или телефону. Вы также можете использовать нашу форму быстрой связи, чтобы задать вопрос о нашей продукции.',
+    'first_name' => 'Имя',
+    'last_name' => 'Фамилия',
+    'phone' => 'Телефон',
+    'message' => 'Сообщение',
+    'send_message' => 'Отправить сообщение',
+    // Home page keys
+    'slider_title_1' => 'Настройте свою мебель',
+    'slider_description_1' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'slider_title_2' => 'Настройте свою мебель',
+    'slider_description_2' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'shop_now' => 'Магазин',
+
+    'free_shipping' => 'Контроль качества',
+
+    'free_shipping_desc' => 'Осуществляем многоступенчатый контроль качества на каждом этапе производства',
+
+    'fresh_innovation' => 'Современные технологии',
+
+    'fresh_innovation_desc' => 'Производство мебели ведется на технологичных станках',
+
+    'made_with_love' => 'Выгодные цены',
+
+    'made_with_love_desc' => 'За счет работы без посредников предлагаем конкурентные цены и делаем спецпредложения',
+
+    'what_we_offer_desc_1' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh dolor, gravida faucibus dolor consectetur, pulvinar rhoncus risus. Fusce vel rutrum mi. Suspendisse pretium tellus eu ipsum pellentesque convallis.',
+    'what_we_offer_desc_2' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'feature_1' => 'Sed egestas urna eget ipsum condimentum',
+    'feature_2' => 'Vivamus dapibus massa non orci tincidunt',
+    'feature_3' => 'Maecenas lacinia blandit ligula, at tristique mi sagittis sit',
+    'about_image_alt' => 'О нас',
+    'summer_sale' => 'Летняя распродажа',
+    'summer_sale_desc' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'your_name' => 'Ваше имя',
+    'your_email_address' => 'Ваш адрес электронной почты',
+    'send_request' => 'Отправить запрос',
+    // About page keys
+    'america_best_furniture' => 'Лучшая мебель Америки',
+    'about' => 'О нас',
+    'our_mission' => 'Наша миссия',
+    'our_goals' => 'Наши цели',
+    'about_tab_content' => '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'mission_tab_content' => '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'goals_tab_content' => '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
+    'our_history' => 'Наша история',
+    'establishment' => 'Основание',
+    'establishment_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'first_success' => 'Первый успех',
+    'first_success_content' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'new_technologies' => 'Новые технологии',
+    'new_technologies_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'national_recognition' => 'Национальное признание',
+    'national_recognition_content' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'partnership' => 'Партнерство',
+    'partnership_content' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'exclusive_furnitures' => 'Эксклюзивная<br class="d-none d-sm-block">мебель',
+    'custom_furniture' => 'Индивидуальная<br class="d-none d-sm-block">мебель',
+    'satisfied_clients' => 'Довольных<br class="d-none d-sm-block">клиентов',
+    'team_members' => 'Членов<br class="d-none d-sm-block">команды',
+    // 404 page keys
+    'error_404' => 'Ошибка 404',
+    'elements' => 'Элементы',
+    'page_not_found' => 'Страница не найдена',
+    'go_to_home_page' => 'Перейти на главную страницу',
+    // Blog page keys
+    'blog_list' => 'Список блога',
+    'news' => 'Новости',
+    'read_more' => 'Читать далее',
+    // Cart page keys
+    'product_name' => 'Название товара',
+    'price' => 'Цена',
+    'quantity' => 'Количество',
+    'total' => 'Итого',
+    'action' => 'Действие',
+    'update' => 'Обновить',
+    'cart_empty' => 'Ваша корзина пуста.',
+    'proceed_to_checkout' => 'Перейти к оформлению',
+    'confirm_removal' => 'Подтверждение удаления',
+    'confirm_remove_item' => 'Вы уверены, что хотите удалить',
+    'from_your_cart' => 'из вашей корзины?',
+    'action_cannot_undone' => 'Это действие нельзя отменить.',
+    'cancel' => 'Отмена',
+    'yes_remove' => 'Да, удалить',
+    // Checkout page keys
+    'billing_address' => 'Платежный адрес',
+    'delivery_address' => 'Адрес доставки',
+    'company' => 'Компания',
+    'address1' => 'Адрес',
+    'city_town' => 'Город/Населенный пункт',
+    'same_billing_shipping' => 'Мой платежный адрес и адрес доставки совпадают',
+    'your_shopping_cart' => 'Ваша корзина покупок',
+    'export_pdf' => 'Экспорт PDF',
+    'payment_methods' => 'Способы оплаты',
+    'direct_bank_transfer' => 'Прямой банковский перевод',
+    'bank_transfer_description' => 'Осуществите платеж непосредственно на наш банковский счет. Пожалуйста, используйте ваш идентификатор заказа в качестве ссылки на платеж. Ваш заказ будет отправлен сразу же.',
+    'paypal' => 'PayPal',
+    'paypal_description' => 'Оплата через PayPal; вы можете оплатить кредитной картой, если у вас нет учетной записи PayPal.',
+    'cheque_payment' => 'Оплата чеком',
+    'cheque_description' => 'Пожалуйста, отправьте чек по адресу: Название магазина, Улица магазина, Город магазина, Штат / Округ магазина, Почтовый индекс магазина.',
+    'cart_total' => 'Итог корзины',
+    'cart_subtotal' => 'Промежуточный итог',
+    'shipping' => 'Доставка',
+    'free' => 'Бесплатно',
+    'place_order' => 'Оформить заказ',
+    // Gallery page keys
+    'masonry_gallery' => 'Каменная галерея',
+    // Privacy Policy page keys
+    'privacy_policy_title' => 'Политика в отношении обработки персональных данных',
+    'privacy_section_1_title' => '1. Общие положения',
+    'privacy_section_1_content' => 'Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые общество с ограниченной ответственностью «Эмми» (далее – Оператор).<br><br>
+1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.<br><br>
+1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее – Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта emmymebel.ru. Оператор не контролирует и не несет ответственности за сайты третьих лиц, на которые Пользователь может перейти по ссылкам, доступным на Сайте emmymebel.ru.',
+    'privacy_section_2_title' => '2. Основные понятия, используемые в Политике',
+    'privacy_section_2_content' => '2.1. Автоматизированная обработка персональных данных – обработка персональных данных с помощью средств вычислительной техники;<br>
+2.2. Блокирование персональных данных – временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных);<br>
+2.3. Веб-сайт – совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу emmymebel.ru;<br>
+2.4. Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных, и обеспечивающих их обработку информационных технологий и технических средств;<br>
+2.5. Обезличивание персональных данных — действия, в результате которых невозможно определить без использования дополнительной информации принадлежность персональных данных конкретному Пользователю или иному субъекту персональных данных;<br>
+2.6. Обработка персональных данных – любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных; Оператор осуществляет обработку данных пользователя до момента подачи им заявления на отзыв согласия на обработку персональных данных.<br>
+2.7. Оператор – Администрация сайта, общество с ограниченной ответственностью «Эмми» (ИНН: 7751132780, ОГРН: 5177746275064, Адрес: 108810, г. Москва, пос. Марушкинское, д. Анкудиново, ул. Сосновая д. 8)<br>
+2.8. Персональные данные – любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта emmymebel.ru;<br>
+2.9. Пользователь – любой посетитель веб-сайта emmymebel.ru;<br>
+2.10. Предоставление персональных данных – действия, направленные на раскрытие персональных данных определенному лицу или определенному кругу лиц;<br>
+2.11. Распространение персональных данных – любые действия, направленные на раскрытие персональных данных неопределенному кругу лиц (передача персональных данных) или на ознакомление с персональными данными неограниченного круга лиц, в том числе обнародование персональных данных в средствах массовой информации, размещение в информационно-телекоммуникационных сетях или предоставление доступа к персональным данным каким-либо иным способом;<br>
+2.13. Уничтожение персональных данных – любые действия, в результате которых персональные данные уничтожаются безвозвратно с невозможностью дальнейшего восстановления содержания персональных данных в информационной системе персональных данных и (или) уничтожаются материальные носители персональных данных.',
+    'privacy_section_3_title' => '3. Оператор может обрабатывать следующие персональные данные Пользователя',
+    'privacy_section_3_content' => '3.1. Персональная информация, которую Пользователь предоставляет о себе самостоятельно при регистрации (создании учетной записи) или в процессе использования Сайта и его сервисов, включая персональные данные Пользователя. Обязательная для предоставления Сервисов информация помечена специальным образом. Иная информация предоставляется Пользователем на его усмотрение.<br>
+3.2. Данные, которые автоматически передаются сервисам Сайта в процессе их использования с помощью установленного на устройстве Пользователя программного обеспечения, в том числе IP-адрес, данные файлов cookie, информация о браузере Пользователя (или иной программе, с помощью которой осуществляется доступ к сервисам), технические характеристики оборудования и программного обеспечения, используемых Пользователем, дата и время доступа к сервисам, адреса запрашиваемых страниц, реферер (адрес предыдущей страницы) и иная подобная информация.',
+    'privacy_section_4_title' => '4. Цели обработки персональных данных',
+    'privacy_section_4_content' => '4.1. Сайт собирает и хранит только ту персональную информацию, которая необходима для предоставления информации об услугах или исполнения соглашений и договоров с Пользователем, за исключением случаев, когда законодательством предусмотрено обязательное хранение персональной информации в течение определенного законом срока.<br>
+4.2. Персональную информацию Пользователя Сайт обрабатывает в следующих целях:<br>
+4.2.1. Установления с Пользователем обратной связи, включая направление уведомлений, запросов, касающихся использования Сайта, оказания услуг, обработку запросов и заявок от Пользователя.<br>
+4.2.2. Идентификации Пользователя, зарегистрированного на Сайте, для формирования и исполнения персонализированных предложений и соглашений.<br>
+4.2.3. Предоставления Пользователю доступа к персонализированным ресурсам Сайта.<br>
+4.2.4. Определения места нахождения Пользователя для обеспечения безопасности, предотвращения мошенничества.<br>
+4.2.5. Предоставления Пользователю эффективной клиентской и технической поддержки.<br>
+4.2.6. Направления Пользователю уведомления о новых продуктах и услугах, специальных предложениях и различных событиях. Пользователь всегда может отказаться от получения информационных сообщений, направив Оператору письмо на адрес электронной почты emmy-web@mail.ru с пометкой «Отказ от уведомлений о новых продуктах и услугах и специальных предложениях».<br>
+4.3. Обезличенные данные Пользователей, собираемые с помощью сервисов интернет-статистики, служат для сбора информации о действиях Пользователей на сайте, улучшения качества сайта и его содержания.',
+    // Shop page keys
+    'shop_list' => 'Список магазина',
+    'filter_by_price' => 'Фильтр по цене',
+    'all' => 'Все',
+    'furnitures' => 'Мебель',
+    'macarons' => 'Макаруны',
+    'other_pastry' => 'Другая выпечка',
+    'search_in_shop' => 'Поиск в магазине...',
+    'showing_results' => 'Показано :start–:end из :total результатов',
+    'add_to_cart' => 'Добавить в корзину',
+    'sale' => 'Распродажа',
+    'loading' => 'Загрузка...',
+    'loading_error' => 'Ошибка при загрузке. Попробуйте ещё раз.',
+    'no_products_found' => 'Товары не найдены в этом ценовом диапазоне.',
+    'showing_no_results' => 'Показано 0 результатов',
+    // What We Offer page keys
+    'free_shipping_description' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'fresh_fancy' => 'Свежесть и изысканность',
+    'fresh_fancy_description' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'varied_stylish' => 'Разнообразие и стиль',
+    'varied_stylish_description' => 'Lorem Ipsum - это текст-рыба, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века.',
+    'basic' => 'Базовый',
+    'standard' => 'Стандартный',
+    'premium' => 'Премиум',
+    'round_furnitures' => 'Круглая мебель',
+    'sponge_furnitures' => 'Губчатая мебель',
+    'wedding_furnitures' => 'Свадебная мебель',
+    'square_furnitures' => 'Квадратная мебель',
+    'fruit_furnitures' => 'Фруктовая мебель',
+    'sculpted_furnitures' => 'Скульптурная мебель',
+    'scalloped_furnitures' => 'Волнистая мебель',
+    'chocolate_furnitures' => 'Шоколадная мебель',
+    'celebration_furnitures' => 'Праздничная мебель',
+    'pies' => 'Пироги',
+    // Blog Post page keys
+    'blog_post' => 'Пост блога',
+    'blog_quote' => 'Если рецепт мебели требует масла, доведите его почти до комнатной температуры. Оно согреется при смешивании.',
+    'furniture' => 'Мебель',
+    'share' => 'Поделиться',
+    'related_posts' => 'Похожие посты',
+    // Single Product page keys
+    'single_product' => 'Товар',
+    'price_from' => 'От',
+    'currency_rub' => 'руб.',
+    'weight' => 'Вес',
+    'box' => 'Коробка',
+    'select_size' => 'Выберите размер',
+    'choose_size' => 'Выберите размер',
+    'additional_info' => 'Дополнительная информация',
+    'delivery_payment' => 'Доставка и оплата',
+    'leave_review' => 'Оставить отзыв',
+    'please_select_size' => 'Пожалуйста, выберите размер',
+    'product_added_to_cart' => 'Товар добавлен в корзину!',
+    // Social Media keys
+    'url_copied' => 'Ссылка скопирована в буфер обмена',
+    'copy_failed' => 'Не удалось скопировать ссылку',
+    // Products section keys
+    'our_products' => 'Наши продукты',
+    'no_products_available' => 'Продукты временно недоступны',
+    'view_details' => 'Посмотреть детали',
+    // Team section keys
+    'loading_team_members' => 'Загрузка членов команды...',
+    'no_team_members' => 'Члены команды не найдены',
+    'failed_load_team' => 'Не удалось загрузить членов команды',
+    // Partners/Brands section keys
+    'loading_partners' => 'Загрузка партнеров...',
+    'no_partners' => 'Партнеры не найдены',
+    'partners_load_error' => 'Ошибка загрузки партнёров',
+    'failed_load_partners' => 'Не удалось загрузить партнеров',
+    // Blog section keys
+    'our_blog' => 'Наш блог',
+    'loading_blogs' => 'Загрузка блогов...',
+    'no_blogs' => 'Блоги не найдены',
+    'blogs_load_error' => 'Ошибка загрузки блогов',
+    'failed_load_blogs' => 'Не удалось загрузить блоги',
+    // Search component keys
+    'search_placeholder' => 'Поиск продуктов...',
+    'search_error' => 'Ошибка загрузки результатов',
+    // Gallery component keys
+    'filter' => 'Фильтр',
+    'view_all' => 'Все',
+    'gallery_load_error' => 'Ошибка загрузки галереи',
+    'gallery_error_message' => 'Ошибка загрузки продуктов. Пожалуйста, попробуйте позже.',
+    // Featured Products keys
+    'featured_products' => 'Рекомендуемые продукты',
+    // Basket navbar keys
+    'in_cart' => 'В корзине',
+    'total_price' => 'Общая стоимость',
+    'go_to_cart' => 'Перейти в корзину',
+    'basket_empty' => 'Ваша корзина пуста',
+    'basket_load_error' => 'Ошибка при загрузке корзины',
+    'basket_error_message' => 'Ошибка загрузки корзины',
+];

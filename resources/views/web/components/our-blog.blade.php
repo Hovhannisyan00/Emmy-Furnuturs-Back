@@ -1,6 +1,6 @@
 <section class="section section-md bg-primary-2">
     <div class="container">
-        <h2 class="text-transform-capitalize wow fadeScale">Our Blog</h2>
+        <h2 class="text-transform-capitalize wow fadeScale">@lang('messages.our_blog')</h2>
 
         <div id="blog-carousel"
              class="owl-carousel"
@@ -21,7 +21,7 @@
         const container = $('#blog-carousel');
         container.html(`
             <article class="post post-classic box-md wow fadeIn text-center text-light">
-                <p>Loading blogs...</p>
+                <p>@lang('messages.loading_blogs')</p>
             </article>
         `);
 
@@ -36,6 +36,16 @@
                 container.removeClass('owl-loaded owl-hidden');
             } else {
                 container.html('');
+            }
+
+            // Если нет блогов
+            if (!data || data.length === 0) {
+                container.html(`
+                    <article class="post post-classic box-md wow fadeIn text-center">
+                        <p>@lang('messages.no_blogs')</p>
+                    </article>
+                `);
+                return;
             }
 
             data.forEach((blog, index) => {
@@ -76,10 +86,10 @@
             });
 
         } catch (error) {
-            console.error('Error loading blogs:', error);
+            console.error('@lang('messages.blogs_load_error'):', error);
             container.html(`
                 <article class="post post-classic box-md wow fadeIn text-center text-danger">
-                    <p>Failed to load blogs.</p>
+                    <p>@lang('messages.failed_load_blogs')</p>
                 </article>
             `);
         }

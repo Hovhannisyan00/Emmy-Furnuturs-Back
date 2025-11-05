@@ -9,6 +9,7 @@ use App\Contracts\Coming_soon\IComing_soonRepository;
 use App\Contracts\File\IFileRepository;
 use App\Contracts\Gallery\IGalleryRepository;
 use App\Contracts\Get_in_touch\IGet_in_touchRepository;
+use App\Contracts\History\IHistoryRepository;
 use App\Contracts\Order\IOrderRepository;
 use App\Contracts\OurTeam\IOurTeamRepository;
 use App\Contracts\Partner\IPartnerRepository;
@@ -21,6 +22,7 @@ use App\Repositories\Coming_soon\Coming_soonRepository;
 use App\Repositories\File\FileRepository;
 use App\Repositories\Gallery\GalleryRepository;
 use App\Repositories\Get_in_touch\Get_in_touchRepository;
+use App\Repositories\History\HistoryRepository;
 use App\Repositories\Order\OrderRepository;
 use App\Repositories\OurTeam\OurTeamRepository;
 use App\Repositories\Partner\PartnerRepository;
@@ -53,6 +55,7 @@ class RepositoryServiceProvider extends ServiceProvider
         IGalleryRepository::class => GalleryRepository::class,
         IOrderRepository::class => OrderRepository::class,
         IPartnerRepository::class => PartnerRepository::class,
+        IHistoryRepository::class => HistoryRepository::class
     ];
 
     /**

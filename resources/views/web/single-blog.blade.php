@@ -1,24 +1,24 @@
 <x-web-layout>
-<!--+breadcrumbs-->
-<section class="breadcrumbs-custom">
-    <div class="parallax-container breadcrumbs_section">
-        <div class="breadcrumbs-custom-body parallax-content context-dark">
-            <div class="container">
-                <h1 class="breadcrumbs-custom-title">Blog Post</h1>
+    <!--+breadcrumbs-->
+    <section class="breadcrumbs-custom">
+        <div class="parallax-container breadcrumbs_section">
+            <div class="breadcrumbs-custom-body parallax-content context-dark">
+                <div class="container">
+                    <h1 class="breadcrumbs-custom-title">@lang('messages.blog_post')</h1>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="breadcrumbs-custom-footer">
-        <div class="container">
-            <ul class="breadcrumbs-custom-path">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="grid-blog.html">Blog</a></li>
-                <li class="active">Blog Post</li>
-            </ul>
+        <div class="breadcrumbs-custom-footer">
+            <div class="container">
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{{ url('/') }}">@lang('messages.home')</a></li>
+                    <li><a href="{{ route('web.blog') }}">@lang('messages.blog')</a></li>
+                    <li class="active">@lang('messages.blog_post')</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
-<!-- Section Shop-->
+    </section>
+    <!-- Section Shop-->
     <section class="section section-md bg-default text-md-left">
         <div class="container">
             <div class="row row-50 row-md-60">
@@ -29,7 +29,7 @@
                                 <article class="post post-modern-1">
                                     <div class="post-modern-panel">
                                         <div>
-                                            <a class="post-modern-tag" href="#">News</a>
+                                            <a class="post-modern-tag" href="#">@lang('messages.news')</a>
                                         </div>
                                         <div>
                                             <time class="post-modern-time" datetime="{{ $blog->created_at }}">
@@ -54,8 +54,7 @@
                                 <article class="quote-classic quote-classic-2">
                                     <div class="quote-classic-text">
                                         <div class="q">
-                                            “If a Furniture recipe calls for butter, get it almost room temperature.
-                                            It’ll warm up when mixed.”
+                                            @lang('messages.blog_quote')
                                         </div>
                                     </div>
                                 </article>
@@ -64,13 +63,13 @@
                                     <div class="group-sm group-justify">
                                         <div>
                                             <div class="group-sm group-tags">
-                                                <a class="link-tag" href="#">News</a>
-                                                <a class="link-tag" href="#">Furniture</a>
+                                                <a class="link-tag" href="#">@lang('messages.news')</a>
+                                                <a class="link-tag" href="#">@lang('messages.furniture')</a>
                                             </div>
                                         </div>
                                         <div>
                                             <div class="group-xs group-middle">
-                                                <span class="list-social-title">Share</span>
+                                                <span class="list-social-title">@lang('messages.share')</span>
                                                 <div>
                                                     <ul class="list-inline list-social list-inline-sm">
                                                         <li><a class="icon mdi mdi-vk" href="#"></a></li>
@@ -88,7 +87,7 @@
                             <!-- Related Posts -->
                             @if($relatedBlogs->count())
                                 <div class="col-12">
-                                    <h6 class="single-post-title">Related Posts</h6>
+                                    <h6 class="single-post-title">@lang('messages.related_posts')</h6>
                                     <div class="row row-30">
                                         @foreach($relatedBlogs as $related)
                                             <div class="col-sm-6">
@@ -124,7 +123,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Our brand-->
     @include('web.components.our-brand')

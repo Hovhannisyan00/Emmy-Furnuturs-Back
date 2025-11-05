@@ -5,16 +5,16 @@
             <div class="parallax-container breadcrumbs_section">
                 <div class="breadcrumbs-custom-body parallax-content context-dark">
                     <div class="container">
-                        <h1 class="breadcrumbs-custom-title">Cart Page</h1>
+                        <h1 class="breadcrumbs-custom-title">@lang('messages.cart_page')</h1>
                     </div>
                 </div>
             </div>
             <div class="breadcrumbs-custom-footer">
                 <div class="container">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="{{ route('web.home') }}">Home</a></li>
-                        <li><a href="{{ route('web.shop') }}">Shop</a></li>
-                        <li class="active">Cart Page</li>
+                        <li><a href="{{ route('web.home') }}">@lang('messages.home')</a></li>
+                        <li><a href="{{ route('web.shop') }}">@lang('messages.shop')</a></li>
+                        <li class="active">@lang('messages.cart_page')</li>
                     </ul>
                 </div>
             </div>
@@ -27,28 +27,32 @@
                     <table class="table-custom table-cart">
                         <thead>
                         <tr>
-                            <th>Product name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
+                            <th>@lang('messages.product_name')</th>
+                            <th>@lang('messages.price')</th>
+                            <th>@lang('messages.quantity')</th>
+                            <th>@lang('messages.total')</th>
+                            <th>@lang('messages.action')</th>
                         </tr>
                         </thead>
                         <tbody>
                         @forelse($items as $item)
                             <tr>
                                 <td>
-                                    <a class="table-cart-figure" href="{{"/product/".$item->product->id}}"><img src="{{ $item->product->photo1->file_url ?? 'images/shop/product-placeholder.png' }}" alt="" width="146" height="132"/></a>
-                                    <a class="table-cart-link" href="#">{{ $item->product->name }}</a>
+                                    <a class="table-cart-figure" href="{{ route('dashboard.web.product', $item->product->id) }}">
+                                        <img src="{{ $item->product->photo1->file_url ?? asset('images/shop/product-placeholder.png') }}" alt="{{ $item->product->name }}" width="146" height="132"/>
+                                    </a>
+                                    <a class="table-cart-link" href="{{ route('dashboard.web.product', $item->product->id) }}">{{ $item->product->name }}</a>
                                 </td>
                                 <td>${{ number_format($item->product->price, 2) }}</td>
                                 <td>
                                     <div class="table-cart-stepper">
-                                        <form action="{{ route('basket.update') }}" method="POST">
+                                        <form action="{{ route('basket.update') }}" method="POST" class="d-inline">
                                             @csrf
                                             <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                            <input class="form-input" type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="1000">
-                                            <button type="submit" class="button button-sm button-primary">Update</button>
+                                            <div class="input-group" style="max-width: 150px;">
+                                                <input class="form-input form-control" type="number" name="quantity" value="{{ $item->quantity }}" min="1" max="1000" style="text-align: center;">
+                                                <button type="submit" class="button button-sm button-primary ms-2">@lang('messages.update')</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </td>
@@ -61,39 +65,47 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5">Ваша корзина пуста.</td>
+                                <td colspan="5" class="text-center py-4">
+                                    <div class="empty-cart">
+                                        <i class="mdi mdi-cart-off" style="font-size: 48px; color: #ccc; margin-bottom: 16px;"></i>
+                                        <p class="text-muted">@lang('messages.cart_empty')</p>
+                                        <a href="{{ route('web.shop') }}" class="button button-primary button-zakaria">
+                                            @lang('messages.continue_shopping')
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         @endforelse
                         </tbody>
                     </table>
                 </div>
 
-                <div class="group-xl group-justify justify-content-center justify-content-md-between mt-4">
-
-                    <div>
-                        <div class="group-xl group-middle">
-                            <div>
-                                <div class="group-md group-middle">
-                                    <div class="heading-5 font-weight-medium text-gray-500">Total</div>
-                                    <div class="heading-3 font-weight-normal">${{ number_format($total, 2) }}</div>
+                @if($items->count() > 0)
+                    <div class="group-xl group-justify justify-content-center justify-content-md-between mt-4">
+                        <div>
+                            <div class="group-xl group-middle">
+                                <div>
+                                    <div class="group-md group-middle">
+                                        <div class="heading-5 font-weight-medium text-gray-500">@lang('messages.total')</div>
+                                        <div class="heading-3 font-weight-normal">${{ number_format($total, 2) }}</div>
+                                    </div>
                                 </div>
+                                <a class="button button-lg button-primary button-zakaria" href="{{ route('order.checkout') }}">@lang('messages.proceed_to_checkout')</a>
                             </div>
-                            <a class="button button-lg button-primary button-zakaria" href="{{ route('order.checkout') }}">Proceed to checkout</a>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </section>
 
         @include('web.components.our-brand')
-
     </div>
 
     <!-- Delete Confirmation Modal -->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-container">
             <div class="modal-header">
-                <h3 class="modal-title">Confirm Removal</h3>
+                <h3 class="modal-title">@lang('messages.confirm_removal')</h3>
                 <button type="button" class="modal-close" id="closeModal">
                     <span class="mdi mdi-close"></span>
                 </button>
@@ -102,15 +114,15 @@
                 <div class="modal-icon">
                     <span class="mdi mdi-alert-circle-outline"></span>
                 </div>
-                <p>Are you sure you want to remove <strong id="itemName"></strong> from your cart?</p>
-                <p class="modal-warning">This action cannot be undone.</p>
+                <p>@lang('messages.confirm_remove_item') <strong id="itemName"></strong> @lang('messages.from_your_cart')</p>
+                <p class="modal-warning">@lang('messages.action_cannot_undone')</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-cancel" id="cancelDelete">Cancel</button>
+                <button type="button" class="btn btn-cancel" id="cancelDelete">@lang('messages.cancel')</button>
                 <form id="deleteForm" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-confirm">Yes, Remove</button>
+                    <button type="submit" class="btn btn-confirm">@lang('messages.yes_remove')</button>
                 </form>
             </div>
         </div>
@@ -148,6 +160,17 @@
 
         .btn-delete .mdi {
             font-size: 18px;
+        }
+
+        /* Empty Cart Styles */
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .empty-cart .mdi {
+            display: block;
+            margin: 0 auto 16px;
         }
 
         /* Modal Styles */
@@ -303,6 +326,15 @@
             .btn {
                 width: 100%;
             }
+
+            .table-cart-stepper .input-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .table-cart-stepper .button {
+                width: 100%;
+            }
         }
     </style>
 
@@ -322,7 +354,10 @@
                     const productName = this.getAttribute('data-item-name');
 
                     itemName.textContent = productName;
-                    deleteForm.action = "{{ route('basket.remove', '') }}/" + itemId;
+
+                    // Правильное формирование URL для маршрута с параметром
+                    const baseUrl = "{{ route('basket.remove', ['id' => '__ID__']) }}";
+                    deleteForm.action = baseUrl.replace('__ID__', itemId);
 
                     modal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
@@ -350,6 +385,24 @@
                 if (e.key === 'Escape' && modal.style.display === 'flex') {
                     closeModalFunc();
                 }
+            });
+
+            // Добавляем обработчик для форм обновления количества
+            document.querySelectorAll('form[action="{{ route("basket.update") }}"]').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    const quantityInput = this.querySelector('input[name="quantity"]');
+                    const quantity = parseInt(quantityInput.value);
+
+                    if (quantity < 1) {
+                        e.preventDefault();
+                        quantityInput.value = 1;
+                    }
+
+                    if (quantity > 1000) {
+                        e.preventDefault();
+                        quantityInput.value = 1000;
+                    }
+                });
             });
         });
     </script>

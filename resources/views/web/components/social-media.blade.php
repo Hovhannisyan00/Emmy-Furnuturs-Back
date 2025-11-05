@@ -1,5 +1,5 @@
 <div class="group-xs group-middle">
-    <span class="list-social-title">Share</span>
+    <span class="list-social-title">@lang('messages.share')</span>
     <div>
         <ul class="list-inline list-social list-inline-sm">
             <li>
@@ -49,10 +49,40 @@
 
         // Копируем ссылку в буфер обмена
         navigator.clipboard.writeText(window.location.href)
-            .then(() => console.log("URL copied"))
-            .catch(err => console.error("Copy failed", err));
+            .then(() => {
+                console.log("URL copied");
+                // Показываем уведомление о копировании
+                showNotification('@lang('messages.url_copied')');
+            })
+            .catch(err => {
+                console.error("Copy failed", err);
+                showNotification('@lang('messages.copy_failed')');
+            });
 
         // Открываем новую вкладку
         window.open(shareUrl, "_blank");
+    }
+
+    function showNotification(message) {
+        // Создаем временное уведомление
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            z-index: 10000;
+            font-size: 14px;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Удаляем уведомление через 3 секунды
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 3000);
     }
 </script>

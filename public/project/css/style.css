@@ -10498,7 +10498,7 @@ html [class*=section-].section-top-0 {
 	}
 
 	.section-sm.section-last {
-		padding-bottom: 80px
+		padding-bottom: 10px
 	}
 
 	.section-md {
@@ -10554,7 +10554,7 @@ html [class*=section-].section-top-0 {
 
 @media(min-width:1200px) {
 	.section-md {
-		padding-top: 80px;
+		padding-top: 10px;
 		padding-bottom: 85px;
 	}
 

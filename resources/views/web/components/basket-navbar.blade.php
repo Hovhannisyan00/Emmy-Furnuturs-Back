@@ -7,24 +7,24 @@
 
         <div class="cart-inline" style="width: 250px; font-size: 0.85rem;">
             <div class="cart-inline-header" style="padding: 8px 12px;">
-                <h5 class="cart-inline-title">In cart:<span> 0</span> Products</h5>
-                <h6 class="cart-inline-title">Total price:<span> $0</span></h6>
+                <h5 class="cart-inline-title">@lang('messages.in_cart'):<span> 0</span> @lang('messages.products')</h5>
+                <h6 class="cart-inline-title">@lang('messages.total_price'):<span> $0</span></h6>
             </div>
 
             <div class="cart-inline-body" style="max-height: 200px; overflow-y: auto; padding: 8px 12px;">
                 <!-- Items will load dynamically -->
                 <div class="text-center py-2" id="basket-loading">
-                    <span>Loading...</span>
+                    <span>@lang('messages.loading')</span>
                 </div>
             </div>
 
             <div class="cart-inline-footer" style="padding: 8px 12px;">
                 <div class="group-sm" style="display: flex; gap: 4px; flex-wrap: wrap;">
                     <a class="button button-default-outline-2 button-zakaria" href="{{ route('web.cart') }}" style="padding: 4px 8px; font-size: 0.8rem;">
-                        Go to cart
+                        @lang('messages.go_to_cart')
                     </a>
                     <a class="button button-primary button-zakaria" href="{{ route('order.checkout') }}" style="padding: 4px 8px; font-size: 0.8rem;">
-                        Checkout
+                        @lang('messages.checkout')
                     </a>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     basketBody.innerHTML = '';
 
                     if (data.items.length === 0) {
-                        basketBody.innerHTML = `<div class="text-center py-2">Your basket is empty</div>`;
+                        basketBody.innerHTML = `<div class="text-center py-2">@lang('messages.basket_empty')</div>`;
                         return;
                     }
 
@@ -81,9 +81,9 @@
                     });
                 })
                 .catch(err => {
-                    console.error('Ошибка при загрузке корзины:', err);
+                    console.error('@lang('messages.basket_load_error'):', err);
                     const basketBody = document.querySelector('.cart-inline-body');
-                    basketBody.innerHTML = `<div class="text-center py-2 text-danger">Error loading basket</div>`;
+                    basketBody.innerHTML = `<div class="text-center py-2 text-danger">@lang('messages.basket_error_message')</div>`;
                 });
         });
     </script>

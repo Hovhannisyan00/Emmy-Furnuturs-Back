@@ -77,7 +77,6 @@ Date         				:23/Aug/20;
 57====== ecwid_body
 
 ------------------------------------------*/
-@import url('href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 
@@ -6221,7 +6220,7 @@ textarea.textarea-lg {
 	}
 
 	.quote-modern-text {
-		padding-top: 80px;
+		padding-top: 10px;
 		font-size: 18px
 	}
 
@@ -10573,7 +10572,7 @@ html [class*=section-].section-top-0 {
 	}
 
 	.section-sm.section-last {
-		padding-bottom: 80px
+		padding-bottom: 10px
 	}
 
 	.section-md {
@@ -10630,7 +10629,7 @@ html [class*=section-].section-top-0 {
 @media(min-width:1200px) {
 	.section-md {
 		padding-top: 80px;
-		padding-bottom: 85px;
+		padding-bottom: 20px;
 	}
 
 	.section-lg {
@@ -11789,7 +11788,6 @@ p.rights a:hover {
 
 .quote-about {
 	position: relative;
-	background: url(../images/fone-farniture.jpg) repeat;
 	z-index: 999;
 	padding: 70px;
 }
@@ -20439,7 +20437,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .call_section {
-	background-image: url(../images/bg/parallex.jpg);
 	position: relative;
 	text-align: center;
 	background-size: cover;
@@ -20459,7 +20456,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .breadcrumbs_section {
-	background-image: url(../images/bg/breadcrumbs-bg.jpg);
 	position: relative;
 	text-align: center;
 	background-size: cover;
@@ -20479,7 +20475,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .call_section_1 {
-	background-image: url(../images/bg/parallex-1.jpg);
 	position: relative;
 	text-align: center;
 	background-size: cover;

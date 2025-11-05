@@ -7,9 +7,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-8 col-md-7">
-                                <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Customize Your Furniture</h1>
-                                <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
-                                <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">Shop now</a></div>
+                                <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">@lang('messages.slider_title_1')</h1>
+                                <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250">@lang('messages.slider_description_1')</h6>
+                                <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">@lang('messages.shop_now')</a></div>
                             </div>
                         </div>
                     </div>
@@ -20,9 +20,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-8 col-md-7">
-                                <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Customize Your Furniture</h1>
-                                <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInRight" data-caption-delay="250">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</h6>
-                                <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">Shop now</a></div>
+                                <h1 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">@lang('messages.slider_title_2')</h1>
+                                <h6 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInRight" data-caption-delay="250">@lang('messages.slider_description_2')</h6>
+                                <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">@lang('messages.shop_now')</a></div>
                             </div>
                         </div>
                     </div>
@@ -46,8 +46,11 @@
                                 <div class="box-icon-creative-icon icon-couch"></div>
                             </div>
                             <div class="unit-body">
-                                <h4 class="box-icon-creative-title"><a href="#">Free Shipping</a></h4>
-                                <p class="box-icon-creative-text">Enjoy our fast &amp; free delivery</p>
+                                <div class="d-flex align-items-center"> <!-- Added flex container -->
+                                    <img src="{{ asset('img/321.png') }}" alt="image" class="me-3"> <!-- Added margin class -->
+                                    <h4 class="box-icon-creative-title mb-0"><a href="#">@lang('messages.free_shipping')</a></h4> <!-- Removed bottom margin -->
+                                </div>
+                                <p class="box-icon-creative-text">@lang('messages.free_shipping_desc')</p>
                             </div>
                         </div>
                     </article>
@@ -59,8 +62,12 @@
                                 <div class="box-icon-creative-icon icon-two-drawers"></div>
                             </div>
                             <div class="unit-body">
-                                <h4 class="box-icon-creative-title"><a href="#">Fresh &amp; Innovation</a></h4>
-                                <p class="box-icon-creative-text">Only the freshest ingredients</p>
+                                <div class="d-flex align-items-center"> <!-- Added flex container -->
+
+                                    <img src="{{ asset('img/123.png') }}" alt="image">
+                                <h4 class="box-icon-creative-title"><a href="#">@lang('messages.fresh_innovation')</a></h4>
+                                    </div>
+                                <p class="box-icon-creative-text">@lang('messages.fresh_innovation_desc')</p>
                             </div>
                         </div>
                     </article>
@@ -72,91 +79,94 @@
                                 <div class="box-icon-creative-icon icon-side-lamp-2"></div>
                             </div>
                             <div class="unit-body">
-                                <h4 class="box-icon-creative-title"><a href="#">Made with love</a></h4>
-                                <p class="box-icon-creative-text">Prepared with care for our clients</p>
+                                <div class="d-flex align-items-center">
+                                    <img src="{{ asset('img/312.png') }}" alt="image">
+                                <h4 class="box-icon-creative-title"><a href="#">@lang('messages.made_with_love')</a></h4>
+                                </div>
+                                <p class="box-icon-creative-text">@lang('messages.made_with_love_desc')</p>
                             </div>
                         </div>
                     </article>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
     <!-- What We Offer-->
     <section class="section section-md bg-default text-md-left">
-            <div class="container">
-                <div class="row row-70 row-lg-50 justify-content-center align-items-md-center">
-                    <div class="col-md-12 col-lg-6 col-xl-6">
-                        <div class="aboutUs">
-                            <h2 class="text-transform-capitalize wow fadeInRight">What We Offer</h2>
-                            <!-- Bootstrap collapse-->
+        <div class="container">
+            <div class="row row-70 row-lg-50 justify-content-center align-items-md-center">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="aboutUs">
+                        <h2 class="text-transform-capitalize wow fadeInRight">@lang('messages.what_we_offer')</h2>
+                        <!-- Bootstrap collapse-->
 
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nibh dolor, gravida faucibus dolor consectetur, pulvinar rhoncus risus. Fusce vel rutrum mi. Suspendisse pretium tellus eu ipsum pellentesque convallis. Ut mollis libero eu massa imperdiet faucibus vitae non diam. Sed egestas felis libero, ut suscipit nisl varius non. Proin eget suscipit nulla. Nulla facilisi. In hac habitasse platea dictumst. </p>
-                            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standach dummy.</p>
-                            <ul class="list-marked">
-                                <li>Sed egestas urna eget ipsum condimentum</li>
-                                <li>Vivamus dapibus massa non orci tincidunt</li>
-                                <li>Maecenas lacinia blandit ligula, at tristique mi sagittis sit</li>
-
-                            </ul>
-                            <a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">shop now</a> </div>
+                        <p>@lang('messages.what_we_offer_desc_1')</p>
+                        <p>@lang('messages.what_we_offer_desc_2')</p>
+                        <ul class="list-marked">
+                            <li>@lang('messages.feature_1')</li>
+                            <li>@lang('messages.feature_2')</li>
+                            <li>@lang('messages.feature_3')</li>
+                        </ul>
+                        <a class="button button-sm button-primary button-zakaria" href="{{ route('web.shop') }}">@lang('messages.shop_now')</a>
                     </div>
-                    <div class="col-md-12 col-lg-6 col-xl-6">
-                        <div class="decorative-box text-center"><img src="{{asset("img/about/aboutimg.png")}}" alt="" /> </div>
-                    </div>
-
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <div class="decorative-box text-center"><img src="{{asset("img/about/aboutimg.png")}}" alt="@lang('messages.about_image_alt')" /></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     @include('web.components.product-section')
 
     <!-- Testimonials-->
     <section class="section bg-brown-1 call_section_1">
-            <div class="parallax-content section-md context-dark">
-                <div class="container">
-                    <h3 class="text-spacing-100">Summer sale </h3>
-                    <h6 class="font-weight-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the dummy text ever since</h6>
-                    <a class="button button-sm button-shadow-2 button-primary button-zakaria" href="{{ route('web.shop') }}">Shop Now</a> </div>
+        <div class="parallax-content section-md context-dark">
+            <div class="container">
+                <h3 class="text-spacing-100">@lang('messages.summer_sale')</h3>
+                <h6 class="font-weight-light">@lang('messages.summer_sale_desc')</h6>
+                <a class="button button-sm button-shadow-2 button-primary button-zakaria" href="{{ route('web.shop') }}">@lang('messages.shop_now')</a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Gallery-->
     @include('web.components.gallery')
 
     <!-- Subscribe to Our Newsletter-->
     <section class="parallax-container call_section">
-            <div class="parallax-content section-md context-dark text-lg-left">
-                <div class="container">
-                    <div class="row row-30 justify-content-center align-items-center align-items-lg-end">
-                        <div class="col-xl-5">
-                            <h2 class="parallax-title text-center text-xl-left wow fadeInLeft" data-wow-delay=".1s">Get in Touch</h2>
-                        </div>
-                        <div class="col-xl-7 inset-lg-bottom-10">
-                            <!-- RD Mailform-->
-                            <form class="ch-form ch-mailform ch-form-inline ch-form-inline-3 form-lg"
-                                  data-form-output="form-output-global"
-                                  data-form-type="subscribe"
-                                  method="post"
-                                  action="{{ route('contact.submit') }}">
-                                @csrf
-                                <div class="form-wrap wow fadeInUp">
-                                    <input class="form-input" id="login-name" type="text" name="first_name" required/>
-                                    <label class="form-label" for="login-name">Your name</label>
-                                </div>
-                                <div class="form-wrap wow fadeInUp">
-                                    <input class="form-input" id="contact-email" type="email" name="email" required/>
-                                    <label class="form-label" for="contact-email">Your e-mail address</label>
-                                </div>
-                                <div class="form-button wow fadeInRight text-center">
-                                    <button class="button button-zakaria button-sm button-primary" type="submit">Send Request</button>
-                                </div>
-                            </form>
-                        </div>
+        <div class="parallax-content section-md context-dark text-lg-left">
+            <div class="container">
+                <div class="row row-30 justify-content-center align-items-center align-items-lg-end">
+                    <div class="col-xl-5">
+                        <h2 class="parallax-title text-center text-xl-left wow fadeInLeft" data-wow-delay=".1s">@lang('messages.get_in_touch')</h2>
+                    </div>
+                    <div class="col-xl-7 inset-lg-bottom-10">
+                        <!-- RD Mailform-->
+                        <form class="ch-form ch-mailform ch-form-inline ch-form-inline-3 form-lg"
+                              data-form-output="form-output-global"
+                              data-form-type="subscribe"
+                              method="post"
+                              action="{{ route('contact.submit') }}">
+                            @csrf
+                            <div class="form-wrap wow fadeInUp">
+                                <input class="form-input" id="login-name" type="text" name="first_name" required/>
+                                <label class="form-label" for="login-name">@lang('messages.your_name')</label>
+                            </div>
+                            <div class="form-wrap wow fadeInUp">
+                                <input class="form-input" id="contact-email" type="email" name="email" required/>
+                                <label class="form-label" for="contact-email">@lang('messages.your_email_address')</label>
+                            </div>
+                            <div class="form-button wow fadeInRight text-center">
+                                <button class="button button-zakaria button-sm button-primary" type="submit">@lang('messages.send_request')</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Our Blog-->
     @include('web.components.our-blog')

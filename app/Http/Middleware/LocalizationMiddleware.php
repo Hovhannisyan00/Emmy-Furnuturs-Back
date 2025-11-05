@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Symfony\Component\HttpFoundation\Response;
+
+class LocalizationMiddleware
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        if ($request->hasCookie('locale')) {
+            $locale = $request->cookie('locale');
+            App::setLocale($locale);
+        } else {
+            App::setLocale('ru');
+        }
+
+        return $next($request);
+    }
+}

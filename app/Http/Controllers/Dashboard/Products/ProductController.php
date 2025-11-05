@@ -95,6 +95,7 @@ class ProductController extends BaseController
 
     public function getProduct(int $id): \Illuminate\View\View
     {
+        dd(12345);
         $product = $this->repository->find($id);
 
         $featuredProducts = $this->repository->getFeaturedProducts($id);
