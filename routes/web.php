@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\Categories\CategorieController;
 use App\Http\Controllers\Dashboard\Get_in_touchController;
+use App\Http\Controllers\Dashboard\HistoryController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\OurTeamController;
 use App\Http\Controllers\Dashboard\PartnerController;
@@ -12,8 +13,6 @@ use App\Http\Controllers\Web\Basket\BasketController;
 use App\Http\Controllers\Web\Product\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +35,6 @@ Route::get('language/{locale}', function ($locale) {
 
     return redirect()->back()->withCookie($cookie);
 })->name('language.switch');
-
-
-
 
 Auth::routes(['register' => false, 'reset' => false]);
 
@@ -68,7 +64,6 @@ Route::get('/', function () {
 
 // Public pages
 Route::view('/home', 'web.home')->name('web.home');
-Route::view('/about', 'web.about-us')->name('web.about');
 Route::view('/team', 'web.team')->name('web.team');
 Route::view('/what-we-offer', 'web.shop')->name('web.what-we-offer');
 Route::view('/shop', 'web.shop')->name('web.shop');
@@ -108,8 +103,8 @@ Route::get('/basket/data', [BasketController::class, 'getData'])->name('basket.d
 
 // Оформление заказа
 Route::get('/checkout', [OrderController::class, 'checkoutPage'])->name('order.checkout');
-Route::get('/orders', [OrderController::class, 'indexes'])->name('order.index'); // История заказов
-Route::get('/orders/{id}', [OrderController::class, 'shows'])->name('order.show'); // Детали заказа
+Route::get('/orders', [OrderController::class, 'indexes'])->name('order.index');
+Route::get('/orders/{id}', [OrderController::class, 'shows'])->name('order.show');
 
 // Blog
 Route::get('/blog', [BlogController::class, 'getBlogs'])->name('web.blog');
@@ -128,6 +123,7 @@ Route::get('/get-team-members', [OurTeamController::class, 'getLatestMembers'])-
 // Categories
 Route::get('/categories', [CategorieController::class, 'getCategories'])->name('web.category');
 
+Route::get('/about', [HistoryController::class, 'geet'])->name('web.about');
 // Example for a catch-all page if needed
 // Route::fallback(function () {
 //    return view('web.404');

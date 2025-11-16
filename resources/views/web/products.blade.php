@@ -1,3 +1,375 @@
+<style>
+    /* Product Modern Layout Fix */
+    .product-modern {
+        position: relative;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+    }
+
+    .product-modern:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .unit.unit-spacing-0 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (min-width: 576px) {
+        .unit.unit-spacing-0 {
+            flex-direction: row;
+        }
+    }
+
+    .unit-left {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    @media (min-width: 576px) {
+        .unit-left {
+            width: 40%;
+            max-width: 300px;
+        }
+    }
+
+    .product-modern-figure {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+    }
+
+    @media (min-width: 576px) {
+        .product-modern-figure {
+            border-radius: 12px 0 0 12px;
+        }
+    }
+
+    .product-modern-figure img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    @media (min-width: 576px) {
+        .product-modern-figure img {
+            height: 200px;
+        }
+    }
+
+    .product-modern-figure:hover img {
+        transform: scale(1.05);
+    }
+
+    .unit-body {
+        flex: 1;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-modern-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .product-modern-title {
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .product-modern-title a {
+        color: #2c3e50;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .product-modern-title a:hover {
+        color: #007bff;
+    }
+
+    .product-price-wrap {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .product-price {
+        font-size: 22px;
+        font-weight: 700;
+        color: #e74c3c;
+    }
+
+    .product-price-old {
+        font-size: 16px;
+        color: #95a5a6;
+        text-decoration: line-through;
+        font-weight: 500;
+    }
+
+    .product-modern-text {
+        flex: 1;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .product-modern form {
+        margin-top: auto;
+    }
+
+    .button.button-primary.button-zakaria {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+    }
+
+    .button.button-primary.button-zakaria:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Product Badge */
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #e74c3c;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 2;
+    }
+
+    /* Loading State */
+    .loading {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+    /* Empty State */
+    .empty-state {
+        padding: 60px 20px;
+        text-align: center;
+        background: #f8f9fa;
+        border-radius: 12px;
+        margin: 20px 0;
+    }
+
+    .empty-state .icon {
+        font-size: 64px;
+        color: #bdc3c7;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    /* Filter Section */
+    .aside {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        margin-bottom: 30px;
+    }
+
+    .aside-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #2c3e50;
+        border-bottom: 2px solid #f8f9fa;
+        padding-bottom: 10px;
+    }
+
+    /* Price Range */
+    .ch-range-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+
+    .ch-range-form-wrap {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .ch-range-input {
+        width: 80px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    /* Categories Filter */
+    .list-shop-filter {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 25px 0;
+    }
+
+    .list-shop-filter li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #f8f9fa;
+    }
+
+    .list-shop-filter li:last-child {
+        border-bottom: none;
+    }
+
+    .list-shop-filter-number {
+        color: #95a5a6;
+        font-size: 14px;
+    }
+
+    /* Search Form */
+    .ch-search {
+        margin-top: 20px;
+    }
+
+    /* Product Top Panel */
+    .product-top-panel {
+        background: #fff;
+        padding: 20px 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .product-top-panel-title {
+        margin: 0;
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+    .product-view-toggle {
+        display: flex;
+        gap: 10px;
+    }
+
+    .product-view-link {
+        font-size: 20px;
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        padding: 8px;
+        border-radius: 4px;
+        background: #f8f9fa;
+    }
+
+    .product-view-link.active,
+    .product-view-link:hover {
+        color: #007bff;
+        background: #e3f2fd;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+        .product-modern-figure img {
+            height: 220px;
+        }
+
+        .unit-body {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .product-top-panel {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-modern-figure img {
+            height: 200px;
+        }
+
+        .unit-body {
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .product-modern-figure img {
+            height: 180px;
+        }
+
+        .product-modern-title {
+            font-size: 18px;
+        }
+
+        .product-price {
+            font-size: 20px;
+        }
+
+        .product-modern-text {
+            font-size: 13px;
+        }
+    }
+
+    /* Breadcrumbs Section */
+    .breadcrumbs_section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .breadcrumbs-custom-title {
+        color: white;
+        font-weight: 600;
+    }
+
+    .breadcrumbs-custom-path {
+        color: #7f8c8d;
+    }
+
+    .breadcrumbs-custom-path a {
+        color: #3498db;
+        text-decoration: none;
+    }
+
+    .breadcrumbs-custom-path .active {
+        color: #2c3e50;
+    }
+
+    /* Section Background */
+    .section-md.bg-primary-2 {
+        background: #f8f9fa !important;
+    }
+</style>
+
 <x-web-layout>
     <div class="page">
         <!--+breadcrumbs-->
@@ -19,6 +391,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Section Shop-->
         <section class="section section-md bg-primary-2 text-md-left">
             <div class="container">
@@ -30,7 +403,7 @@
                                 <!-- RD Range-->
                                 <div class="ch-range"
                                      data-min="0"
-                                     data-max="999"
+                                     data-max="50000"
                                      data-min-diff="100"
                                      data-start="[66, 235]"
                                      data-step="1"
@@ -96,6 +469,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-8 col-xl-9">
                         <div class="product-top-panel group-md">
                             <p class="product-top-panel-title" id="results-text">
@@ -112,10 +486,10 @@
                                             'end' => $products->count(),
                                             'total' => $products->count()
                                         ])
-                                            @endif
-                                            @else
-                                                @lang('messages.showing_no_results')
-                                            @endif
+                                    @endif
+                                @else
+                                    @lang('messages.showing_no_results')
+                                @endif
                             </p>
                             <div>
                                 <div class="group-sm group-middle">
@@ -126,6 +500,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div id="products-container" class="row row-30 row-md-50 row-lg-60">
                             @if(isset($products) && $products->count() > 0)
                                 @foreach($products as $product)
@@ -188,6 +563,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Our brand-->
         @include('web.components.our-brand')
     </div>

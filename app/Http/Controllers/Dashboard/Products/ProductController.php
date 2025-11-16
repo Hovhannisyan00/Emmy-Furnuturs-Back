@@ -95,14 +95,27 @@ class ProductController extends BaseController
 
     public function getProduct(int $id): \Illuminate\View\View
     {
-        dd(12345);
         $product = $this->repository->find($id);
-
         $featuredProducts = $this->repository->getFeaturedProducts($id);
+
+        // Исправляем логику цен
+        if ($product->sizes->isNotEmpty()) {
+            // Получаем минимальную и максимальную цены
+            $minPrice = $product->sizes->min('price');
+            $maxPrice = $product->sizes->max('price');
+
+            // Форматируем цены для отображения
+            $product->min_price = number_format($minPrice, 0, '', ' ');
+            $product->max_price = number_format($maxPrice, 0, '', ' ');
+
+            // Форматируем цены для каждого размера
+            $product->sizes->each(function($size) {
+                $size->formatted_price = number_format($size->price, 0, '', ' ');
+            });
+        }
 
         return view('web.single-product', [
             'product' => $product,
-            'products' => null,
             'featuredProducts' => $featuredProducts,
         ]);
     }

@@ -100,4 +100,13 @@ class HistoryController extends BaseController
 
         return $this->sendOkDeleted();
     }
+
+    public function geet()
+    {
+        $allHistories = $this->repository->all();
+
+        return view('web.about-us', [
+            'histories' => $allHistories
+        ]);
+    }
 }

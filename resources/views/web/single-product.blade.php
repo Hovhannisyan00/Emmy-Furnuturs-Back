@@ -1,57 +1,108 @@
 <style>
+    /* Main Carousel */
+    .carousel-parent {
+        margin-bottom: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .slick-product-figure {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .carousel-parent img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-parent img:hover {
+        transform: scale(1.02);
+    }
+
+    /* Thumbnail Carousel */
     .child-carousel {
-        display: flex !important;      /* Thumbnails in a row */
-        justify-content: flex-start;   /* Align to left */
-        gap: 10px;                     /* Space between thumbnails */
+        display: flex !important;
+        justify-content: flex-start;
+        gap: 12px;
         margin-top: 15px;
-        flex-wrap: nowrap;             /* All in one line */
+        flex-wrap: nowrap;
+        padding: 5px 0;
     }
 
-    /* Each thumbnail wrapper */
     .child-carousel .item {
-        flex: 0 0 auto;                /* Prevent shrinking/stretching */
-    }
-
-    /* Thumbnail images */
-    .child-carousel .thumbnail {
-        width: 100px;                  /* Thumbnail width */
-        height: 100px;                 /* Thumbnail height */
-        object-fit: cover;             /* Keep ratio */
-        cursor: pointer;
-        border: 2px solid transparent;
+        flex: 0 0 auto;
+        border-radius: 8px;
+        overflow: hidden;
         transition: all 0.3s ease;
     }
 
-    /* Active thumbnail highlight */
+    .child-carousel .thumbnail {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+    }
+
+    .child-carousel .thumbnail:hover {
+        border-color: #007bff;
+        transform: translateY(-2px);
+    }
+
     .child-carousel .thumbnail.slick-current {
-        border-color: #007bff;         /* Highlight active */
+        border-color: #007bff;
         opacity: 1;
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
     }
 
     #child-carousel .slick-track {
         display: flex !important;
-        gap: 10px;
+        gap: 12px;
     }
 
-    /* Убираем надписи Prev/Next и оставляем только стрелки */
+    /* Arrow Styles */
     .slick-prev,
     .slick-next {
-        font-size: 0 !important;       /* скрывает текст */
-        background: none !important;   /* убирает фон */
+        font-size: 0 !important;
+        background: rgba(255, 255, 255, 0.9) !important;
         border: none !important;
         outline: none !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        transition: all 0.3s ease;
     }
 
-    /* Добавляем чёрные стрелки */
+    .slick-prev:hover,
+    .slick-next:hover {
+        background: white !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .slick-prev {
+        left: 15px !important;
+    }
+
+    .slick-next {
+        right: 15px !important;
+    }
+
     .slick-prev:before,
     .slick-next:before {
-        color: #000 !important;        /* чёрный цвет стрелок */
-        opacity: 1 !important;
-        font-size: 32px !important;    /* размер стрелок */
+        color: #333 !important;
+        opacity: 0.8 !important;
+        font-size: 20px !important;
         line-height: 1;
     }
 
-    /* Влево и вправо */
     .slick-prev:before {
         content: "←" !important;
     }
@@ -60,34 +111,321 @@
         content: "→" !important;
     }
 
-    /* Стили для выбора размера */
-    .size-selection {
+    /* Product Info Section */
+    .single-product {
+        padding: 20px;
+    }
+
+    .single-product h3 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        line-height: 1.3;
+    }
+
+    .group-md.group-middle {
+        display: flex;
+        align-items: center;
         margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* Price Display */
+    .single-product-price {
+        font-size: 26px;
+        font-weight: 700;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 5px 0;
+    }
+
+    .default-price {
+        font-size: 28px;
+        font-weight: 800;
+    }
+
+    .price-update {
+        animation: pricePulse 0.5s ease-in-out;
+    }
+
+    @keyframes pricePulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* Rating */
+    .single-product-rating {
+        display: flex;
+        gap: 2px;
+    }
+
+    .single-product-rating .icon {
+        color: #FFD700;
+        font-size: 18px;
+    }
+
+    /* Description */
+    .single-product p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    .hr-gray-100 {
+        border: 0;
+        height: 1px;
+        background: #eaeaea;
+        margin: 25px 0;
+    }
+
+    /* List Description */
+    .list.list-description {
+        margin-bottom: 25px;
+    }
+
+    .list.list-description li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .list.list-description li:last-child {
+        border-bottom: none;
+    }
+
+    .list.list-description li span:first-child {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .list.list-description li span:last-child {
+        color: #666;
+    }
+
+    /* Size Selection */
+    .size-selection {
+        margin: 25px 0;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        border: 1px solid #eaeaea;
+    }
+
+    .size-selection label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #333;
+        font-size: 16px;
     }
 
     .size-select {
         width: 100%;
-        padding: 10px 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+        padding: 14px 18px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
         font-size: 16px;
         background-color: white;
         cursor: pointer;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 16px;
     }
 
     .size-select:focus {
         outline: none;
         border-color: #007bff;
-        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
     }
 
-    .price-display {
+    .size-select option {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Quantity and Add to Cart */
+    .group-xs.group-middle {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 25px 0;
+        flex-wrap: wrap;
+    }
+
+    .product-stepper {
+        display: flex;
+        align-items: center;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+    }
+
+    .product-stepper input {
+        width: 70px;
+        padding: 12px 15px;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .product-stepper input:focus {
+        outline: none;
+    }
+
+    .product-stepper button {
+        background: #f8f9fa;
+        border: none;
+        width: 40px;
+        height: 100%;
         font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 15px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .product-stepper button:hover {
+        background: #e9ecef;
+    }
+
+    #add-to-cart {
+        padding: 14px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        flex-grow: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    #add-to-cart:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Tabs */
+    .tabs-custom {
+        margin-top: 50px;
+    }
+
+    .nav-tabs-wrap {
+        border-bottom: 2px solid #eaeaea;
+    }
+
+    .nav-tabs-1 {
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-tabs-1 .nav-item .nav-link {
+        padding: 14px 25px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #666;
+        border: none;
+        border-radius: 8px 8px 0 0;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+    }
+
+    .nav-tabs-1 .nav-item .nav-link.active,
+    .nav-tabs-1 .nav-item .nav-link:hover {
+        color: #007bff;
+        background: white;
+        border-bottom: 3px solid #007bff;
+    }
+
+    .tab-content-1 {
+        padding: 30px;
+        background: white;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 991px) {
+        .carousel-parent img {
+            height: 400px;
+        }
+
+        .single-product h3 {
+            font-size: 24px;
+        }
+
+        .group-xs.group-middle {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .product-stepper {
+            align-self: flex-start;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .carousel-parent img {
+            height: 300px;
+        }
+
+        .child-carousel .thumbnail {
+            width: 80px;
+            height: 80px;
+        }
+
+        .single-product {
+            padding: 15px 0;
+        }
+
+        .size-selection {
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .carousel-parent img {
+            height: 250px;
+        }
+
+        .child-carousel .thumbnail {
+            width: 60px;
+            height: 60px;
+        }
+
+        .single-product h3 {
+            font-size: 22px;
+        }
+
+        .single-product-price {
+            font-size: 22px;
+        }
+
+        .nav-tabs-1 {
+            flex-direction: column;
+        }
+
+        .nav-tabs-1 .nav-item .nav-link {
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
     }
 </style>
+
 <x-web-layout>
     <div class="page">
         <!--+breadcrumbs-->
@@ -147,14 +485,18 @@
                         <div class="single-product">
                             <h3 class="text-transform-none font-weight-medium">{{ $product->name }}</h3>
                             <div class="group-md group-middle">
-                                <!-- Обновленное отображение цены -->
+                                <!-- Price Display -->
                                 <div class="single-product-price" id="price-display">
                                     @if($product->sizes->count() > 1)
-                                        @lang('messages.price_from') {{ $product->sizes->min('price') }} @lang('messages.currency_rub')
+                                        @lang('messages.price_from')
+                                        <span class="default-price">{{ $product->min_price }}</span>
+                                        @lang('messages.currency_rub')
                                     @elseif($product->sizes->count() === 1)
-                                        {{ $product->sizes->first()->price }} @lang('messages.currency_rub')
+                                        <span class="default-price">{{ $product->sizes->first()->formatted_price ?? number_format($product->sizes->first()->price, 0, '', ' ') }}</span>
+                                        @lang('messages.currency_rub')
                                     @else
-                                        {{ $product->price }} @lang('messages.currency_rub')
+                                        <span class="default-price">{{ number_format($product->price, 0, '', ' ') }}</span>
+                                        @lang('messages.currency_rub')
                                     @endif
                                 </div>
                                 <div class="single-product-rating">
@@ -169,19 +511,19 @@
                             <hr class="hr-gray-100">
                             <ul class="list list-description">
                                 <li><span>@lang('messages.categories'):</span><span>{{ $product->categories->name }}</span></li>
-                                <li><span>@lang('messages.weight'):</span><span>0.5 kg</span></li>
-                                <li><span>@lang('messages.box'):</span><span>60 x 60 x 90 cm</span></li>
                             </ul>
 
-                            <!-- Выбор размера -->
+                            <!-- Size Selection -->
                             @if($product->sizes->isNotEmpty())
                                 <div class="size-selection">
                                     <label for="size-select" style="display: block; margin-bottom: 8px; font-weight: bold;">@lang('messages.select_size'):</label>
                                     <select id="size-select" class="size-select" name="size_id">
                                         <option value="">@lang('messages.choose_size')</option>
                                         @foreach($product->sizes as $size)
-                                            <option value="{{ $size->id }}" data-price="{{ $size->price }}">
-                                                {{ $size->size }} - {{ $size->price }} @lang('messages.currency_rub')
+                                            <option value="{{ $size->id }}"
+                                                    data-price="{{ $size->price }}"
+                                                    data-formatted-price="{{ $size->formatted_price ?? number_format($size->price, 0, '', ' ') }}">
+                                                {{ $size->size }} - {{ $size->formatted_price ?? number_format($size->price, 0, '', ' ') }} @lang('messages.currency_rub')
                                             </option>
                                         @endforeach
                                     </select>
@@ -190,7 +532,9 @@
 
                             <div class="group-xs group-middle">
                                 <div class="product-stepper">
+                                    <button type="button" class="decrement-btn">-</button>
                                     <input id="quantity-input" class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                                    <button type="button" class="increment-btn">+</button>
                                 </div>
 
                                 <form action="{{ route('basket.add') }}" method="POST" class="d-inline-block ms-2" id="add-to-cart-form">
@@ -212,6 +556,7 @@
                     <!-- Nav tabs-->
                     <div class="nav-tabs-wrap">
                         <ul class="nav nav-tabs nav-tabs-1">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">@lang('messages.reviews')</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">@lang('messages.additional_info')</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">@lang('messages.delivery_payment')</a></li>
                         </ul>
@@ -273,6 +618,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Initialize carousels
         const mainCarousel = document.querySelector('#carousel-parent');
         const thumbnails = document.querySelectorAll('.child-carousel .thumbnail');
 
@@ -316,7 +662,7 @@
             });
         });
 
-        // Обработчик выбора размера
+        // Size selection handler
         const sizeSelect = document.getElementById('size-select');
         const sizeIdHidden = document.getElementById('size-id-hidden');
         const priceDisplay = document.getElementById('price-display');
@@ -326,32 +672,81 @@
                 const selectedOption = this.options[this.selectedIndex];
                 const sizeId = this.value;
                 const price = selectedOption.getAttribute('data-price');
+                const formattedPrice = selectedOption.getAttribute('data-formatted-price');
 
-                // Обновляем скрытое поле с ID размера
+                // Update hidden field with size ID
                 sizeIdHidden.value = sizeId;
 
-                // Обновляем отображение цены
-                if (sizeId && price) {
-                    priceDisplay.textContent = price + ' @lang('messages.currency_rub')';
+                // Update price display
+                if (sizeId && price && formattedPrice) {
+                    priceDisplay.innerHTML = formattedPrice + ' @lang('messages.currency_rub')';
+                    priceDisplay.classList.add('price-update');
+                    setTimeout(() => {
+                        priceDisplay.classList.remove('price-update');
+                    }, 500);
+                } else {
+                    // Reset to original price if no size selected
+                    resetPriceDisplay();
                 }
             });
         }
 
-        // Обновленный обработчик добавления в корзину
-        const addToCartBtn = document.getElementById('add-to-cart');
+        // Function to reset price to original state
+        function resetPriceDisplay() {
+            @if($product->sizes->count() > 1)
+                priceDisplay.innerHTML = '@lang('messages.price_from') <span class="default-price">{{ $product->min_price }}</span> @lang('messages.currency_rub')';
+            @elseif($product->sizes->count() === 1)
+                priceDisplay.innerHTML = '<span class="default-price">{{ $product->sizes->first()->formatted_price ?? number_format($product->sizes->first()->price, 0, '', ' ') }}</span> @lang('messages.currency_rub')';
+            @else
+                priceDisplay.innerHTML = '<span class="default-price">{{ number_format($product->price, 0, '', ' ') }}</span> @lang('messages.currency_rub')';
+            @endif
+        }
+
+        // Quantity stepper functionality
         const quantityInput = document.getElementById('quantity-input');
+        const decrementBtn = document.querySelector('.decrement-btn');
+        const incrementBtn = document.querySelector('.increment-btn');
+
+        if (decrementBtn && incrementBtn) {
+            decrementBtn.addEventListener('click', function() {
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                    updateHiddenQuantity();
+                }
+            });
+
+            incrementBtn.addEventListener('click', function() {
+                if (quantityInput.value < 1000) {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                    updateHiddenQuantity();
+                }
+            });
+
+            quantityInput.addEventListener('change', function() {
+                if (this.value < 1) this.value = 1;
+                if (this.value > 1000) this.value = 1000;
+                updateHiddenQuantity();
+            });
+        }
+
+        function updateHiddenQuantity() {
+            document.getElementById('quantity-hidden').value = quantityInput.value;
+        }
+
+        // Add to cart handler
+        const addToCartBtn = document.getElementById('add-to-cart');
         const addToCartForm = document.getElementById('add-to-cart-form');
 
         addToCartBtn.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // Проверяем, выбран ли размер (если есть размеры)
+            // Check if size is selected (if sizes exist)
             if (sizeSelect && sizeSelect.value === '') {
                 alert('@lang('messages.please_select_size')');
                 return;
             }
 
-            // Обновляем скрытое поле количества
+            // Update hidden quantity field
             document.getElementById('quantity-hidden').value = quantityInput.value;
 
             const formData = new FormData(addToCartForm);
@@ -364,7 +759,7 @@
                 .then(data => {
                     alert(data.message || "@lang('messages.product_added_to_cart')");
                 })
-                .catch(error => console.error('Ошибка:', error));
+                .catch(error => console.error('Error:', error));
         });
     });
 </script>

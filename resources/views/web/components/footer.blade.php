@@ -104,9 +104,12 @@
                 </div>
                 <div class="col-md-6 text-md-end mt-3 mt-md-0">
                     <div class="payment-methods">
-                        <a href="#">
-                            <img src="{{ asset('img/about/paymentimg.png') }}" alt="Payment methods" loading="lazy">
-                        </a>
+                        <div class="payment-icons">
+                            <img src="{{ asset('img/payments/Visa.png') }}" alt="Visa" loading="lazy">
+                            <img src="{{ asset('img/payments/MasterCard.png') }}" alt="Mastercard" loading="lazy">
+                            <img src="{{ asset('img/payments/sbp.png') }}" alt="PayPal" loading="lazy">
+                            <img src="{{ asset('img/payments/Mir.png') }}" alt="Apple Pay" loading="lazy">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -356,16 +359,33 @@
         text-decoration: underline;
     }
 
-    .payment-methods img {
-        max-width: 220px;
-        height: auto;
-        opacity: 0.9;
-        transition: all 0.3s ease;
+    .payment-methods {
+        display: flex;
+        justify-content: flex-end;
     }
 
-    .payment-methods img:hover {
+    .payment-icons {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .payment-icons img {
+        width: 48px;
+        height: 30px;
+        object-fit: contain;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        background: white;
+        padding: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-icons img:hover {
         opacity: 1;
-        transform: scale(1.02);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     /* Ensure proper column layout */
@@ -428,6 +448,17 @@
         .footer-modern-list:not(.footer-categories-list) a:hover {
             transform: translateY(-2px);
         }
+
+        /* Payment methods responsive */
+        .payment-methods {
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .payment-icons {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
     }
 
     @media (max-width: 576px) {
@@ -444,6 +475,11 @@
         .footer-categories-list a,
         .footer-modern-list:not(.footer-categories-list) a {
             padding: 12px 15px;
+        }
+
+        .payment-icons img {
+            width: 42px;
+            height: 26px;
         }
     }
 
