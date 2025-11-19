@@ -15,13 +15,16 @@ class UserRequest extends FormRequest
             'last_name' => 'required|string|max:50',
 
             'email' => 'required|email_validator|unique:users,email,' . $this->user?->id,
-            'avatar' => 'required|string_with_max',
+            'avatar' => 'nullable|string_with_max',
 
             'role_ids' => 'required|array',
             'role_ids.*' => 'required|exist_validator:roles,id',
 
             'password' => $passwordRule . '|string|min:6|string_with_max|confirmed',
             'password_confirmation' => $passwordRule . '|string_with_max',
+
+            'coupon' => 'nullable|string_with_max',
+            'coupon_discount' => 'nullable|numeric|min:0'
         ];
     }
 }

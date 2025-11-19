@@ -53,13 +53,24 @@ class ProductController extends Controller
         $min = $request->validated('min_price') ?? 0;
         $max = $request->validated('max_price') ?? 999999;
 
+        $categories = $request->validated('categories');
+        if ($categories && is_string($categories)) {
+            $categories = explode(',', $categories);
+        }
+
         $products = Product::whereBetween('price', [$min, $max])
+            ->when($categories && !empty($categories), function($query) use ($categories) {
+                // Фильтруем по категориям
+                $query->whereHas('categories', function($q) use ($categories) {
+                    $q->whereIn('categories.id', $categories);
+                });
+            })
             ->with('photo1')
             ->paginate(6, ['id', 'name', 'description', 'price', 'discount']);
 
         return response()->json([
             'products' => $products->items(),
-//            'pagination' => (string) $products->links('vendor.pagination.bootstrap-5'),
+            'pagination' => (string) $products->links('vendor.pagination.bootstrap-5'),
         ]);
     }
 

@@ -13,7 +13,7 @@
             >
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="form-group required">
+                        <div class="form-group">
                             <x-dashboard.form.uploader._file
                                 name="avatar"
                                 :configKey="$user->getFileConfigName()"
@@ -36,6 +36,9 @@
                         <div class="form-group required">
                             <x-dashboard.form._input name="password" autocomplete type="password"/>
                         </div>
+                        <div class="form-group ">
+                            <x-dashboard.form._input name="coupon" value="{{ $user->coupon }}"/>
+                        </div>
                     </div>
 
                     <div class="col-lg-6">
@@ -50,6 +53,10 @@
 
                         <div class="form-group required">
                             <x-dashboard.form._input name="password_confirmation" type="password"/>
+                        </div>
+
+                        <div class="form-group ">
+                            <x-dashboard.form._input name="coupon_discount" type="number" value="{{ $user->coupon_discount}}"/>
                         </div>
                     </div>
                 </div>

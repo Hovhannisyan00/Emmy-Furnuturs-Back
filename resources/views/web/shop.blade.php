@@ -95,79 +95,79 @@
             </div>
         </section>
         <!-- Pricing List-->
-        <section class="section section-sm section-first bg-default">
-            <div class="container">
-                <div class="row row-xl row-30 justify-content-center">
-                    <div class="col-sm-6 col-lg-4">
-                        <article class="pricing-classic">
-                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-1.jpg" alt="" width="346" height="229"/>
-                                <div class="pricing-classic-caption">
-                                    <div>
-                                        <h3 class="pricing-classic-title">@lang('messages.basic')</h3>
-                                        <div class="pricing-classic-price-wrap">
-                                            <div class="pricing-classic-price heading-4">$90.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-classic-body">
-                                <ul class="pricing-classic-list">
-                                    <li>@lang('messages.round_furnitures')</li>
-                                    <li>@lang('messages.sponge_furnitures')</li>
-                                    <li>@lang('messages.wedding_furnitures')</li>
-                                    <li>@lang('messages.macarons')</li>
-                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <article class="pricing-classic pricing-classic-sale">
-                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-2.jpg" alt="" width="346" height="229"/>
-                                <div class="pricing-classic-caption">
-                                    <div><span class="product-badge product-badge-sale">@lang('messages.sale')</span>
-                                        <h3 class="pricing-classic-title">@lang('messages.standard')</h3>
-                                        <div class="pricing-classic-price-wrap">
-                                            <div class="pricing-classic-price pricing-classic-price-old heading-6">$150.00</div>
-                                            <div class="pricing-classic-price heading-4">$120.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-classic-body">
-                                <ul class="pricing-classic-list">
-                                    <li>@lang('messages.square_furnitures')</li>
-                                    <li>@lang('messages.fruit_furnitures')</li>
-                                    <li>@lang('messages.sculpted_furnitures')</li>
-                                    <li>@lang('messages.biscuits')</li>
-                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-sm-6 col-lg-4">
-                        <article class="pricing-classic">
-                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-3.jpg" alt="" width="346" height="229"/>
-                                <div class="pricing-classic-caption">
-                                    <div>
-                                        <h3 class="pricing-classic-title">@lang('messages.premium')</h3>
-                                        <div class="pricing-classic-price-wrap">
-                                            <div class="pricing-classic-price heading-4">$190.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-classic-body">
-                                <ul class="pricing-classic-list">
-                                    <li>@lang('messages.scalloped_furnitures')</li>
-                                    <li>@lang('messages.chocolate_furnitures')</li>
-                                    <li>@lang('messages.celebration_furnitures')</li>
-                                    <li>@lang('messages.pies')</li>
-                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section class="section section-sm section-first bg-default">--}}
+{{--            <div class="container">--}}
+{{--                <div class="row row-xl row-30 justify-content-center">--}}
+{{--                    <div class="col-sm-6 col-lg-4">--}}
+{{--                        <article class="pricing-classic">--}}
+{{--                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-1.jpg" alt="" width="346" height="229"/>--}}
+{{--                                <div class="pricing-classic-caption">--}}
+{{--                                    <div>--}}
+{{--                                        <h3 class="pricing-classic-title">@lang('messages.basic')</h3>--}}
+{{--                                        <div class="pricing-classic-price-wrap">--}}
+{{--                                            <div class="pricing-classic-price heading-4">$90.00</div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="pricing-classic-body">--}}
+{{--                                <ul class="pricing-classic-list">--}}
+{{--                                    <li>@lang('messages.round_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.sponge_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.wedding_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.macarons')</li>--}}
+{{--                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>--}}
+{{--                            </div>--}}
+{{--                        </article>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-sm-6 col-lg-4">--}}
+{{--                        <article class="pricing-classic pricing-classic-sale">--}}
+{{--                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-2.jpg" alt="" width="346" height="229"/>--}}
+{{--                                <div class="pricing-classic-caption">--}}
+{{--                                    <div><span class="product-badge product-badge-sale">@lang('messages.sale')</span>--}}
+{{--                                        <h3 class="pricing-classic-title">@lang('messages.standard')</h3>--}}
+{{--                                        <div class="pricing-classic-price-wrap">--}}
+{{--                                            <div class="pricing-classic-price pricing-classic-price-old heading-6">$150.00</div>--}}
+{{--                                            <div class="pricing-classic-price heading-4">$120.00</div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="pricing-classic-body">--}}
+{{--                                <ul class="pricing-classic-list">--}}
+{{--                                    <li>@lang('messages.square_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.fruit_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.sculpted_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.biscuits')</li>--}}
+{{--                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>--}}
+{{--                            </div>--}}
+{{--                        </article>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-sm-6 col-lg-4">--}}
+{{--                        <article class="pricing-classic">--}}
+{{--                            <div class="pricing-classic-header"><img class="pricing-classic-figure" src="images/price/price-img-3.jpg" alt="" width="346" height="229"/>--}}
+{{--                                <div class="pricing-classic-caption">--}}
+{{--                                    <div>--}}
+{{--                                        <h3 class="pricing-classic-title">@lang('messages.premium')</h3>--}}
+{{--                                        <div class="pricing-classic-price-wrap">--}}
+{{--                                            <div class="pricing-classic-price heading-4">$190.00</div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="pricing-classic-body">--}}
+{{--                                <ul class="pricing-classic-list">--}}
+{{--                                    <li>@lang('messages.scalloped_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.chocolate_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.celebration_furnitures')</li>--}}
+{{--                                    <li>@lang('messages.pies')</li>--}}
+{{--                                </ul><a class="button button-md button-default-outline-2 button-zakaria" href="cart-page.html">@lang('messages.add_to_cart')</a>--}}
+{{--                            </div>--}}
+{{--                        </article>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
         <!-- Our brand-->
         @include('web.components.our-brand')

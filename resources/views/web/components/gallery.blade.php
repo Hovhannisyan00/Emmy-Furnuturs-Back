@@ -1,4 +1,6 @@
-    <!-- Grid Gallery-->
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+<!-- Grid Gallery-->
     <section class="section section-md bg-default">
         <div class="container-fluid isotope-wrap isotope-custom-2">
             <div class="isotope-filters">
@@ -11,7 +13,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row row-30 isotope" data-lightgallery="group" id="gallery-products">
+            <div class="row row-30 isotope" data-lightgallery="group" id="gallery-products" style="display: flex">
                 <!-- Products will be loaded here -->
                 <div class="col-12 text-center py-5">
                     <div class="spinner-border" role="status">
@@ -73,7 +75,7 @@
                     const filterType = index % 2 === 0 ? 'Type 1' : 'Type 2';
 
                     html += `
-                        <div class="col-sm-6 col-md-6 col-xl-4 isotope-item" data-filter="${filterType}">
+                        <div class="col-sm-6 col-md-6 col-xl-4 isotope-item gallery-positions" data-filter="${filterType}"  >
                             <article class="thumbnail-classic block-1">
                                 <div class="thumbnail-classic-figure">
                                     <img src="${productImage}" alt="${productName}" width="370" height="315"
@@ -106,8 +108,10 @@
                 galleryContainer.innerHTML = html;
 
                 if (iso) {
-                    iso.reloadItems();
-                    iso.arrange();
+                    imagesLoaded(grid, function () {
+                        iso.reloadItems();
+                        iso.arrange();
+                    });
                 }
 
             } catch (error) {
@@ -120,3 +124,8 @@
             }
         });
     </script>
+<style>
+    .gallery-positions{
+        position: static !important;
+    }
+</style>

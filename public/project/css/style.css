@@ -22074,3 +22074,7 @@ html#ecwid_html body#ecwid_body .ec-size.ec-size--m .ec-store .details-gallery__
 		padding: 50px;
 	}
 }
+
+. gallery-positions{
+    position: static !important;
+}

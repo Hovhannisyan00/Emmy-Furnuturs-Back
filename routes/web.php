@@ -124,6 +124,9 @@ Route::get('/get-team-members', [OurTeamController::class, 'getLatestMembers'])-
 Route::get('/categories', [CategorieController::class, 'getCategories'])->name('web.category');
 
 Route::get('/about', [HistoryController::class, 'geet'])->name('web.about');
+
+Route::post('/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+
 // Example for a catch-all page if needed
 // Route::fallback(function () {
 //    return view('web.404');

@@ -3,7 +3,9 @@
 namespace App\Models\User\Traits;
 
 use App\Models\Basket\Basket;
+use App\Models\Coupon\Coupon;
 use App\Models\File\File;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -17,5 +19,9 @@ trait UserRelations
     public function basket(): HasOne
     {
         return $this->hasOne(Basket::class);
+    }
+    public function coupons(): HasMany
+    {
+        return $this->hasMany(Coupon::class);
     }
 }

@@ -15,12 +15,17 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        // Очищаем только основные таблицы, не трогаем order_items
+        DB::table('orders')->truncate(); // Очищаем orders
+
         DB::table('roles')->truncate();
         DB::table('permissions')->truncate();
         DB::table('model_has_permissions')->truncate();
         DB::table('model_has_roles')->truncate();
         DB::table('role_has_permissions')->truncate();
         User::truncate();
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $this->call([
@@ -28,6 +33,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             UserSeeder::class,
             MenuSeeder::class,
+            OrderSeeder::class,
         ]);
     }
 }

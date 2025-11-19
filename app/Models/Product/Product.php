@@ -36,4 +36,11 @@ class Product extends BaseModel
         return $this->price + $this->discount;
     }
 
+    public function getCategoryNameAttribute(): string
+    {
+        if ($this->relationLoaded('categories') && $this->categories) {
+            return $this->categories->name;
+        }
+        return 'Категория не выбрана';
+    }
 }

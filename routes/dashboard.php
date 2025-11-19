@@ -30,6 +30,12 @@ Route::group(['prefix' => 'files', 'as' => 'files.'], function () {
     Route::post('store-temp-file', [FileController::class, 'storeTempFile'])->name('storeTempFile');
 });
 
+// Order routes (public - outside admin middleware) - ПЕРЕИМЕНОВАТЬ!
+Route::post('/order/create', [OrderController::class, 'checkout'])->name('web.order.create');
+Route::get('/checkout', [OrderController::class, 'checkoutPage'])->name('web.checkout.page');
+Route::get('/orders', [OrderController::class, 'indexes'])->name('web.orders.index');
+Route::get('/orders/{id}', [OrderController::class, 'shows'])->name('web.orders.show');
+
 // Translations
 Route::controller(Barryvdh\TranslationManager\Controller::class)->as('translation.')->group(function () {
     Route::get('/translations', 'getIndex')->name('manager');
@@ -75,7 +81,7 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     Route::resource('coming_soons', Coming_soonController::class);
     Route::get('coming_soons/dataTable/get-list', [Coming_soonController::class, 'getListData'])->name('coming_soons.getListData');
 
-    // Orders
+    // Orders (admin management)
     Route::resource('orders', OrderController::class);
     Route::get('orders/dataTable/get-list', [OrderController::class, 'getListData'])->name('orders.getListData');
 
@@ -88,9 +94,11 @@ Route::group(['middleware' => ["role:$roleAdmin"]], function () {
     Route::get('histories/dataTable/get-list', [HistoryController::class, 'getListData'])->name('histories.getListData');
 });
 
+Route::post('/send-mail', [OrderController::class, 'sendStatusEmail'])->name('send-mail');
+Route::post('/orders/export-pdf', [OrderController::class, 'exportPdf'])->name('orders.exportPdf');
+
 // Profile
 Route::controller(ProfileController::class)->as('profile.')->group(function () {
     Route::get('profile', 'index')->name('index');
     Route::put('profile/{id}', 'update')->whereNumber('id')->name('update');
 });
-

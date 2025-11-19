@@ -96,8 +96,8 @@
                 <div class="col-md-6 text-md-start">
                     <p class="copyright-text mb-0">
                         © 2024 All rights reserved.
-                        <a href="https://www.linkedin.com/in/arsen-hovhannisyan-b861aa347/" target="_blank" rel="noopener noreferrer">
-                            Arsen
+                        <a href="https://netframe.am/" target="_blank" rel="noopener noreferrer">
+                            NetFrame
                         </a>. All rights reserved.
                         <a href="{{ route('web.privacy.policy') }}">Privacy Policy</a>
                     </p>
@@ -105,8 +105,8 @@
                 <div class="col-md-6 text-md-end mt-3 mt-md-0">
                     <div class="payment-methods">
                         <div class="payment-icons">
-                            <img src="{{ asset('img/payments/Visa.png') }}" alt="Visa" loading="lazy">
-                            <img src="{{ asset('img/payments/MasterCard.png') }}" alt="Mastercard" loading="lazy">
+{{--                            <img src="{{ asset('img/payments/Visa.png') }}" alt="Visa" loading="lazy">--}}
+{{--                            <img src="{{ asset('img/payments/MasterCard.png') }}" alt="Mastercard" loading="lazy">--}}
                             <img src="{{ asset('img/payments/sbp.png') }}" alt="PayPal" loading="lazy">
                             <img src="{{ asset('img/payments/Mir.png') }}" alt="Apple Pay" loading="lazy">
                         </div>
@@ -380,6 +380,7 @@
         background: white;
         padding: 4px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 0;
     }
 
     .payment-icons img:hover {

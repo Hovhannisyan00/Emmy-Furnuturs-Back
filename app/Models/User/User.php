@@ -7,6 +7,7 @@ use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
 use App\Models\User\Traits\UserAccessors;
+use App\Models\User\Traits\UserCouponTrait;
 use App\Models\User\Traits\UserHelperMethods;
 use App\Models\User\Traits\UserRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,6 +28,7 @@ class User extends Authenticatable
     use UserHelperMethods;
     use UserRelations;
     use HasFactory;
+    use UserCouponTrait;
 
     /**
      * The attributes that are mass assignable.

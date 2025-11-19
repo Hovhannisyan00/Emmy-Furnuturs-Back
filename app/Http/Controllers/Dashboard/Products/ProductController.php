@@ -6,11 +6,13 @@ use App\Contracts\Product\IProductRepository;
 use App\Http\Controllers\Dashboard\BaseController;
 use App\Http\Requests\Product\ProductRequest;
 use App\Http\Requests\Product\ProductSearchRequest;
+use App\Models\Categorie\Categorie;
 use App\Models\Product\Product;
 use App\Models\Product\ProductSearch;
 use App\Services\Product\ProductService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 
 class ProductController extends BaseController
 {
@@ -64,20 +66,48 @@ class ProductController extends BaseController
     );*/
     // }
 
+    //    public function edit(Product $product): View
+    //    {
+    //        $product = $this->repository->find($product->id);
+    //        $targetCategorie = $product->categories;
+    //        return $this->dashboardView(
+    //            view: 'product.form',
+    //            vars: $this->service->getViewData($product->id),
+    //            viewMode: 'edit'
+    //        );
+    //    }
     public function edit(Product $product): View
     {
         $product = $this->repository->find($product->id);
-        $targetCategorie = $product->categories;
+        $viewData = $this->service->getViewData($product->id);
+        $viewData['categories'] = Categorie::pluck('name', 'id')->toArray();
+
         return $this->dashboardView(
             view: 'product.form',
-            vars: $this->service->getViewData($product->id),
+            vars: $viewData,
             viewMode: 'edit'
         );
     }
 
     public function update(ProductRequest $request, Product $product): JsonResponse
     {
-        $this->service->createOrUpdate($request->validated(), $product->id);
+        $data = $request->validated();
+        if (empty($data['category_id'])) {
+            $existingProduct = Product::find($product->id);
+            if ($existingProduct && $existingProduct->category_id) {
+                $data['category_id'] = $existingProduct->category_id;
+            } else {
+                $defaultCategory = Categorie::where('name', 'Без категории')->first();
+                if (!$defaultCategory) {
+                    $defaultCategory = Categorie::create([
+                        'name' => 'Без категории',
+                        'slug' => Str::slug('Без категории')
+                    ]);
+                }
+                $data['category_id'] = $defaultCategory->id;
+            }
+        }
+        $this->service->createOrUpdate($data, $product->id);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.products.index')
@@ -109,7 +139,7 @@ class ProductController extends BaseController
             $product->max_price = number_format($maxPrice, 0, '', ' ');
 
             // Форматируем цены для каждого размера
-            $product->sizes->each(function($size) {
+            $product->sizes->each(function ($size) {
                 $size->formatted_price = number_format($size->price, 0, '', ' ');
             });
         }

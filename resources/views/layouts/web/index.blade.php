@@ -2,29 +2,54 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <title>Emmy Furniture Munich</title>
+    <title>Emmy Furniture Munich - Премиальная мебель в Мюнхене | Магазин мебели</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="description" content="Furnitureiva - Responsive Furniture HTML Template">
-    <meta name="keywords" content="Furnitureiva, Furniture Shop Design, html, template, responsive, corporate, business, Shop">
-    <meta name="author" content="">
+    <meta name="description" content="Emmy Furniture Munich - магазин премиальной мебели в Мюнхене. Современная и классическая мебель для гостиной, спальни, столовой. Доставка по Мюнхену.">
+    <meta name="keywords" content="мебель мюнхен, купить мебель мюнхен, современная мебель, мебель для гостиной, мебель для спальни, обеденный стол, офисная мебель, диван мюнхен, шкаф, мебельный магазин">
+    <meta name="author" content="Emmy Furniture">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="index, follow">
 
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <script src="{{ asset('js/respond.js') }}"></script>
-    <![endif]-->
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FurnitureStore",
+            "name": "Emmy Furniture Munich",
+            "description": "Премиальный магазин мебели в Мюнхене. Современная и классическая мебель для дома и офиса",
+            "url": "{{ url('/') }}",
+        "telephone": "+49-89-XXXX-XXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Ваш адрес",
+            "addressLocality": "Мюнхен",
+            "postalCode": "80331",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "48.1351",
+            "longitude": "11.5820"
+        },
+        "openingHours": [
+            "Mo-Fr 10:00-18:00",
+            "Sa 10:00-16:00"
+        ],
+        "priceRange": "€€",
+        "areaServed": "Мюнхен и прилегающие районы",
+        "sameAs": [
+            "https://www.facebook.com/emmyfurnituremunich",
+            "https://www.instagram.com/emmyfurnituremunich"
+        ]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/web/logo-emmy.png') }}" type="image/x-icon">
 
     <!-- CSS Styles -->
-    <!-- Bootstrap 5 CDN (рекомендуется вместо локального) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Основные стили проекта -->
     <link rel="stylesheet" href="{{ asset('css/web/style.css') }}">
-
-    <!-- Дополнительные стили -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -448,7 +473,7 @@
                         <div class="ch-navbar-panel">
                             <button class="ch-navbar-toggle" data-ch-navbar-toggle=".ch-navbar-nav-wrap"><span></span></button>
                             <div class="ch-navbar-brand">
-                                <a href="{{ route('web.home') }}"><img class="logo-default" src="{{ asset('img/web/logo-emmy.png') }}" alt="Logo" /></a>
+                                <a href="{{ route('web.home') }}"> <img class="logo-default" src="{{ asset('img/web/logo-emmy.png') }}" alt="Emmy Furniture Munich - магазин премиальной мебели" title="Магазин мебели в Мюнхене" /></a>
                             </div>
                         </div>
                         <div class="ch-navbar-nav-wrap">
@@ -500,7 +525,8 @@
     <!-- Page Footer-->
     @include('web.components.footer')
 </div>
-
+<!-- SEO Text Component -->
+@include('SEO.seo-text')
 <!-- Your existing scripts -->
 
 <script src="{{ asset('js/web/js/header.js') }}"></script>

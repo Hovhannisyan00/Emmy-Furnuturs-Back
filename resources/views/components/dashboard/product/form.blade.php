@@ -30,7 +30,7 @@
                         <div class="form-group required">
                             <x-dashboard.form._input name="quantity" :value="$product->quantity" type="number"/>
                         </div>
-                            <div class="form-group required">
+                            <div class="form-group">
                             <x-dashboard.form._select
                                 name="category_id"
                                 :data="[]"

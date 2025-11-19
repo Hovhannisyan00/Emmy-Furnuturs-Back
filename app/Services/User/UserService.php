@@ -25,6 +25,8 @@ class UserService extends BaseService
     {
         if ($id) {
             $user = $this->repository->find($id);
+            $user->load('coupons', 'roles'); // Добавьте эту строку
+
             $userRoleIds = $user->roles->pluck('id')->all();
         }
 
@@ -53,7 +55,30 @@ class UserService extends BaseService
             // File
             $this->fileService->storeFile($user, $data);
 
+            // Coupon
+            $this->handleCoupon($user, $data);
+
             return $user;
         });
+    }
+
+    private function handleCoupon(Model $user, array $data): void
+    {
+        $hasCoupon = !empty($data['coupon']) && !empty($data['coupon_discount']);
+
+        // If no coupon data provided — do nothing
+        if (!$hasCoupon) {
+            return;
+        }
+
+        // Delete old coupon (only 1 coupon allowed per user)
+        $user->coupons()->delete();
+
+        // Create new coupon
+        $user->coupons()->create([
+            'coupon' => $data['coupon'],
+            'discount' => $data['coupon_discount'],
+            'is_expired' => false,
+        ]);
     }
 }

@@ -436,38 +436,62 @@
 
                             <div class="aside-item col-sm-6 col-md-5 col-lg-12">
                                 <h6 class="aside-title">@lang('messages.categories')</h6>
-                                <ul class="list-shop-filter">
+                                <ul class="list-shop-filter" id="categories-filter">
+                                    <!-- Все категории -->
                                     <li>
                                         <label class="checkbox-inline">
-                                            <input name="input-group-radio" value="checkbox-1" type="checkbox">@lang('messages.all')
-                                        </label><span class="list-shop-filter-number">(18)</span>
+                                            <input type="checkbox" name="categories[]" value="all" id="category-all"
+                                                   checked class="category-filter">
+                                            @lang('messages.all_categories')
+                                        </label>
+                                        <span class="list-shop-filter-number">({{ $totalProducts ?? 0 }})</span>
                                     </li>
-                                    <li>
-                                        <label class="checkbox-inline">
-                                            <input name="input-group-radio" value="checkbox-2" type="checkbox">@lang('messages.furnitures')
-                                        </label><span class="list-shop-filter-number">(9)</span>
-                                    </li>
-                                    <li>
-                                        <label class="checkbox-inline">
-                                            <input name="input-group-radio" value="checkbox-3" type="checkbox">@lang('messages.macarons')
-                                        </label><span class="list-shop-filter-number">(5)</span>
-                                    </li>
-                                    <li>
-                                        <label class="checkbox-inline">
-                                            <input name="input-group-radio" value="checkbox-4" type="checkbox">@lang('messages.other_pastry')
-                                        </label><span class="list-shop-filter-number">(8)</span>
-                                    </li>
+
+                                    <!-- Динамические категории -->
+                                    @if(!empty($categories) && (is_array($categories) || $categories instanceof \Illuminate\Support\Collection))
+                                        @foreach($categories as $category)
+                                            @php
+                                                $categoryId = '';
+                                                $categoryName = 'Unnamed Category';
+                                                $productsCount = 0;
+
+                                                if (is_array($category)) {
+                                                    $categoryId = $category['id'] ?? '';
+                                                    $categoryName = $category['name'] ?? 'Unnamed Category';
+                                                    $productsCount = $category['products_count'] ?? 0;
+                                                } elseif (is_object($category)) {
+                                                    $categoryId = $category->id ?? '';
+                                                    $categoryName = $category->name ?? 'Unnamed Category';
+                                                    $productsCount = $category->products_count ?? 0;
+                                                }
+                                            @endphp
+
+                                            @if(!empty($categoryId))
+                                                <li>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" name="categories[]" value="{{ $categoryId }}"
+                                                               class="category-filter" data-count="{{ $productsCount }}">
+                                                        {{ $categoryName }}
+                                                    </label>
+                                                    <span class="list-shop-filter-number">({{ $productsCount }})</span>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <li class="text-muted">@lang('messages.no_categories_found')</li>
+                                    @endif
                                 </ul>
-                                <!-- RD Search Form-->
-                                <form class="ch-search form-search form-custom" action="search-results.html" method="GET">
+
+                                <!-- Поиск -->
+                                <form class="ch-search form-search form-custom" id="shop-search-form" method="GET">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="search-form" type="text" name="s" autocomplete="off">
-                                        <label class="form-label" for="search-form">@lang('messages.search_in_shop')</label>
+                                        <input class="form-input" id="search-form" type="text" name="search"
+                                               autocomplete="off" placeholder="@lang('messages.search_placeholder')">
+{{--                                        <label class="form-label" for="search-form">@lang('messages.search_in_shop')</label>--}}
                                         <button class="button-search fl-bigmug-line-search74" type="submit"></button>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
+                            </div>                        </div>
                     </div>
 
                     <div class="col-lg-8 col-xl-9">
@@ -576,21 +600,62 @@
         const maxInput = document.querySelector('#max_price');
         const productsContainer = document.querySelector('#products-container');
         const resultsText = document.querySelector('#results-text');
+        const categoryAll = document.querySelector('#category-all');
+        const categoryCheckboxes = document.querySelectorAll('.category-filter');
         const filterUrl = "{{ route('web.shop.filter') }}";
         const productBaseUrl = "{{ url('/product') }}";
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
 
         if (!filterButton || !productsContainer) return;
 
-        filterButton.addEventListener('click', async () => {
+        // Обработчик изменения категорий
+        if (categoryCheckboxes.length > 0) {
+            categoryCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function(e) {
+                    handleCategoryChange(e.target);
+                });
+            });
+        }
+
+        function handleCategoryChange(clickedCheckbox) {
+            const isAllCategory = clickedCheckbox.id === 'category-all';
+
+            if (isAllCategory && clickedCheckbox.checked) {
+                // Если выбрали "Все", снимаем выбор с остальных
+                document.querySelectorAll('.category-filter:not(#category-all)').forEach(cb => {
+                    cb.checked = false;
+                });
+            } else if (!isAllCategory && clickedCheckbox.checked) {
+                // Если выбрали конкретную категорию, снимаем "Все"
+                categoryAll.checked = false;
+            }
+
+            // Автоматически применяем фильтры при изменении категорий
+            applyFilters();
+        }
+
+        // Основная функция применения фильтров
+        async function applyFilters() {
             const min = minInput?.value?.trim() || '0';
             const max = maxInput?.value?.trim() || '999999';
+
+            // Получаем выбранные категории
+            const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked'))
+                .filter(cb => cb.value !== 'all')
+                .map(cb => cb.value);
+
+            // Формируем URL с параметрами
+            let url = `${filterUrl}?min_price=${encodeURIComponent(min)}&max_price=${encodeURIComponent(max)}`;
+
+            if (selectedCategories.length > 0) {
+                url += `&categories=${encodeURIComponent(selectedCategories.join(','))}`;
+            }
 
             productsContainer.classList.add('loading');
             productsContainer.innerHTML = '<div class="col-12 text-center"><p>@lang('messages.loading')</p></div>';
 
             try {
-                const response = await fetch(`${filterUrl}?min_price=${encodeURIComponent(min)}&max_price=${encodeURIComponent(max)}`, {
+                const response = await fetch(url, {
                     headers: {
                         'Accept': 'application/json',
                         'X-Requested-With': 'XMLHttpRequest'
@@ -605,19 +670,14 @@
                 renderProducts(data.products || []);
             } catch (err) {
                 console.error('Error fetching products:', err);
-                productsContainer.innerHTML = `
-                    <div class="col-12 text-center">
-                        <div class="empty-state py-5">
-                            <i class="icon mdi mdi-alert-circle-outline" style="font-size: 64px; color: #ff6b6b; margin-bottom: 20px;"></i>
-                            <p class="text-muted" style="font-size: 18px;">@lang('messages.loading_error')</p>
-                        </div>
-                    </div>
-                `;
-                if (resultsText) resultsText.textContent = '@lang('messages.showing_no_results')';
+                showError('@lang('messages.loading_error')');
             } finally {
                 productsContainer.classList.remove('loading');
             }
-        });
+        }
+
+        // Обработчик кнопки фильтра
+        filterButton.addEventListener('click', applyFilters);
 
         function renderProducts(products) {
             productsContainer.innerHTML = '';
@@ -708,6 +768,18 @@
 
                 productsContainer.insertAdjacentHTML('beforeend', productHtml);
             });
+        }
+
+        function showError(message) {
+            productsContainer.innerHTML = `
+                <div class="col-12 text-center">
+                    <div class="empty-state py-5">
+                        <i class="icon mdi mdi-alert-circle-outline" style="font-size: 64px; color: #ff6b6b; margin-bottom: 20px;"></i>
+                        <p class="text-muted" style="font-size: 18px;">${message}</p>
+                    </div>
+                </div>
+            `;
+            if (resultsText) resultsText.textContent = '@lang('messages.showing_no_results')';
         }
     });
 </script>
