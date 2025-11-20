@@ -126,4 +126,6 @@
 
     <!-- Our brand-->
     @include('web.components.our-brand')
+    <!--SEO -->
+    @include('SEO.blog-seo')
 </x-web-layout>

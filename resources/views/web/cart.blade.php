@@ -99,6 +99,8 @@
         </section>
 
         @include('web.components.our-brand')
+        @include('SEO.cart-seo')
+
     </div>
 
     <!-- Delete Confirmation Modal -->

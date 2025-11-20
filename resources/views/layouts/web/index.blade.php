@@ -437,6 +437,7 @@
 {{--                                </div>--}}
 {{--                            </div>                            <span class="separator pl-15 pr-15"> </span>--}}
                             <!-- Account Dropdown -->
+                            <!-- Account Dropdown -->
                             <div class="single-dropdown">
                                 <div class="dropdown show">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
@@ -454,11 +455,10 @@
                                                 @csrf
                                                 <button type="submit" class="dropdown-item">@lang('messages.logout')</button>
                                             </form>
-                                        @endguest
+                                        @endguest <!-- This was missing -->
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>                        </div>
                     </div>
                 </div>
             </div>
@@ -526,7 +526,7 @@
     @include('web.components.footer')
 </div>
 <!-- SEO Text Component -->
-@include('SEO.seo-text')
+{{--@include('SEO.seo-text')--}}
 <!-- Your existing scripts -->
 
 <script src="{{ asset('js/web/js/header.js') }}"></script>

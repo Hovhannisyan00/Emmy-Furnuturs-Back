@@ -171,6 +171,7 @@
 
         <!-- Our brand-->
         @include('web.components.our-brand')
+        @include('SEO.offer-seo')
 
     </div>
 </x-web-layout>

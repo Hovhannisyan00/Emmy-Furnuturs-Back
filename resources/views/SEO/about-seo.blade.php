@@ -1,0 +1,225 @@
+<!-- About Us Page SEO Content - Hidden from users, visible for search engines -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>О компании Emmy Furniture Munich - Магазин премиальной мебели</h1>
+    <h2>История, миссия и ценности мебельного магазина в Мюнхене</h2>
+
+    <p><strong>Emmy Furniture Munich</strong> - это ведущий магазин премиальной мебели в Мюнхене, предлагающий качественные решения для обустройства дома и офиса. Наша компания была основана с целью предоставления клиентам access к лучшим образцам мебельного искусства по доступным ценам.</p>
+
+    <h3>Наша история и развитие</h3>
+    <p>С момента основания Emmy Furniture Munich мы прошли значительный путь развития. Начиная с небольшого семейного бизнеса, мы выросли в уважаемую компанию на рынке мебели Мюнхена. Наш успех основан на трех ключевых принципах: качество, клиентоориентированность и инновации.</p>
+
+    <h3>Наша миссия</h3>
+    <p>Мы стремимся создавать комфортные и стильные пространства для наших клиентов, предлагая мебель, которая сочетает в себе функциональность, эстетику и долговечность. Наша миссия - помогать людям создавать дома своей мечты, где каждая деталь отражает их индивидуальность и вкус.</p>
+
+    <h3>Наши цели</h3>
+    <ul>
+        <li>Предоставлять клиентам широкий выбор качественной мебели различных стилей</li>
+        <li>Обеспечивать высокий уровень сервиса и профессиональные консультации</li>
+        <li>Постоянно расширять ассортимент в соответствии с современными тенденциями</li>
+        <li>Развивать партнерские отношения с ведущими производителями мебели</li>
+        <li>Создавать комфортные условия для покупки мебели в Мюнхене</li>
+    </ul>
+
+    <h3>Почему выбирают Emmy Furniture Munich?</h3>
+    <ul>
+        <li><strong>Опыт и экспертиза</strong> - Более 10 лет на рынке мебели в Мюнхене</li>
+        <li><strong>Качество продукции</strong> - Тщательный отбор каждого товара</li>
+        <li><strong>Широкий ассортимент</strong> - Более 245 эксклюзивных моделей мебели</li>
+        <li><strong>Индивидуальный подход</strong> - 182 выполненных заказа по индивидуальным проектам</li>
+        <li><strong>Доверие клиентов</strong> - Более 1267 довольных клиентов в Мюнхене</li>
+        <li><strong>Профессиональная команда</strong> - 47 специалистов в области мебели и дизайна</li>
+    </ul>
+
+    <h3>Наши достижения</h3>
+    <p>За годы работы мы достигли значительных результатов:</p>
+    <ul>
+        <li>Стали одним из ведущих мебельных магазинов в Мюнхене</li>
+        <li>Создали сильную команду профессионалов</li>
+        <li>Накопили богатый опыт работы с различными стилями интерьера</li>
+        <li>Разработали эффективную систему обслуживания клиентов</li>
+        <li>Сформировали репутацию надежного партнера в сфере мебели</li>
+    </ul>
+
+    <h3>Философия компании</h3>
+    <p>Мы верим, что качественная мебель - это не просто предмет интерьера, а инвестиция в комфорт и уют вашего дома. Каждый наш продукт проходит тщательный отбор, чтобы соответствовать высоким стандартам качества и удовлетворять потребности самых взыскательных клиентов.</p>
+
+    <h3>Будущее развитие</h3>
+    <p>Мы продолжаем развиваться и совершенствовать наши услуги. В планах компании - расширение ассортимента, внедрение новых технологий в производство мебели и развитие онлайн-сервисов для еще более удобного шопинга для наших клиентов в Мюнхене и за его пределами.</p>
+
+    <p><strong>Ключевые слова:</strong> о компании Emmy Furniture, история мебельного магазина мюнхен, миссия компании, ценности мебельного бренда, достижения Emmy Furniture, философия компании, развитие мебельного бизнеса</p>
+</div>
+
+<!-- Structured Data for About Page -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "О компании - Emmy Furniture Munich",
+        "description": "История, миссия и ценности мебельного магазина Emmy Furniture в Мюнхене",
+        "url": "{{ url()->current() }}",
+    "mainEntity": {
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "alternateName": "Emmy Furniture",
+        "description": "Магазин премиальной мебели в Мюнхене с многолетней историей",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('img/web/logo-emmy.png') }}",
+        "foundingDate": "2014",
+        "founders": [
+            {
+                "@type": "Person",
+                "name": "Основатель Emmy Furniture"
+            }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Мюнхен",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "emmy-web@mail.ru",
+            "availableLanguage": ["de", "ru", "en"]
+        },
+        "numberOfEmployees": "47",
+        "slogan": "@lang('messages.america_best_furniture')",
+        "knowsAbout": [
+            "Дизайн интерьера",
+            "Мебельное производство",
+            "Качество материалов",
+            "Современные тенденции мебели",
+            "Обустройство жилых пространств"
+        ]
+    }
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "{{ route('web.home') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Страницы",
+            "item": "{{ url()->current() }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "О компании",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+
+<!-- Organization Achievements Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Достижения Emmy Furniture Munich",
+        "description": "Ключевые показатели и достижения компании",
+        "numberOfItems": 4,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Эксклюзивные модели мебели",
+                "description": "245 уникальных моделей мебели в ассортименте"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Индивидуальные проекты",
+                "description": "182 выполненных заказа по индивидуальным проектам"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Довольные клиенты",
+                "description": "Более 1267 довольных клиентов в Мюнхене"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Профессиональная команда",
+                "description": "47 специалистов в области мебели и дизайна"
+            }
+        ]
+    }
+</script>
+
+<!-- Local Business Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FurnitureStore",
+        "name": "Emmy Furniture Munich",
+        "image": "{{ asset('img/web/logo-emmy.png') }}",
+    "@id": "{{ url('/') }}",
+    "url": "{{ url('/') }}",
+    "telephone": "+49-89-XXXX-XXXX",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ваш адрес",
+        "addressLocality": "Мюнхен",
+        "postalCode": "80331",
+        "addressCountry": "DE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "48.1351",
+        "longitude": "11.5820"
+    },
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "opens": "10:00",
+        "closes": "18:00"
+    },
+    "priceRange": "€€",
+    "areaServed": {
+        "@type": "City",
+        "name": "Мюнхен"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги компании",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Консультация по дизайну",
+                    "description": "Профессиональная консультация по подбору мебели"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Доставка и сборка",
+                    "description": "Полный цикл услуг по доставке и сборке мебели"
+                }
+            }
+        ]
+    }
+}
+</script>

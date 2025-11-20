@@ -1,0 +1,120 @@
+<!-- Privacy Policy Page SEO Content - Hidden from users, visible for search engines -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>Политика конфиденциальности - Emmy Furniture Munich</h1>
+    <h2>Защита персональных данных клиентов мебельного магазина</h2>
+
+    <p><strong>Emmy Furniture Munich</strong> серьезно относится к защите персональных данных наших клиентов. Настоящая политика конфиденциальности описывает, как мы собираем, используем и защищаем информацию, которую вы предоставляете нам при использовании нашего веб-сайта и услуг.</p>
+
+    <h3>Основные принципы обработки данных</h3>
+    <ul>
+        <li><strong>Прозрачность:</strong> Мы четко объясняем, какие данные собираем и для каких целей</li>
+        <li><strong>Безопасность:</strong> Все персональные данные защищены современными методами шифрования</li>
+        <li><strong>Минимизация:</strong> Собираем только необходимые данные для предоставления услуг</li>
+        <li><strong>Контроль:</strong> Вы всегда можете запросить информацию о своих данных или их удаление</li>
+    </ul>
+
+    <h3>Какие данные мы собираем</h3>
+    <p>При оформлении заказа в мебельном магазине Emmy Furniture Munich мы можем собирать следующую информацию: имя, контактные данные, адрес доставки в Мюнхене, информацию о заказах и предпочтениях в мебели. Эти данные используются исключительно для обработки заказов и улучшения качества обслуживания.</p>
+
+    <h3>Использование cookies</h3>
+    <p>Наш веб-сайт использует cookies для улучшения пользовательского опыта, анализа трафика и персонализации контента. Вы можете управлять настройками cookies через параметры вашего браузера.</p>
+
+    <h3>Защита данных</h3>
+    <p>Все персональные данные защищены в соответствии с требованиями GDPR (Общий регламент по защите данных) и немецкого законодательства о защите данных. Мы используем SSL-шифрование для безопасной передачи информации.</p>
+
+    <h3>Ваши права</h3>
+    <p>Вы имеете право на доступ, исправление, удаление своих персональных данных, а также право на ограничение обработки и переносимость данных. Для реализации этих прав обращайтесь по email: emmy-web@mail.ru</p>
+
+    <p><strong>Ключевые слова:</strong> политика конфиденциальности, защита персональных данных, GDPR, конфиденциальность Emmy Furniture, обработка данных мебельный магазин, защита информации клиентов, cookies политика</p>
+</div>
+
+<!-- Structured Data for Privacy Policy Page -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Политика конфиденциальности - Emmy Furniture Munich",
+        "description": "Политика обработки и защиты персональных данных клиентов мебельного магазина Emmy Furniture Munich",
+        "url": "{{ url()->current() }}",
+    "mainEntity": {
+        "@type": "Article",
+        "headline": "Политика конфиденциальности Emmy Furniture Munich",
+        "description": "Полное описание политики обработки персональных данных в соответствии с GDPR",
+        "author": {
+            "@type": "Organization",
+            "name": "Emmy Furniture Munich"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Emmy Furniture Munich",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('img/web/logo-emmy.png') }}"
+            }
+        },
+        "datePublished": "2024-01-01",
+        "dateModified": "{{ now()->toDateString() }}",
+        "articleSection": "Политика конфиденциальности",
+        "keywords": "конфиденциальность, защита данных, GDPR, персональные данные"
+    }
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "{{ route('web.home') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Элементы",
+            "item": "{{ url()->current() }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Политика конфиденциальности",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+
+<!-- Organization Structured Data with Privacy Policy -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "url": "{{ url('/') }}",
+    "logo": "{{ asset('img/web/logo-emmy.png') }}",
+    "description": "Магазин премиальной мебели в Мюнхене",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Мюнхен",
+        "addressCountry": "DE"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "emmy-web@mail.ru",
+        "contactType": "customer service",
+        "areaServed": "DE",
+        "availableLanguage": ["de", "ru", "en"]
+    },
+    "knowsAbout": [
+        "Мебель для гостиной",
+        "Спальная мебель",
+        "Офисная мебель",
+        "Дизайн интерьера",
+        "Доставка мебели в Мюнхене"
+    ]
+}
+</script>

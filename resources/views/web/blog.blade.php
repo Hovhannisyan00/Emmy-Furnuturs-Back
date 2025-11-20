@@ -63,6 +63,7 @@
         </section>
 
         @include('web.components.our-brand')
+        @include('SEO.blog-list-seo')
 
     </div>
 </x-web-layout>

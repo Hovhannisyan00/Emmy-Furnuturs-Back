@@ -22,6 +22,7 @@
         @include('web.components.gallery')
 
         @include('web.components.our-brand')
+        @include('SEO.gallery-seo')
 
     </div>
 </x-web-layout>

@@ -1,0 +1,231 @@
+<!-- 404 Error Page SEO Content - Hidden from users, visible for search engines -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>Страница не найдена - Ошибка 404 - Emmy Furniture Munich</h1>
+    <h2>Извините, запрашиваемая страница не существует или была перемещена</h2>
+
+    <p><strong>Emmy Furniture Munich</strong> - похоже, что страница, которую вы ищете, не существует или была перемещена. Не волнуйтесь - у нас есть много других интересных страниц с качественной мебелью для вашего дома в Мюнхене.</p>
+
+    <h3>Что могло произойти?</h3>
+    <ul>
+        <li>Страница могла быть перемещена в другой раздел сайта</li>
+        <li>Возможно, вы ввели неправильный адрес в браузере</li>
+        <li>Ссылка, по которой вы перешли, могла устареть</li>
+        <li>Страница временно недоступна по техническим причинам</li>
+    </ul>
+
+    <h3>Что делать дальше?</h3>
+    <p>Мы предлагаем несколько вариантов действий:</p>
+    <ul>
+        <li><strong>Вернуться на главную страницу</strong> - Начните поиск с основной страницы нашего магазина</li>
+        <li><strong>Воспользоваться поиском</strong> - Найдите нужную информацию через поисковую систему сайта</li>
+        <li><strong>Посетить популярные разделы</strong> - Перейдите в один из основных разделов нашего магазина</li>
+        <li><strong>Связаться с нами</strong> - Если вы не можете найти нужную информацию, обратитесь в нашу службу поддержки</li>
+    </ul>
+
+    <h3>Популярные разделы сайта</h3>
+    <p>Возможно, вы ищете одну из этих популярных страниц:</p>
+    <ul>
+        <li><strong>Магазин мебели</strong> - Каталог всей нашей мебели для дома и офиса</li>
+        <li><strong>Мебель для гостиной</strong> - Диваны, кресла, журнальные столики и ТВ-тумбы</li>
+        <li><strong>Спальная мебель</strong> - Кровати, матрасы, шкафы и комоды для спальни</li>
+        <li><strong>Офисная мебель</strong> - Письменные столы, офисные кресла и книжные полки</li>
+        <li><strong>О компании</strong> - Информация о магазине Emmy Furniture Munich</li>
+        <li><strong>Блог о мебели</strong> - Полезные статьи о выборе и уходе за мебелью</li>
+        <li><strong>Контакты</strong> - Как связаться с нашим магазином в Мюнхене</li>
+    </ul>
+
+    <h3>Помощь в навигации</h3>
+    <p>Если вы не можете найти нужную страницу, воспользуйтесь этими советами:</p>
+    <ul>
+        <li>Проверьте правильность написания адреса в браузере</li>
+        <li>Воспользуйтесь меню навигации в верхней части сайта</li>
+        <li>Используйте поиск по сайту для быстрого доступа к информации</li>
+        <li>Просмотрите карту сайта для общего обзора всех страниц</li>
+    </ul>
+
+    <h3>Техническая поддержка</h3>
+    <p>Если вы считаете, что это ошибка на нашей стороне, пожалуйста, свяжитесь с нашей технической поддержкой по email: emmy-web@mail.ru. Мы постараемся решить проблему как можно скорее.</p>
+
+    <h3>Emmy Furniture Munich - всегда к вашим услугам</h3>
+    <p>Несмотря на временную недоступность этой страницы, мы готовы помочь вам с выбором качественной мебели для вашего дома в Мюнхене. Посетите наш основной сайт и ознакомьтесь с широким ассортиментом мебели различных стилей и ценовых категорий.</p>
+
+    <p><strong>Ключевые слова:</strong> ошибка 404, страница не найдена, Emmy Furniture Munich, мебельный магазин мюнхен, главная страница, навигация по сайту, техническая поддержка</p>
+</div>
+
+<!-- Structured Data for 404 Error Page -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Страница не найдена - Ошибка 404",
+        "description": "Запрашиваемая страница не существует. Вернитесь на главную страницу Emmy Furniture Munich",
+        "url": "{{ url()->current() }}",
+    "mainEntity": {
+        "@type": "Message",
+        "text": "Страница, которую вы ищете, не существует или была перемещена. Пожалуйста, вернитесь на главную страницу или воспользуйтесь навигацией по сайту.",
+        "dateReceived": "{{ now()->toISOString() }}",
+        "sender": {
+            "@type": "Organization",
+            "name": "Emmy Furniture Munich"
+        }
+    }
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "{{ route('web.home') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Элементы",
+            "item": "{{ url()->current() }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Ошибка 404",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+
+<!-- Suggested Navigation Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Рекомендуемые страницы для перехода",
+        "description": "Популярные разделы сайта Emmy Furniture Munich",
+        "numberOfItems": 6,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "WebPage",
+                    "name": "Главная страница",
+                    "url": "{{ route('web.home') }}",
+                "description": "Основная страница магазина мебели Emmy Furniture Munich"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@type": "WebPage",
+                "name": "Магазин мебели",
+                "url": "{{ route('web.shop') }}",
+                "description": "Каталог всей мебели для дома и офиса"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@type": "WebPage",
+                "name": "О компании",
+                "url": "{{ route('web.about') }}",
+                "description": "Информация о магазине Emmy Furniture Munich"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+                "@type": "WebPage",
+                "name": "Блог о мебели",
+                "url": "{{ route('web.blog') }}",
+                "description": "Статьи о выборе и уходе за мебелью"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+                "@type": "WebPage",
+                "name": "Контакты",
+                "url": "{{ route('web.contact') }}",
+                "description": "Контактная информация магазина"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+                "@type": "WebPage",
+                "name": "Галерея",
+                "url": "{{ route('web.gallery') }}",
+                "description": "Фотографии нашей мебели в интерьерах"
+            }
+        }
+    ]
+}
+</script>
+
+<!-- Organization Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "url": "{{ url('/') }}",
+    "logo": "{{ asset('img/web/logo-emmy.png') }}",
+    "description": "Магазин премиальной мебели в Мюнхене. Качественная мебель для дома и офиса с доставкой.",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "emmy-web@mail.ru",
+        "availableLanguage": ["de", "ru", "en"]
+    },
+    "areaServed": {
+        "@type": "City",
+        "name": "Мюнхен"
+    },
+    "knowsAbout": [
+        "Мебель для гостиной",
+        "Спальная мебель",
+        "Офисная мебель",
+        "Дизайн интерьера",
+        "Доставка мебели в Мюнхене"
+    ]
+}
+</script>
+
+<!-- Error Message Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "name": "Решение проблемы: Страница не найдена (404)",
+        "description": "Что делать при возникновении ошибки 404 на сайте Emmy Furniture Munich",
+        "url": "{{ url()->current() }}",
+    "headline": "Ошибка 404 - Страница не найдена",
+    "datePublished": "{{ now()->toISOString() }}",
+    "dateModified": "{{ now()->toISOString() }}",
+    "author": {
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('img/web/logo-emmy.png') }}"
+        }
+    },
+    "proficiencyLevel": "Beginner",
+    "articleSection": "Техническая поддержка"
+}
+</script>
