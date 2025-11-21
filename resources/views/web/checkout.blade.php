@@ -442,4 +442,6 @@
             });
         });
     </script>
+    @include('SEO.checkout-seo')
+
 </x-web-layout>

@@ -1,0 +1,164 @@
+<!-- Checkout Page SEO Content - Hidden from users, visible for search engines -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>Оформление заказа - Emmy Furniture Munich</h1>
+    <h2>Безопасное и удобное оформление заказа мебели в Мюнхене</h2>
+
+    <p><strong>Emmy Furniture Munich</strong> предлагает простой и безопасный процесс оформления заказа мебели. Мы заботимся о том, чтобы каждая деталь вашего заказа была учтена, а доставка была максимально комфортной.</p>
+
+    <h3>Процесс оформления заказа</h3>
+    <ul>
+        <li><strong>Шаг 1: Контактная информация</strong> - Укажите ваши данные для связи и доставки</li>
+        <li><strong>Шаг 2: Адрес доставки</strong> - Введите точный адрес доставки в Мюнхене</li>
+        <li><strong>Шаг 3: Просмотр корзины</strong> - Проверьте выбранные товары и их количество</li>
+        <li><strong>Шаг 4: Выбор способа оплаты</strong> - Банковский перевод, PayPal или кредитная карта</li>
+        <li><strong>Шаг 5: Подтверждение заказа</strong> - Окончательная проверка и создание заказа</li>
+    </ul>
+
+    <h3>Способы оплаты</h3>
+    <p>Мы предлагаем несколько удобных способов оплаты для наших клиентов в Мюнхене:</p>
+    <ul>
+        <li><strong>Банковский перевод</strong> - Классический и надежный способ оплаты</li>
+        <li><strong>PayPal</strong> - Быстрая и безопасная онлайн-оплата</li>
+        <li><strong>Кредитная карта</strong> - Оплата картами Visa, MasterCard через защищенное соединение</li>
+    </ul>
+
+    <h3>Безопасность платежей</h3>
+    <p>Все платежные операции защищены современными методами шифрования. Мы не храним данные ваших банковских карт на наших серверах. При оплате через PayPal или кредитную карту используются защищенные платежные шлюзы.</p>
+
+    <h3>Доставка по Мюнхену</h3>
+    <p>Мы осуществляем доставку мебели по всему Мюнхену и прилегающим районам. Стоимость доставки рассчитывается автоматически при оформлении заказа. Наши курьеры доставят мебель в удобное для вас время и при необходимости помогут с размещением.</p>
+
+    <h3>Подтверждение заказа</h3>
+    <p>После оформления заказа вы получите подтверждение по электронной почте с деталями заказа и информацией о доставке. Наш менеджер свяжется с вами для уточнения деталей и согласования времени доставки.</p>
+
+    <h3>Возврат и обмен</h3>
+    <p>Мы предоставляем возможность возврата или обмена мебели в соответствии с нашими правилами. Подробную информацию о возврате вы можете найти в разделе "Условия возврата" или уточнить у нашего менеджера.</p>
+
+    <h3>Конфиденциальность</h3>
+    <p>Все ваши персональные данные защищены и используются исключительно для обработки заказа. Мы не передаем вашу информацию третьим лицам без вашего согласия.</p>
+
+    <p><strong>Ключевые слова:</strong> оформление заказа мебели мюнхен, оплата мебели, доставка мебели мюнхен, корзина покупок, безопасная оплата, Emmy Furniture заказ, способы оплаты мебель</p>
+</div>
+
+<!-- Structured Data for Checkout Page -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CheckoutPage",
+        "name": "Оформление заказа - Emmy Furniture Munich",
+        "description": "Безопасное оформление заказа мебели с доставкой по Мюнхену",
+        "url": "{{ url()->current() }}",
+    "mainEntity": {
+        "@type": "Order",
+        "orderNumber": "CHECKOUT_PAGE",
+        "orderStatus": "https://schema.org/OrderProcessing",
+        "acceptedOffer": [
+    @if(isset($items) && count($items) > 0)
+        @foreach($items as $item)
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Product",
+                    "name": "{{ $item->product->name }}",
+                        "description": "{{ Str::limit(strip_tags($item->product->description), 100) }}",
+                        "price": "{{ $item->product->price }}",
+                        "priceCurrency": "USD"
+                    },
+                    "price": "{{ $item->product->price }}",
+                    "priceCurrency": "USD",
+                    "eligibleQuantity": {
+                        "@type": "QuantitativeValue",
+                        "value": "{{ $item->quantity }}"
+                    }
+                }{{ !$loop->last ? ',' : '' }}
+        @endforeach
+    @endif
+    ],
+    "priceCurrency": "USD",
+    "price": "{{ $total ?? 0 }}",
+        "seller": {
+            "@type": "FurnitureStore",
+            "name": "Emmy Furniture Munich",
+            "url": "{{ url('/') }}"
+        }
+    }
+}
+</script>
+
+<!-- Payment Method Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Способы оплаты",
+        "description": "Доступные способы оплаты заказов мебели",
+        "numberOfItems": 3,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "PaymentMethod",
+                    "name": "Банковский перевод",
+                    "description": "Оплата через банковский перевод"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "PaymentMethod",
+                    "name": "PayPal",
+                    "description": "Безопасная онлайн-оплата через PayPal"
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "PaymentMethod",
+                    "name": "Кредитная карта",
+                    "description": "Оплата кредитной картой Visa/MasterCard"
+                }
+            }
+        ]
+    }
+</script>
+
+<!-- Delivery Method Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DeliveryMethod",
+        "name": "Доставка мебели по Мюнхену",
+        "description": "Профессиональная доставка мебели по всему Мюнхену",
+        "areaServed": {
+            "@type": "City",
+            "name": "Мюнхен"
+        },
+        "provider": {
+            "@type": "FurnitureStore",
+            "name": "Emmy Furniture Munich"
+        }
+    }
+</script>
+
+<!-- Security Assurance Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Безопасное оформление заказа",
+        "description": "Гарантия безопасности платежей и защиты персональных данных",
+        "url": "{{ url()->current() }}",
+    "maintainer": {
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "securityAssurance": [
+            "SSL шифрование",
+            "Защита персональных данных",
+            "Безопасные платежные шлюзы"
+        ]
+    }
+}
+</script>

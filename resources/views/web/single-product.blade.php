@@ -613,6 +613,10 @@
         @include('web.components.featured-products', ['featuredProducts' => $featuredProducts])
         <!-- Our brand-->
         @include('web.components.our-brand')
+
+        <!--SEO-->
+        @include('SEO.product-seo')
+
     </div>
 </x-web-layout>
 

@@ -1,0 +1,187 @@
+<!-- Blog List Page SEO Content - Hidden from users, visible for search engines -->
+<div style="position: absolute; left: -9999px; top: -9999px;">
+    <h1>Блог о мебели и дизайне интерьера - Emmy Furniture Munich</h1>
+    <h2>Полезные статьи и новости о мебели, дизайне интерьера и обустройстве дома</h2>
+
+    <p><strong>Emmy Furniture Munich</strong> представляет блог с экспертной информацией о мебели, дизайне интерьера и создании уютного пространства. Наши статьи помогут вам сделать осознанный выбор при покупке мебели и создать гармоничную атмосферу в вашем доме в Мюнхене.</p>
+
+    <h3>Темы нашего блога</h3>
+    <ul>
+        <li><strong>Современные тенденции мебели</strong> - Новинки и актуальные направления в мебельном дизайне</li>
+        <li><strong>Дизайн интерьера</strong> - Советы по оформлению различных помещений и стилей</li>
+        <li><strong>Выбор мебели</strong> - Руководства по подбору мебели для разных комнат и потребностей</li>
+        <li><strong>Уход за мебелью</strong> - Рекомендации по уходу и сохранению качества мебели</li>
+        <li><strong>Обустройство дома</strong> - Идеи и решения для создания комфортного жилого пространства</li>
+        <li><strong>Новости компании</strong> - Обновления о новых поступлениях и акциях в нашем магазине</li>
+    </ul>
+
+    <h3>Почему стоит читать наш блог?</h3>
+    <p>Наш блог создается профессиональными дизайнерами интерьера и экспертами по мебели. Мы делимся:</p>
+    <ul>
+        <li>Практическими советами, проверенными на опыте</li>
+        <li>Актуальной информацией о трендах мебельного рынка</li>
+        <li>Реальными примерами обустройства интерьеров</li>
+        <li>Экспертными мнениями о качестве материалов</li>
+        <li>Полезными рекомендациями по сочетанию стилей</li>
+    </ul>
+
+    <h3>Для кого наш блог?</h3>
+    <p>Наши статьи будут полезны:</p>
+    <ul>
+        <li><strong>Владельцам квартир и домов</strong> - Ищете идеи для обустройства своего жилья</li>
+        <li><strong>Дизайнерам интерьера</strong> - Интересуетесь новыми тенденциями и решениями</li>
+        <li><strong>Будущим покупателям мебели</strong> - Хотите сделать осознанный выбор</li>
+        <li><strong>Любителям красивого интерьера</strong> - Цените эстетику и комфорт в доме</li>
+        <li><strong>Жителям Мюнхена</strong> - Ищете локальные решения для своего дома</li>
+    </ul>
+
+    <h3>Регулярность обновлений</h3>
+    <p>Мы регулярно публикуем новые статьи с полезной информацией о мебели и дизайне. Подписывайтесь на наши обновления, чтобы быть в курсе новых публикаций и не пропустить важную информацию.</p>
+
+    <h3>Экспертность контента</h3>
+    <p>Все статьи в нашем блоге проходят проверку на актуальность и достоверность. Мы сотрудничаем с профессиональными дизайнерами интерьера и экспертами по мебели, чтобы предоставлять вам только качественную и полезную информацию.</p>
+
+    <h3>Как использовать блог для выбора мебели?</h3>
+    <p>Читайте наши статьи чтобы:</p>
+    <ul>
+        <li>Узнать о новых тенденциях в мебельном дизайне</li>
+        <li>Получить идеи для оформления конкретных помещений</li>
+        <li>Понять различия между материалами и стилями</li>
+        <li>Узнать о правильном уходе за разными типами мебели</li>
+        <li>Получить вдохновение для преображения своего дома</li>
+    </ul>
+
+    <p><strong>Ключевые слова:</strong> блог о мебели мюнхен, статьи про дизайн интерьера, новости мебели, советы по выбору мебели, обустройство дома, мебельный блог, Emmy Furniture блог, тенденции мебельного дизайна</p>
+</div>
+
+<!-- Structured Data for Blog Listing Page -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Блог о мебели - Emmy Furniture Munich",
+        "description": "Статьи и новости о мебели, дизайне интерьера и обустройстве дома в Мюнхене",
+        "url": "{{ url()->current() }}",
+    "mainEntity": {
+        "@type": "ItemList",
+        "name": "Статьи блога",
+        "description": "Список статей о мебели и дизайне интерьера",
+        "numberOfItems": {{ count($blogs) }},
+        "itemListElement": [
+    @foreach($blogs as $blog)
+        {
+            "@type": "ListItem",
+            "position": {{ $loop->iteration }},
+                "item": {
+                    "@type": "BlogPosting",
+                    "headline": "{{ $blog['name'] }}",
+                    "description": "{{ $blog['shortDescription'] }}",
+                    "url": "{{ url('blog/'.$blog['id']) }}",
+                    "image": "{{ $blog['photo'] }}",
+                    "datePublished": "{{ $blog['created_at_formatted'] }}",
+                    "author": {
+                        "@type": "Organization",
+                        "name": "Emmy Furniture Munich"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Emmy Furniture Munich",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "{{ asset('img/web/logo-emmy.png') }}"
+                        }
+                    },
+                    "articleSection": "Мебель и дизайн интерьера"
+                }
+            }{{ !$loop->last ? ',' : '' }}
+    @endforeach
+    ]
+}
+}
+</script>
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "{{ route('web.home') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Блог о мебели",
+            "item": "{{ route('web.blog') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Список статей",
+            "item": "{{ url()->current() }}"
+        }
+    ]
+}
+</script>
+
+<!-- Blog Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Блог Emmy Furniture Munich",
+        "description": "Экспертный блог о мебели, дизайне интерьера и обустройстве дома в Мюнхене",
+        "url": "{{ route('web.blog') }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('img/web/logo-emmy.png') }}"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ route('web.blog') }}"
+    },
+    "blogPost": [
+    @foreach($blogs->take(5) as $blog)
+        {
+            "@type": "BlogPosting",
+            "headline": "{{ $blog['name'] }}",
+            "url": "{{ url('blog/'.$blog['id']) }}",
+            "datePublished": "{{ $blog['created_at_formatted'] }}"
+        }{{ !$loop->last ? ',' : '' }}
+    @endforeach
+    ]
+}
+</script>
+
+<!-- Organization Structured Data -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Emmy Furniture Munich",
+        "url": "{{ url('/') }}",
+    "logo": "{{ asset('img/web/logo-emmy.png') }}",
+    "description": "Магазин премиальной мебели в Мюнхене с экспертным блогом о дизайне интерьера",
+    "knowsAbout": [
+        "Дизайн интерьера",
+        "Мебель для гостиной",
+        "Спальная мебель",
+        "Офисная мебель",
+        "Современные тенденции мебели",
+        "Обустройство дома",
+        "Материалы для мебели"
+    ],
+    "areaServed": {
+        "@type": "City",
+        "name": "Мюнхен"
+    }
+}
+</script>

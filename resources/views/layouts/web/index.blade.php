@@ -437,7 +437,7 @@
 {{--                                </div>--}}
 {{--                            </div>                            <span class="separator pl-15 pr-15"> </span>--}}
                             <!-- Account Dropdown -->
-                            <div class="single-dropdown dropdown-flex">
+                            <div class="single-dropdown">
                                 <div class="dropdown show">
                                     <a class="btn btn-secondary dropdown-toggle account-button" href="#" role="button"
                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

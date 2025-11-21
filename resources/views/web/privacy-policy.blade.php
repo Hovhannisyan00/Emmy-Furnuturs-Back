@@ -57,5 +57,7 @@
 
         <!-- Our brand-->
         @include('web.components.our-brand')
+        @include('SEO.privacy-seo')
+
     </div>
 </x-web-layout>

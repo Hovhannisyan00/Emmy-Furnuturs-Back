@@ -590,6 +590,8 @@
 
         <!-- Our brand-->
         @include('web.components.our-brand')
+        @include('SEO.shop-seo')
+
     </div>
 </x-web-layout>
 

@@ -107,5 +107,7 @@
 
         <!-- Our brand -->
         @include('web.components.our-brand')
+        @include('SEO.contact-seo')
+
     </div>
 </x-web-layout>

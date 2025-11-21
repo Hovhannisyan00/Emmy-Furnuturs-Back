@@ -173,5 +173,6 @@
 
     <!-- Our brand-->
     @include('web.components.our-brand')
+    @include('SEO.home-seo')
 
 </x-web-layout>

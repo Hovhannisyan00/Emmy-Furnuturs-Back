@@ -31,6 +31,7 @@
 
         <!-- Our brand-->
         @include('web.components.our-brand')
+        @include('SEO.team-seo')
 
     </div>
 </x-web-layout>
