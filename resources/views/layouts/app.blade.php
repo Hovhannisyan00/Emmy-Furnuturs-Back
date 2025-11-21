@@ -42,49 +42,49 @@
     @endforeach
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FurnitureStore",
-            "name": "Emmy Furniture",
-            "description": "{{ $meta->getDescription() }}",
-        "url": "{{ url('/') }}",
-        "logo": "{{ url('/img/logo.png') }}",
-        "telephone": "+7-XXX-XXX-XX-XX",
-        "email": "info@emmyfurniture.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Ваш адрес",
-            "addressLocality": "Ваш город",
-            "postalCode": "XXXXXX",
-            "addressCountry": "RU"
-        },
-        "openingHours": [
-            "Mo-Fr 09:00-18:00",
-            "Sa 10:00-16:00"
-        ],
-        "priceRange": "₽₽",
-        "sameAs": [
-            "https://www.instagram.com/emmyfurniture",
-            "https://www.facebook.com/emmyfurniture"
-        ]
-    }
-    </script>
+{{--    <script type="application/ld+json">--}}
+{{--        {--}}
+{{--            "@context": "https://schema.org",--}}
+{{--            "@type": "FurnitureStore",--}}
+{{--            "name": "Emmy Furniture",--}}
+{{--            "description": "{{ $meta->getDescription() }}",--}}
+{{--        "url": "{{ url('/') }}",--}}
+{{--        "logo": "{{ url('/img/logo.png') }}",--}}
+{{--        "telephone": "+7-XXX-XXX-XX-XX",--}}
+{{--        "email": "info@emmyfurniture.com",--}}
+{{--        "address": {--}}
+{{--            "@type": "PostalAddress",--}}
+{{--            "streetAddress": "Ваш адрес",--}}
+{{--            "addressLocality": "Ваш город",--}}
+{{--            "postalCode": "XXXXXX",--}}
+{{--            "addressCountry": "RU"--}}
+{{--        },--}}
+{{--        "openingHours": [--}}
+{{--            "Mo-Fr 09:00-18:00",--}}
+{{--            "Sa 10:00-16:00"--}}
+{{--        ],--}}
+{{--        "priceRange": "₽₽",--}}
+{{--        "sameAs": [--}}
+{{--            "https://www.instagram.com/emmyfurniture",--}}
+{{--            "https://www.facebook.com/emmyfurniture"--}}
+{{--        ]--}}
+{{--    }--}}
+{{--    </script>--}}
 
     <!-- Additional Schema for Website -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Emmy Furniture",
-            "url": "{{ url('/') }}",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "{{ route('web.shop') }}?search={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
+{{--    <script type="application/ld+json">--}}
+{{--        {--}}
+{{--            "@context": "https://schema.org",--}}
+{{--            "@type": "WebSite",--}}
+{{--            "name": "Emmy Furniture",--}}
+{{--            "url": "{{ url('/') }}",--}}
+{{--        "potentialAction": {--}}
+{{--            "@type": "SearchAction",--}}
+{{--            "target": "{{ route('web.shop') }}?search={search_term_string}",--}}
+{{--            "query-input": "required name=search_term_string"--}}
+{{--        }--}}
+{{--    }--}}
+{{--    </script>--}}
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/app.css') }}" as="style">

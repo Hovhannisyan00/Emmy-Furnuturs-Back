@@ -13,7 +13,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row row-30 isotope" data-lightgallery="group" id="gallery-products" style="display: flex">
+            <div class="row row-30 isotope gallery-custom" data-lightgallery="group" id="gallery-products" style="display: flex">
                 <!-- Products will be loaded here -->
                 <div class="col-12 text-center py-5">
                     <div class="spinner-border" role="status">

@@ -11,38 +11,38 @@
     <meta name="robots" content="index, follow">
 
     <!-- Structured Data for Local Business -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FurnitureStore",
-            "name": "Emmy Furniture Munich",
-            "description": "Премиальный магазин мебели в Мюнхене. Современная и классическая мебель для дома и офиса",
-            "url": "{{ url('/') }}",
-        "telephone": "+49-89-XXXX-XXXX",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Ваш адрес",
-            "addressLocality": "Мюнхен",
-            "postalCode": "80331",
-            "addressCountry": "DE"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "48.1351",
-            "longitude": "11.5820"
-        },
-        "openingHours": [
-            "Mo-Fr 10:00-18:00",
-            "Sa 10:00-16:00"
-        ],
-        "priceRange": "€€",
-        "areaServed": "Мюнхен и прилегающие районы",
-        "sameAs": [
-            "https://www.facebook.com/emmyfurnituremunich",
-            "https://www.instagram.com/emmyfurnituremunich"
-        ]
-    }
-    </script>
+{{--    <script type="application/ld+json">--}}
+{{--        {--}}
+{{--            "@context": "https://schema.org",--}}
+{{--            "@type": "FurnitureStore",--}}
+{{--            "name": "Emmy Furniture Munich",--}}
+{{--            "description": "Премиальный магазин мебели в Мюнхене. Современная и классическая мебель для дома и офиса",--}}
+{{--            "url": "{{ url('/') }}",--}}
+{{--        "telephone": "+49-89-XXXX-XXXX",--}}
+{{--        "address": {--}}
+{{--            "@type": "PostalAddress",--}}
+{{--            "streetAddress": "Ваш адрес",--}}
+{{--            "addressLocality": "Мюнхен",--}}
+{{--            "postalCode": "80331",--}}
+{{--            "addressCountry": "DE"--}}
+{{--        },--}}
+{{--        "geo": {--}}
+{{--            "@type": "GeoCoordinates",--}}
+{{--            "latitude": "48.1351",--}}
+{{--            "longitude": "11.5820"--}}
+{{--        },--}}
+{{--        "openingHours": [--}}
+{{--            "Mo-Fr 10:00-18:00",--}}
+{{--            "Sa 10:00-16:00"--}}
+{{--        ],--}}
+{{--        "priceRange": "€€",--}}
+{{--        "areaServed": "Мюнхен и прилегающие районы",--}}
+{{--        "sameAs": [--}}
+{{--            "https://www.facebook.com/emmyfurnituremunich",--}}
+{{--            "https://www.instagram.com/emmyfurnituremunich"--}}
+{{--        ]--}}
+{{--    }--}}
+{{--    </script>--}}
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/web/logo-emmy.png') }}" type="image/x-icon">
@@ -437,9 +437,9 @@
 {{--                                </div>--}}
 {{--                            </div>                            <span class="separator pl-15 pr-15"> </span>--}}
                             <!-- Account Dropdown -->
-                            <div class="single-dropdown">
+                            <div class="single-dropdown dropdown-flex">
                                 <div class="dropdown show">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    <a class="btn btn-secondary dropdown-toggle account-button" href="#" role="button"
                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         @lang('messages.my_account')
                                     </a>

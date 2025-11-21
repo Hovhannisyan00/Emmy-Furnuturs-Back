@@ -1,10 +1,10 @@
 <footer class="section footer-modern footer-modern-2">
     <div class="footer-modern-body section-md">
-        <div class="container">
-            <div class="row row-40 row-md-50 justify-content-between align-items-start">
+        <div class="container container-new">
+            <div class="row row-40 row-md-50 justify-content-between align-items-start responsive-flex">
 
                 <!-- Categories Column -->
-                <div class="col-md-4 wow fadeInUp" data-wow-delay=".1s">
+                <div class="col-md-5 wow fadeInUp col-md-new new-res" data-wow-delay=".1s">
                     <div class="footer-column">
                         <h5 class="footer-modern-title">@lang('messages.categories')</h5>
                         <ul class="footer-modern-list footer-categories-list">
@@ -21,7 +21,7 @@
                 </div>
 
                 <!-- Navigation Column -->
-                <div class="col-md-4 wow fadeInUp" data-wow-delay=".2s">
+                <div class="col-md-3 wow fadeInUp new-res" data-wow-delay=".2s">
                     <div class="footer-column">
                         <h5 class="footer-modern-title">@lang('messages.navigation')</h5>
                         <ul class="footer-modern-list">
@@ -35,7 +35,7 @@
                 </div>
 
                 <!-- Get in Touch Column -->
-                <div class="col-md-4 wow fadeInUp" data-wow-delay=".3s">
+                <div class="col-md-3 wow fadeInUp new-res" data-wow-delay=".3s">
                     <div class="footer-column">
                         <h5 class="footer-modern-title">@lang('messages.get_in_touch')</h5>
                         <ul class="contacts-creative">
